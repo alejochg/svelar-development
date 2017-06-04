@@ -1,0 +1,17 @@
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  font-size: 200%;
+  color:purple;}
+h2 {
+  font-family: Times, Georgia, serif;
+  text-align: center;
+  font-size: 100%;
+  color:gold;}
+body {
+  background:white;}
+.login{
+  font-family: Helvetica, Arial, sans-serif;
+  color: gold;
+  background: purple
+}

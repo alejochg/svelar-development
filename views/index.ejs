@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <% include templates/navigation.ejs%>
+
+    <% include templates/userheader.ejs%>
+
+    <% include templates/logo.ejs%>
+
+    <div id=“review_button”>
+      <p class=“review”>
+        <button type=“submit” name=“review” value=Review>Write a Review</button>
+      </p>
+    </div>
+
+    <div id=“motto”>
+      <h2> MOTTO </h2>
+    </div>
+
+    <br>
+    <% include templates/searchbar.ejs%>
+    <br>
+
+    <hr/>
+    <button type=“submit” name=“review” value=join>Join Our Community</button>
+    <hr/>
+
+    <div class=“valueproposition”>
+      <fieldset>
+        <p>
+          <img src=“test.png” alt="This is a test pic" style="width:304px;height:228px;">
+          This will be the location of Value Proposition 1.
+        </p>
+        <p>
+          <img src=“test.png” alt="This is a test pic" style="width:304px;height:228px;">
+          This will be the location of Value Proposition 2.
+        </p>
+        <p>
+          <img src=“test.png” alt="This is a test pic" style="width:304px;height:228px;">
+          This will be the location of Value Proposition 3.
+        </p>
+      </fieldset>
+      <hr/>
+    </div>
+
+    <% include templates/footerbar.ejs%>
+
+  </body>
+</html>
