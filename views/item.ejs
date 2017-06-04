@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= stuff[0].name %> - Svelar </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <% include templates/navigation.ejs%>
+
+    <% include templates/userheader.ejs%>
+
+    <% include templates/logo.ejs%>
+
+    <br>
+    <% include templates/searchbar.ejs%>
+    <br>
+
+    <hr>
+
+    <div class=“review”>
+        <p>
+            <button type=“submit” name=“review” value=Review>Write a Review</button>
+            <button type=“submit” name=“review” value=like>Like</button>
+            <button type=“submit” name=“review” value=dislike>Dislike</button>
+        </p>
+    </div>
+
+    <p>
+        <h2><b><%= stuff[0].name %></b></h2>
+        <img src='http://localhost:3000/images/items/<%= stuff[0].id %>.jpg'>
+        <% if (stuff[0].svelar == 1) { %>
+        <p>Svelar</p>
+        <% } %>
+        <h3>Ratings</h3>
+        <p>Confort: 3 </p>
+        <p>Cost: 1 </p>
+        <p>Easyness: 2</p>
+    </p>
+    <br>
+
+    <h3>Description</h3>
+    <pre><%= stuff[0].description %></pre>
+
+    <p>keywords: <a><%= stuff[0].field %></a>, <a><%= stuff[0].type %></a>, <a><%= stuff[0].brand %></a> </p>
+    <p><a href="<%= stuff[0].link %>" target="_blank">Product website</a></p>
+    <p><a href="<%= stuff[0].buy_link %>" target="_blank">Buy</a></p>
+
+    <hr/>
+    <h3><b>Your Thoughts</b></h3>
+    <hr/>
+
+    <form action=“http://www.svelar.com/review/“>
+        <p>UserName</p>
+        <p><textarea name=“comments” cols=“30000” row=“6000”>Reviews will appear here</textarea></p>
+    </form>
+
+    <% include templates/footerbar.ejs%>
+
+</body>
+</html>
