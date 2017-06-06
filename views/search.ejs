@@ -7,13 +7,13 @@
 <body>
     <% include templates/navigation.ejs%>
 
-    <% include templates/userheader.ejs%>
-
-    <% include templates/logo.ejs%>
+    <% include templates/secondaryheader.ejs%>
 
     <% include templates/searchbar.ejs%>
 
     <h1>Search: <%= mysearch %> in <%= condition %></h1>
+
+    <p>Showig 1-10 of 120</p>
 
     <% if (rows > 0) {%>
         <% for(var i=0; i<=rows-1; i++) {%>
@@ -32,11 +32,16 @@
             <p>Easyness: 2</p>
             <h3>Description</h3>
             <pre><%= stuff[i].description %></pre>
+            <button>Like!</button>
+            <button>Dislike</button>
+            <button>Review</button>
             <hr>
         <% }%>
     <%}else {%>
         <p>Results not found! Try to search with different words.</p>
     <%}%>
+
+    <p>Page numbers!</p>
 
     <% include templates/footerbar.ejs%>
 

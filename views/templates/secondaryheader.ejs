@@ -1,0 +1,16 @@
+<img src="logo">
+<div class="header userbar">
+    <nav>
+        <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li> |
+            <li role="presentation"><a href="/">Sugguest a product or service </a></li>
+            <% if (user){ %>
+            <li role="presentation"><a href="/profile">profile</a></li>
+            <li role="presentation"><a href="/users/logout">Logout</a></li>
+            <% }else{ %>
+            <li role="presentation"><a href="/users/login">Log in</a></li>
+            <li role="presentation"><a href="/users/signup">Sign up</a></li>
+            <% } %>
+        </ul>
+    </nav>
+</div>
