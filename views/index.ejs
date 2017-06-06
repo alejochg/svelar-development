@@ -7,9 +7,13 @@
 <body>
     <% include templates/navigation.ejs%>
 
-    <% include templates/userheader.ejs%>
+    <% include templates/homeheader.ejs%>
 
     <% include templates/logo.ejs%>
+
+    <h1>Discover. Feel Better.</h1>
+
+    <img src=“backgroung.jpeg” alt="This is a test pic" style="width:304px;height:228px;">
 
     <div id=“review_button”>
       <p class=“review”>
@@ -17,17 +21,17 @@
       </p>
     </div>
 
-    <div id=“motto”>
-      <h2> MOTTO </h2>
-    </div>
 
     <br>
     <% include templates/searchbar.ejs%>
     <br>
 
     <hr/>
-    <button type=“submit” name=“review” value=join>Join Our Community</button>
+    <button type=“submit” name=“review” value=join>Sign up now (it's free!)</button>
     <hr/>
+
+    <p>Do you wish it would be easier to find medical products or services?</p>
+    <p>We give you a single platform to find everything you need.</p>
 
     <div class=“valueproposition”>
       <fieldset>
@@ -46,6 +50,8 @@
       </fieldset>
       <hr/>
     </div>
+
+    <img src=“foterimage” alt="This is a test pic" style="width:304px;height:228px;">
 
     <% include templates/footerbar.ejs%>
 
