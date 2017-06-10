@@ -7,7 +7,25 @@ var db = require('../db');
 
 // Get /review/recommend
 router.get('/recommend', function(req, res, next) {
-    res.render('recommend', { title: 'Svelar' });
+    if(req.user!=undefined){
+        res.render('recommend', { title: 'Svelar' });
+    }else{
+        req.flash('error_msg', 'You need to sign up first if you want to suggest to Svelar'); // Flash a message
+        res.redirect('/users/signup'); // If not redirect to login page
+    }
+});
+
+router.post('/recommend', function(req, res, next) {
+    var pool = db.pool; // get database access
+    pool.getConnection(function (error, connection) {
+        var date;
+        date = getDate();
+        var data = new Array(req.body.name, req.body.link, req.body.comment, date, req.user.id);
+        console.log(data);
+        queries.addSuggestion(data); // add the review to database
+        req.flash('success_msg', 'Thank you for your suggestion!!!'); // Flash a message
+        res.redirect('/');
+    });
 });
 
 

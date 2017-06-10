@@ -122,9 +122,26 @@ function addReview(data) {
     });
 }
 
+
+// Add sugguestion to database
+function addSuggestion(data) {
+    var pool = db.pool; // obtain database login attributes
+    pool.getConnection(function (error, connection) {
+        connection.query( // perform query with encrypter password
+            'INSERT INTO sugguestions(name, link, comment, date, id_users) VALUES(?,?,?,?,?)',
+            [data[0], data[1], data[2],data[3], data[4]],
+            function (error, results, fields) {
+                connection.release();
+                if (error) throw error;
+            }
+        )
+    });
+}
+
 module.exports.registerUser = registerUser;
 module.exports.search=search;
 module.exports.obtainDevice=obtainDevice;
 module.exports.addReview=addReview;
 module.exports.search2=search2;
+module.exports.addSuggestion=addSuggestion;
 
