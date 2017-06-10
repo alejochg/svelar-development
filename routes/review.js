@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 
+// Get /review/recommend
+router.get('/recommend', function(req, res, next) {
+    res.render('recommend', { title: 'Svelar' });
+});
+
 module.exports = router;
