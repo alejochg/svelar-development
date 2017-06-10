@@ -30,6 +30,68 @@ function search() {
     }
 }
 
+function search2() {
+    return function (req, res) {
+        var pool = db.pool;
+
+        //Look with search defined
+        if(req.query.find && req.query.field && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined'){
+            pool.getConnection(function(err,connection){
+                connection.query('SELECT * FROM stuff WHERE field=? AND Match(description) Against("?") ORDER BY svelar DESC LIMIT 10',[req.query.field, req.query.find] ,function (error, results, fields){
+                    connection.release();
+                    if (error) throw error;
+                    res.render('search', {stuff: results, rows: results.length, title: "Search", mysearch: req.query.find, condition: req.query.field})
+                });
+            });
+        }
+
+        // Just looking for field
+        if(typeof req.query.find === 'undefined' && req.query.field && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined'){
+            pool.getConnection(function(err,connection){
+                connection.query('SELECT * FROM stuff WHERE field=? ORDER BY svelar DESC LIMIT 10',[req.query.field] ,function (error, results, fields){
+                    connection.release();
+                    if (error) throw error;
+                    res.render('search', {stuff: results, rows: results.length, title: "Search", mysearch: undefined, condition: req.query.field})
+                });
+            });
+        }
+
+        // Just looking for type
+        if(typeof req.query.find === 'undefined' && typeof req.query.field === 'undefined' && req.query.type && typeof req.query.brand === 'undefined'){
+            pool.getConnection(function(err,connection){
+                connection.query('SELECT * FROM stuff WHERE type=? ORDER BY svelar DESC LIMIT 10',[req.query.type] ,function (error, results, fields){
+                    connection.release();
+                    if (error) throw error;
+                    res.render('search', {stuff: results, rows: results.length, title: "Search", mysearch: undefined, condition: req.query.type})
+                });
+            });
+        }
+
+        // Just looking for brand
+        if(typeof req.query.find === 'undefined' && typeof req.query.field === 'undefined' && typeof req.query.type === 'undefined' && req.query.brand){
+            pool.getConnection(function(err,connection){
+                connection.query('SELECT * FROM stuff WHERE brand=? ORDER BY svelar DESC LIMIT 10',[req.query.brand] ,function (error, results, fields){
+                    connection.release();
+                    if (error) throw error;
+                    res.render('search', {stuff: results, rows: results.length, title: "Search", mysearch: undefined, condition: req.query.brand})
+                });
+            });
+        }
+
+        // Not criteria specified by still looking
+        if(typeof req.query.find === 'undefined' && typeof req.query.field === 'undefined' && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined'){
+            pool.getConnection(function(err,connection){
+                connection.query('SELECT * FROM stuff ORDER BY svelar DESC LIMIT 10 ', function (error, results, fields){
+                    connection.release();
+                    if (error) throw error;
+                    res.render('search', {stuff: results, rows: results.length, title: "Search", mysearch: undefined, condition: undefined})
+                });
+            });
+        }
+    }
+}
+
+
 // This obtain the data information from requested item in the database. The input argument is the site where info want to be render.
 function obtainDevice(view) {
     return function (req, res) {
@@ -64,4 +126,5 @@ module.exports.registerUser = registerUser;
 module.exports.search=search;
 module.exports.obtainDevice=obtainDevice;
 module.exports.addReview=addReview;
+module.exports.search2=search2;
 
