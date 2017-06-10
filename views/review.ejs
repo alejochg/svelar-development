@@ -1,1 +1,38 @@
-This will be review pageX
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Write a Review - Svelar</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <% include templates/navigation.ejs%>
+
+    <% include templates/secondaryheader.ejs%>
+
+    <% include templates/searchbar.ejs%>
+
+    <div>
+        <h2><b><%= stuff[0].name %></b></h2>
+        <img src='<%= stuff[0].image_1 %>'>
+    </div>
+
+    <div>
+        <form method="post" action="/review">
+            <p>Select your rating:
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+            </p>
+            <input type="text" name="comment" placeholder="Your review help others learn about medical products." required> <br>
+            <input type="hidden" name="item" value="<%= stuff[0].id %>" />
+            <button type="submit" value="Review">Review</button>
+        </form>
+    </div>
+
+
+    <% include templates/footerbar.ejs%>
+
+</body>
+</html>

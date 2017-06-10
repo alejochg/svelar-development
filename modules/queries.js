@@ -30,8 +30,8 @@ function search() {
     }
 }
 
-// This obtain the data information from requested item in the database
-function obtainDevice() {
+// This obtain the data information from requested item in the database. The input argument is the site where info want to be render.
+function obtainDevice(view) {
     return function (req, res) {
         var id = req.params.id;
         var pool = db.pool;
@@ -39,13 +39,29 @@ function obtainDevice() {
             connection.query('SELECT * FROM stuff WHERE id = ?', [id] ,function (error, results, fields){
                 connection.release();
                 if (error) throw error;
-                res.render('item', {stuff: results})
+                res.render(view, {stuff: results, errors: undefined})
             });
         });
     }
 }
 
+// This add a new review to the database
+function addReview(data) {
+    var pool = db.pool; // obtain database login attributes
+    pool.getConnection(function (error, connection) {
+        connection.query( // perform query with encrypter password
+            'INSERT INTO reviews(comfort, comment, id_stuff, date, id_user) VALUES(?,?,?,?,?)',
+            [data[0], data[1], data[2],data[3], data[4]],
+            function (error, results, fields) {
+                connection.release();
+                if (error) throw error;
+            }
+        )
+    });
+}
+
 module.exports.registerUser = registerUser;
 module.exports.search=search;
 module.exports.obtainDevice=obtainDevice;
+module.exports.addReview=addReview;
 

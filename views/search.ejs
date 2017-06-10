@@ -34,7 +34,9 @@
             <pre><%= stuff[i].description %></pre>
             <button>Like!</button>
             <button>Dislike</button>
-            <button>Review</button>
+            <form method="post" action="/review/<%= stuff[i].id %>">
+                <input type="submit" value="review">
+            </form>
             <hr>
         <% }%>
     <%}else {%>
