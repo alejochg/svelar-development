@@ -128,7 +128,7 @@ function addSuggestion(data) {
     var pool = db.pool; // obtain database login attributes
     pool.getConnection(function (error, connection) {
         connection.query( // perform query with encrypter password
-            'INSERT INTO sugguestions(name, link, comment, date, id_users) VALUES(?,?,?,?,?)',
+            'INSERT INTO sugguestions(name, link, comment, date, id_users ) VALUES(?,?,?,?,?)',
             [data[0], data[1], data[2],data[3], data[4]],
             function (error, results, fields) {
                 connection.release();

@@ -11,7 +11,7 @@ router.get('/recommend', function(req, res, next) {
         res.render('recommend', { title: 'Svelar' });
     }else{
         req.flash('error_msg', 'You need to sign up first if you want to suggest to Svelar'); // Flash a message
-        res.redirect('/users/signup'); // If not redirect to login page
+        res.redirect('/users/signup?h=/review/recommend'); // If not, redirect to signup page
     }
 });
 
@@ -30,20 +30,20 @@ router.post('/recommend', function(req, res, next) {
 
 
 // Post /review/id   This is when someone is trying to review an item
-router.post('/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
+    var id = req.params.id;
     if(req.user!=undefined) { // check if user has been authenticated
-        var id = req.params.id;
         var pool = db.pool;
         pool.getConnection(function(err,connection){
             connection.query('SELECT * FROM stuff WHERE id = ?', [id] ,function (error, results, fields){
                 connection.release();
                 if (error) throw error;
-                res.render('review', {stuff: results, errors: undefined})
+                res.render('review', {stuff: results, errors: undefined, h: req.query.h})
             });
         });
     }else{
         req.flash('error_msg', 'You need to sign up first if you want to review in Svelar'); // Flash a message
-        res.redirect('/users/signup'); // If not redirect to login page
+        res.redirect('/users/signup?h=/review/'+ id); // If not redirect to login page
     }
 });
 
