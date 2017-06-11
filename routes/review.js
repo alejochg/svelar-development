@@ -8,7 +8,7 @@ var db = require('../db');
 // Get /review/recommend
 router.get('/recommend', function(req, res, next) {
     if(req.user!=undefined){
-        res.render('recommend', { title: 'Svelar' });
+        res.render('recommend', { title: 'Svelar', h: req.query.h});
     }else{
         req.flash('error_msg', 'You need to sign up first if you want to suggest to Svelar'); // Flash a message
         res.redirect('/users/signup?h=/review/recommend'); // If not, redirect to signup page
