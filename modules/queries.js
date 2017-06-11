@@ -138,10 +138,28 @@ function addSuggestion(data) {
     });
 }
 
+
+// Add inquiry message to database
+function addMessage(data) {
+    var pool = db.pool; // obtain database login attributes
+    pool.getConnection(function (error, connection) {
+        connection.query(
+            'INSERT INTO messages(reason, message, email, date) VALUES(?,?,?,?)',
+            [data[0], data[1], data[2],data[3]],
+            function (error, results, fields) {
+                connection.release();
+                if (error) throw error;
+            }
+        )
+    });
+}
+
+
 module.exports.registerUser = registerUser;
 module.exports.search=search;
 module.exports.obtainDevice=obtainDevice;
 module.exports.addReview=addReview;
 module.exports.search2=search2;
 module.exports.addSuggestion=addSuggestion;
+module.exports.addMessage=addMessage;
 

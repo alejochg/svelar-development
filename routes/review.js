@@ -21,7 +21,6 @@ router.post('/recommend', function(req, res, next) {
         var date;
         date = getDate();
         var data = new Array(req.body.name, req.body.link, req.body.comment, date, req.user.id);
-        console.log(data);
         queries.addSuggestion(data); // add the review to database
         req.flash('success_msg', 'Thank you for your suggestion!!!'); // Flash a message
         res.redirect('/');
