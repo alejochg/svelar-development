@@ -9,12 +9,12 @@ var queries = require('../modules/queries');
 
 // Register
 router.get('/signup', function(req, res, next) {
-    res.render('signup', {tittle: "signup", errors: undefined});
+    res.render('signup', {tittle: "signup", errors: undefined, h: req.query.h});
 });
 
 // Login
 router.get('/login', function(req, res){
-    res.render('login', {tittle: "Log in", errors: undefined});
+    res.render('login', {tittle: "Log in", errors: undefined, h: req.query.h});
 });
 
 // Register new user
@@ -86,13 +86,19 @@ passport.deserializeUser(function(id, done) {
     })
 });
 
+
 // This action wil happen when someone try to login
 router.post('/login',
-    passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login', failureFlash: true}),
+    passport.authenticate('local', {failureRedirect:'/users/login', failureFlash: true}),
     function(req, res) {
-        res.redirect('/'); // redirected to home
+        if(req.query.h){
+            res.redirect(req.query.h+"?h=users/login"); // redirect from coming page
+        }else{
+            res.redirect('/'); // redirected to home
+        }
     }
 );
+
 
 // This will happen when someone log outs
 router.get('/logout', function(req, res){
@@ -100,5 +106,7 @@ router.get('/logout', function(req, res){
     req.flash('success_msg', 'You are logged out'); // flash message
     res.redirect('/users/login');// redirect to login page
 });
+
+
 
 module.exports = router;
