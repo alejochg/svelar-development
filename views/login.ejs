@@ -14,7 +14,11 @@
     <% include templates/errormessages.ejs%>
 
     <div class="container">
+        <% if(h){ %>
+        <form action="/users/login?h=<%= h %>" method="post">
+        <%}else{ %>
         <form action="/users/login" method="post">
+        <% } %>
             <fieldset>
                 <h1>Log In to Svelar</h1>
                 <input type="email" name="username" placeholder="Email" required>

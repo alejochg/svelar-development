@@ -11,12 +11,20 @@
 
     <% include templates/searchbar.ejs%>
 
+    <h1>Write a review</h1>
+
     <div>
         <h2><b><%= stuff[0].name %></b></h2>
+        <p>keywords:
+            <a href="/search/try?field=<%= stuff[0].field %>"><%= stuff[0].field %></a>,
+            <a href="/search/try?type=<%= stuff[0].type %>"><%= stuff[0].type %></a>,
+            <a href="/search/try?brand=<%= stuff[0].brand %>"><%= stuff[0].brand %></a>
+        </p>
         <img src='<%= stuff[0].image_1 %>'>
     </div>
 
     <div>
+        <p>Your review</p>
         <form method="post" action="/review">
             <p>Select your rating:
                 <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
@@ -27,8 +35,14 @@
             </p>
             <input type="text" name="comment" placeholder="Your review help others learn about medical products." required> <br>
             <input type="hidden" name="item" value="<%= stuff[0].id %>" />
-            <button type="submit" value="Review">Review</button>
+            <button type="submit" value="Review">Post</button>
+            <%if(h) { %>
+            <a href="/">Cancel</a>
+            <% }else{ %>
+            <a href="javascript:history.back()">Cancel</a>
+            <% } %>
         </form>
+        <p>* You can edit or remove your review later</p>
     </div>
 
 
