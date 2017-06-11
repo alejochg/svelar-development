@@ -2,33 +2,32 @@
 <html>
 <head>
     <title>Write a Review - Svelar</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style_recommend.css' />
 </head>
 <body>
 
     <% include templates/navigation.ejs%>
 
     <% include templates/secondaryheader.ejs%>
-
     <% include templates/searchbar.ejs%>
 
-    <h1>Suggest a product or service</h1>
-    <hr>
-    <div>
-        <p>Your suggestion</p>
-        <form method="post" action="/review/recommend">
-            Name: <input type="text" name="name" placeholder="Name of the item (device,app,website,service,...)"> <br>
-            Web link: <input type="text" name="link" placeholder="Paste a web link here and make it easier for us"> <br>
-            Comments: <input type="text" name="comment" placeholder="Why do you believe this item should be in this website?" required> <br>
-            <button type="submit" value="Review">Suggest</button>
-            <%if(h){%>
-            <a href="/">Cancel</a>
-            <% }else{ %>
-            <a href="javascript:history.back()">Cancel</a>
-            <% } %>
-        </form>
-        <p>* Your sugguestion will be sent to us for reviewing</p>
-        <p>* Your sugguestion can help millions of people </p>
+    <div id="container">
+        <h1>Suggest a product or service</h1>
+        <hr>
+            <p>Your suggestion</p>
+            <form method="post" action="/review/recommend">
+                Name: <input type="text" name="name" placeholder="Name of the item (device,app,website,service,...)"> <br>
+                Web link: <input type="text" name="link" placeholder="Paste a web link here and make it easier for us"> <br>
+                Comments: <input type="text" name="comment" placeholder="Why do you believe this item should be in this website?" required> <br>
+                <button type="submit" value="Review">Suggest</button>
+                <%if(h){%>
+                <a href="/">Cancel</a>
+                <% }else{ %>
+                <a href="javascript:history.back()">Cancel</a>
+                <% } %>
+            </form>
+            <p>* Your sugguestion will be sent to us for reviewing</p>
+            <p>* Your sugguestion can help millions of people </p>
     </div>
 
     <% include templates/footerbar.ejs%>

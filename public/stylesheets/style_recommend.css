@@ -1,0 +1,20 @@
+#searchbar{
+
+}
+
+#headeruserbar{
+    background-color: #45c2c9;
+}
+
+#headeruserbar.header{
+    color: white;
+}
+
+#headeruserbar a:visited{
+    color: white;
+}
+
+h1 {
+    color: #f15a22
+}
+
