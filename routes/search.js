@@ -11,10 +11,9 @@ router.get('/', function (req,res) {
 
 router.get('/try', queries.search2());
 
+// POST /search
 router.post('/', upload.none(), function (req,res) {
-    if(req.body.mysearch){
-        console.log(req.body.mysearch);
-        console.log(req.body.condition);
+    if(req.body.mySearch){
         res.redirect('/search/try?find='+ req.body.mySearch + '&field=' + req.body.condition);
     }else{
         res.redirect('/search/try?field=' + req.body.condition);
