@@ -2,28 +2,105 @@
 <html>
 <head>
     <title><%= stuff[0].name %> - Svelar </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/item.css' />
+    <%include templates/meta.ejs%>
+    <%include templates/bootstrap.ejs%>
 </head>
 <body>
     <% include templates/navigation.ejs%>
+<div class="container-fluid">
 
     <% include templates/secondaryheader.ejs%>
 
-
-    <br>
-    <% include templates/searchbar.ejs%>
-    <br>
-
-    <hr>
-
     <% include templates/errormessages.ejs%>
 
-    <div class=“review”>
-        <p>
-            <button type=“submit” name=“review” value=Review>Write a Review</button>
-            <button type=“submit” name=“review” value=like>Like</button>
-            <button type=“submit” name=“review” value=dislike>Dislike</button>
-        </p>
+    <div class="row" id="third">
+        <!-- Item name and tag-->
+        <div class="row" id="third_first">
+            <% if(stuff[0].svelar == 1 && stuff[0].premium != 1){ %>
+            <div id="svelar" class="col-md-2">
+                <p>Svelar</p>
+            </div>
+            <div id="item_name" class="col-md-10">
+                    <p><%= stuff[0].name %></p>
+            </div>
+            <%}else if(stuff[0].premium == 1){%>
+            <div id="ad" class="col-md-2">
+                <p>AD</p>
+            </div>
+            <div id="item_name" class="col-md-10">
+                <a href="../item/<%= stuff[0].id %>">
+                    <p><%= stuff[0].name %></p>
+                </a>
+            </div>
+            <%}else{%>
+            <div id="item_name_reg" class="col-md-12">
+                <a href="../item/<%= stuff[i].id %>">
+                    <p><%= stuff[i].name %></p>
+                </a>
+            </div>
+            <%}%>
+        </div>
+        <!-- Item information -->
+        <div class="row" id="third_second">
+            <div id="prod_image_1" class="col-md-3">
+                <img src='http://www.svelar.com/images/items/<%= stuff[0].id %>.jpg'>
+            </div>
+            <div id="prod_image_2" class="col-md-3">
+                <img src='http://www.svelar.com/images/items/<%= stuff[0].id %>.jpg'>
+            </div>
+            <div id="item_information" class="col-md-6">
+                <div class="row" id="button_block">
+                    <div id="review_button" class="col-md-8">
+                        <a href="review.ejs"><p><span>☆</span> Review </p> </a>
+                    </div>
+                    <div id="like_button" class="col-md-2">
+                        <a href="like.ejs"><p>Like!</p></a>
+                    </div>
+                    <div id="dislike_button" class="col-md-2">
+                        <a href="dislike.ejs"><p>Dislike</p></a>
+                    </div>
+                </div>
+                <div class="row" id="ratings_block">
+                    <div id="ratings" class="col-md-12">
+                        <p>
+                            Cost: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            <br>
+                            Comfort:<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            <br>
+                            Ease of Use: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row" id="keywords_block">
+                    <div id="keywords" class="col-md-12">
+                        <p>keywords: <a><%= stuff[0].field %></a>, <a><%= stuff[0].type %></a>, <a><%= stuff[0].brand %></a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Description section -->
+    <div class="row" id="fourth">
+        <div id="description" class="col-md-12">
+            <p><%= stuff[0].description %></p>
+        </div>
+    </div>
+
+    <!-- item websites links-->
+    <div class="row" id="fifth">
+        <div id="buy" class="col-md-12">
+            <p>
+                <a href="<%= stuff[0].link %>" target="_blank">Product website</a>
+                <a href="<%= stuff[0].buy_link %>" target="_blank">Buy</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Reviews section-->
+    <div class="row" id="sixth">
+
     </div>
 
     <p>
@@ -60,6 +137,6 @@
 
 
     <% include templates/footerbar.ejs%>
-
+</div>
 </body>
 </html>

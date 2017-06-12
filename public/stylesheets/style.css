@@ -1,17 +1,158 @@
-h1 {
-  font-family: Helvetica, Arial, sans-serif;
+#first{
+  background-color: #0096b2;
+  height: 50px;
+  padding: 1%;
+}
+#review_home a{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+  padding-left: 1%;
+}
+#login_home a{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+  padding-right: 2%;
+  float: right;
+}
+#second{
+  background-color: #ffeeb9;
+  /*background-image: url("/public/images/items/4.jpg"); */
+  padding-bottom:3%;
+}
+#comp_name{
+  font-family: Papyrus, fantasy;
+  font-size: 72px;
   text-align: center;
-  font-size: 200%;
-  color:purple;}
-h2 {
-  font-family: Times, Georgia, serif;
+  padding-top:1%;
+}
+#motto.col-md-12{
+  background-color: rgba(69, 194, 201, 0.6);
   text-align: center;
+  margin-bottom: 3%;
+}
+#motto{
+  font-family: Papyrus;
+  color:white;
+  font-size: 32px;
+  font-weight: 900;
+  padding-top: 1%;
+}
+#search{
+  padding-top:3%;
+}
+.“search”{
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 140%;
+
+}
+.“search” *{
+  display:inline;
+}
+.“search” input{
+  width: 800px;
+
+}
+.“search” select{
+  font-size: 80%;
+  width: 200px;
+}
+#free{
+  border-top: solid 1px;
+  border-bottom: double #45c2c9 4px;
+  padding: 2%;
+  font-size: 18px;
+  text-align: center;
+}
+#free a{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(241, 90, 34);
+  padding: 0.5%;
+  border: solid #0096b2 1px;
+  border-radius: 10%;
+}
+#third{
+  border-bottom: double rgb(241, 90, 34) 4px;
+  margin-bottom: 1%;
+}
+
+#cust_quest{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 170%;
+  text-align: center;
+  padding: 1%;
+
+}
+#cust_ans{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 170%;
+  text-align: center;
+  color: rgb(241, 90, 34);
+}
+#value_prop img{
+  float: left;
+  border: solid rgb(69, 194, 201) 1px ;
+  border-radius: 100%;
+  height: 20%;
+  width: 20%;
+}
+
+#value_prop{
+  float: left;
+  background-color:rgb(241, 90, 34) ;
+  color: black;
   font-size: 100%;
-  color:gold;}
-body {
-  background:white;}
-.login{
-  font-family: Helvetica, Arial, sans-serif;
-  color: gold;
-  background: purple
+  margin-bottom: 2%;
+}
+#value_prop h4{
+  color: white;
+}
+
+#value_prop1 img{
+  float: left;
+  border: solid rgb(241, 90, 34) 1px ;
+  border-radius: 100%;
+  height: 20%;
+  width: 20%;
+}
+#value_prop1{
+  float: left;
+  background-color:rgb(69, 194, 201) ;
+  color: black;
+  font-size: 100%;
+  margin-bottom: 2%;
+  margin-left:0%;
+
+}
+#value_prop1 h4{
+  color: white;
+}
+#login_foot_pic{
+  border-top: solid #676767 1px;
+  background-color: #ffeeb9;
+  /*background-image: url("/public/images/items/5.jpg"); */
+  height: 150%;
+}
+#login_foot_pic img{
+  width: 5%
+
+}
+#sixth{
+  background-color: #45c2c9;
+  border-top: solid black 1px;
+}
+#sixth p{
+  text-align: center;
+}
+#about{
+  float: left;
+  color: white;
+}
+#toolbox{
+  float: right;
 }

@@ -1,15 +1,18 @@
-<div id=“searchbar”>
-    <form action="/search" method='post' enctype="multipart/form-data" id="searchbar">
-            <p> Please Choose a Condition:
+<div class=“search”>
+    <form action="/search" method='post' enctype="multipart/form-data">
+        <fieldset>
+            <div id="bar">
+                <input type='text' name='mySearch'  size=“300” maxlength=“600" placeholder="Search for devices, books, apps, etc." />
+            </div>
+            <div id="condition">
                 <select name='condition'>
                     <option value='diabetes'>Diabetes</option>
                     <option value=“test”>Test</option>
                 </select>
-            </p>
-            <br>
-            <label for="mySearch">What we find for you?</label>
-            <input type='text' name='mySearch'  size=“30” maxlength=“60 >
-            <br>
-            <button type='submit' value="My Search">Search</button>
+                <div id="button">
+                    <button type='submit' value="My Search"><img src="/images/style/search_icon.png"></button>
+                </div>
+            </div>
+        </fieldset>
     </form>
 </div>
