@@ -2,50 +2,122 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/search.css' />
+    <%include templates/meta.ejs%>
+    <%include templates/bootstrap.ejs%>
 </head>
 <body>
     <% include templates/navigation.ejs%>
-
+<div class="container-fluid">
     <% include templates/secondaryheader.ejs%>
 
-    <% include templates/searchbar.ejs%>
+<!-- This is the search description-->
+    <div class="row" id="third">
+        <div id="search_word" class="col-md-10">
+            <h4>Search: <%= mysearch %> in <%= condition %></h4>
+        </div>
+        <div id="showing" class="col-md-2">
+            <p>Showig 1-10 of 120</p>
+        </div>
+    </div>
 
-    <h1>Search: <%= mysearch %> in <%= condition %></h1>
-
-    <p>Showig 1-10 of 120</p>
 
     <% if (rows > 0) {%>
-        <% for(var i=0; i<=rows-1; i++) {%>
-            <a href="../item/<%= stuff[i].id %>">
-                <h2><b><%= stuff[i].name %></b></h2>
-            </a>
+    <% for(var i=0; i<=rows-1; i++) {%>
+<!-- Results list section -->
+    <div class="row" id="fourth">
+        <div id="space_1" class="col-md-2">
+            <!-- Done to create space -->
+        </div>
+    <!-- This is list column-->
+        <!-- Item image -->
+        <div id="prod_image_1" class="col-md-3">
             <a href="../item/<%= stuff[i].id %>">
                 <img src='http://www.svelar.com/images/items/<%= stuff[i].id %>.jpg'>
             </a>
-            <% if (stuff[i].svelar == 1) { %>
-    <p>Svelar</p>
-    <% } %>
-            <h3>Ratings</h3>
-            <p>Confort: 3 </p>
-            <p>Cost: 1 </p>
-            <p>Easyness: 2</p>
-            <h3>Description</h3>
-            <pre><%= stuff[i].description %></pre>
-            <button>Like!</button>
-            <button>Dislike</button>
-            <form method="get" action="/review/<%= stuff[i].id %>">
-                <input type="submit" value="review">
-            </form>
-            <hr>
-        <% }%>
-    <%}else {%>
-        <p>Results not found! Try to search with different words.</p>
-    <%}%>
+        </div>
+        <!-- Item informaiton -->
+        <div id="content_prod" class="col-md-5">
+            <!-- Item name and tag-->
+            <div class="row" id="fourth_first">
+                <div id="item_information" class="col-md-12">
+                    <% if(stuff[i].svelar == 1 && stuff[i].premium != 1){ %>
+                    <div id="svelar" class="col-md-2">
+                        <p>Svelar</p>
+                    </div>
+                    <div id="item_name" class="col-md-10">
+                        <a href="../item/<%= stuff[i].id %>">
+                            <p><%= stuff[i].name %></p>
+                        </a>
+                    </div>
+                    <%}else if(stuff[i].premium == 1){%>
+                    <div id="ad" class="col-md-2">
+                        <p>AD</p>
+                    </div>
+                    <div id="item_name" class="col-md-10">
+                        <a href="../item/<%= stuff[i].id %>">
+                            <p><%= stuff[i].name %></p>
+                        </a>
+                    </div>
+                    <%}else{%>
+                    <div id="item_name_reg" class="col-md-12">
+                        <a href="../item/<%= stuff[i].id %>">
+                            <p><%= stuff[i].name %></p>
+                        </a>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
 
+            <!-- Ratings and buttons -->
+            <div class="row" id="fourth_second">
+                <div id="ratings" class="col-md-8">
+                    <p>
+                        Cost: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        <br>
+                        Comfort:<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        <br>
+                        Ease of Use: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    </p>
+                </div>
+                <div id="button_block" class="col-md-4">
+                    <div class="row" id="fourth_second_first">
+                        <div id="like_button" class="col-md-6">
+                            <a href="like.ejs"><p>Like!</p></a>
+                        </div>
+                        <div id="dislike_button" class="col-md-6">
+                            <a href="dislike.ejs"><p>Dislike</p></a>
+                        </div>
+                    </div>
+                    <div class="row" id="fourth_second_second">
+                        <div id="review_button" class="col-md-12">
+                            <a href="review.ejs"><p><span>☆</span> Review </p> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="row" id="fourth_third">
+                <div id="short_desc" class="col-md-12">
+                    <p><%= stuff[i].description %></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="space_1" class="col-md-2">
+            <!-- Done to create space -->
+        </div>
+
+    </div>
+    <hr>
+    <% }%>
+    <%}else {%>
+    <p>Results not found! Try to search with different words.</p>
+    <%}%>
     <p>Page numbers!</p>
 
     <% include templates/footerbar.ejs%>
-
+</div>
 </body>
 </html>

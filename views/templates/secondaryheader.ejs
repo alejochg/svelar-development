@@ -1,16 +1,35 @@
-<img src="logo">
-<div id="headeruserbar">
-    <nav>
-        <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/">Home</a></li>
-            <li role="presentation"><a href="/review/recommend" class="header">Sugguest a product or service </a></li>
-            <% if (user){ %>
-            <li role="presentation"><a href="/profile">profile</a></li>
-            <li role="presentation"><a href="/users/logout">Logout</a></li>
+<!-- Header with search bar -->
+<div class="row" id="first">
+    <div id="logo" class="col-md-2">
+        <p>Svelar</p>
+    </div>
+    <div id="search" class="col-md-8">
+        <p><% include searchbar.ejs%></p>
+    </div>
+    <div id="signup" class="col-md-2">
+        <p>
+            <% if(user){ %>
+            <a href="/profile">profile</a>
             <% }else{ %>
-            <li role="presentation"><a href="/users/login">Log in</a></li>
-            <li role="presentation"><a href="/users/signup">Sign up</a></li>
+            <a href="/users/signup">Sign up</a>
             <% } %>
-        </ul>
-    </nav>
+        </p>
+    </div>
+</div>
+
+<!-- second row with navication -->
+<div class="row" id="second">
+    <div id="suggest" class="col-md-6">
+        <a href="/">Home</a>
+        <a href="/review/recommend">Recommend a products</a>
+    </div>
+    <div id="login" class="col-md-6">
+        <p>
+            <%if(user){%>
+            <a href="/users/logout">Logout</a>
+            <%}else{%>
+            <a href="/users/login">Log in</a>
+            <%}%>
+        </p>
+    </div>
 </div>
