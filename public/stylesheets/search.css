@@ -15,7 +15,6 @@
     margin-top: 0%;
     float: left;
     border: solid rgb(241, 90, 34) 2px;
-
 }
 .“search” *{
     display:inline;
@@ -34,17 +33,29 @@
 
 }
 #signup{
-    padding:2%;
+
 }
 #signup a{
-    background-color: #0096b2;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
     color: white;
+    border: solid white 1px;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     float: right;
-    border: solid #0096b2 1px;
-    padding: 1%;
-
+    margin-top: 20%;
+    margin-right: 6%;
+}
+#signup a:hover{
+    background-color: #f44336;
+    color: white;
+    border: solid white 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    margin-top: 20%;
+    margin-right: 6%;
 }
 #second{
     background-color: #0096b2;
@@ -57,6 +68,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: white;
+    margin-right: 2%;
 }
 #login{
     padding-top:0.5%;
