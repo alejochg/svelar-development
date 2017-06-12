@@ -3,10 +3,10 @@
         <div id="review_home" class="col-md-6">
             <a href="search.ejs">Write a Review</a>
         </div>
-        <div id="login_home" class="col-md-6">
+        <div id="login_header" class="col-md-6">
             <% if (!user){%>
-            <a href="/users/login">Login</a>
-            <a href="/users/signup">Signup</a>
+            <a href="/users/signup" id="signup_home">Signup</a>
+            <a href="/users/login" id="login_home">Login</a>
             <% }else{ %>
             <a href="/profile">profile</a>
             <a href="/users/logout">Logout</a>
