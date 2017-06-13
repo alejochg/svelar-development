@@ -9,7 +9,6 @@
     <div id="signup" class="col-md-2">
         <p>
             <% if(user){ %>
-            <a href="/profile">profile</a>
             <% }else{ %>
             <a href="/users/signup">Sign up</a>
             <% } %>
@@ -27,6 +26,7 @@
         <p>
             <%if(user){%>
             <a href="/users/logout">Logout</a>
+            <a href="/profile">Profile</a>
             <%}else{%>
             <a href="/users/login">Log in</a>
             <%}%>

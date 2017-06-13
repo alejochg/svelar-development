@@ -3,6 +3,7 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/search.css' />
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
 </head>
@@ -14,10 +15,10 @@
 <!-- This is the search description-->
     <div class="row" id="third">
         <div id="search_word" class="col-md-10">
-            <h4>Search: <%= mysearch %> in <%= condition %></h4>
+            <h4><b>My search:</b> <%= mysearch %> in <%= condition %></h4>
         </div>
         <div id="showing" class="col-md-2">
-            <p>Showig 1-10 of 120</p>
+            <p>Showing 1-10 of 120</p>    <!-- This need a dynamic code -->
         </div>
     </div>
 
@@ -33,7 +34,7 @@
         <!-- Item image -->
         <div id="prod_image_1" class="col-md-3">
             <a href="../item/<%= stuff[i].id %>">
-                <img src='http://www.svelar.com/images/items/<%= stuff[i].id %>.jpg'>
+                <img src="<%= stuff[i].image_1 %>">
             </a>
         </div>
         <!-- Item informaiton -->
@@ -45,7 +46,7 @@
                     <div id="svelar" class="col-md-2">
                         <p>Svelar</p>
                     </div>
-                    <div id="item_name" class="col-md-10">
+                    <div id="item_name" class="col-md-7">
                         <a href="../item/<%= stuff[i].id %>">
                             <p><%= stuff[i].name %></p>
                         </a>
@@ -54,13 +55,13 @@
                     <div id="ad" class="col-md-2">
                         <p>AD</p>
                     </div>
-                    <div id="item_name" class="col-md-10">
+                    <div id="item_name" class="col-md-7">
                         <a href="../item/<%= stuff[i].id %>">
                             <p><%= stuff[i].name %></p>
                         </a>
                     </div>
                     <%}else{%>
-                    <div id="item_name_reg" class="col-md-12">
+                    <div id="item_name_reg" class="col-md-9">
                         <a href="../item/<%= stuff[i].id %>">
                             <p><%= stuff[i].name %></p>
                         </a>
@@ -71,7 +72,7 @@
 
             <!-- Ratings and buttons -->
             <div class="row" id="fourth_second">
-                <div id="ratings" class="col-md-8">
+                <div id="ratings" class="col-md-5">
                     <p>
                         Cost: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         <br>
@@ -82,16 +83,14 @@
                 </div>
                 <div id="button_block" class="col-md-4">
                     <div class="row" id="fourth_second_first">
-                        <div id="like_button" class="col-md-6">
-                            <a href="like.ejs"><p>Like!</p></a>
-                        </div>
-                        <div id="dislike_button" class="col-md-6">
-                            <a href="dislike.ejs"><p>Dislike</p></a>
+                        <div id="likes_button" class="col-md-12">
+                            <a href="like.ejs">Like!</a>
+                            <a href="dislike.ejs">Dislike</a>
                         </div>
                     </div>
                     <div class="row" id="fourth_second_second">
                         <div id="review_button" class="col-md-12">
-                            <a href="/review/<%= stuff[i].id %>"><p><span>☆</span> Review </p> </a>
+                            <a href="/review/<%= stuff[i].id %>"><span>☆</span> Review</a>
                         </div>
                     </div>
                 </div>
@@ -99,8 +98,8 @@
 
             <!-- Description -->
             <div class="row" id="fourth_third">
-                <div id="short_desc" class="col-md-12">
-                    <p><%= stuff[i].description %></p>
+                <div id="short_desc" class="col-md-8">
+                    <%= stuff[i].description.substring(0,150) %>...<a href="../item/<%= stuff[i].id %>">read more</a>
                 </div>
             </div>
         </div>
@@ -110,7 +109,7 @@
         </div>
 
     </div>
-    <hr>
+    <hr id="hairline" noshade>
     <% }%>
     <%}else {%>
     <p>Results not found! Try to search with different words.</p>
