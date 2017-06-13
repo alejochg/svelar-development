@@ -3,6 +3,8 @@
 <head>
     <title><%= stuff[0].name %> - Svelar </title>
     <link rel='stylesheet' href='/stylesheets/item.css' />
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
 </head>
@@ -43,11 +45,12 @@
         </div>
         <!-- Item information -->
         <div class="row" id="third_second">
+            <!-- Item images -->
             <div id="prod_image_1" class="col-md-3">
-                <img src='http://www.svelar.com/images/items/<%= stuff[0].id %>.jpg'>
+                <img src="<%= stuff[0].image_1 %>">
             </div>
-            <div id="prod_image_2" class="col-md-3">
-                <img src='http://www.svelar.com/images/items/<%= stuff[0].id %>.jpg'>
+            <div id="prod_image_1" class="col-md-3">
+                <img src="<%= stuff[0].image_2 %>">
             </div>
             <div id="item_information" class="col-md-6">
                 <div class="row" id="button_block">
