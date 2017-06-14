@@ -19,40 +19,42 @@
     <div class="row" id="third">
         <!-- Item name and tag-->
         <div class="row" id="third_first">
+            <div id="empty" class="col-md-1">
+                <!-- This is to make space -->
+            </div>
             <% if(stuff[0].svelar == 1 && stuff[0].premium != 1){ %>
-            <div id="svelar" class="col-md-2">
+            <div id="svelar" class="col-md-1">
                 <p>Svelar</p>
             </div>
             <div id="item_name" class="col-md-10">
                     <p><%= stuff[0].name %></p>
             </div>
             <%}else if(stuff[0].premium == 1){%>
-            <div id="ad" class="col-md-2">
+            <div id="ad" class="col-md-1">
                 <p>AD</p>
             </div>
             <div id="item_name" class="col-md-10">
-                <a href="../item/<%= stuff[0].id %>">
                     <p><%= stuff[0].name %></p>
-                </a>
             </div>
             <%}else{%>
-            <div id="item_name_reg" class="col-md-12">
-                <a href="../item/<%= stuff[i].id %>">
-                    <p><%= stuff[i].name %></p>
-                </a>
+            <div id="item_name_reg" class="col-md-11">
+                    <p><%= stuff[0].name %></p>
             </div>
             <%}%>
         </div>
         <!-- Item information -->
         <div class="row" id="third_second">
             <!-- Item images -->
-            <div id="prod_image_1" class="col-md-3">
-                <img src="<%= stuff[0].image_1 %>">
+            <div id="empty" class="col-md-1">
+                <!-- space -->
             </div>
             <div id="prod_image_1" class="col-md-3">
-                <img src="<%= stuff[0].image_2 %>">
+                <img id="item_image" src="<%= stuff[0].image_1 %>">
             </div>
-            <div id="item_information" class="col-md-6">
+            <div id="prod_image_1" class="col-md-3">
+                <img id="item_image" src="<%= stuff[0].image_2 %>">
+            </div>
+            <div id="item_information" class="col-md-5">
                 <div class="row" id="button_block">
                     <div id="review_button" class="col-md-8">
                         <a href="review.ejs"><p><span>☆</span> Review </p> </a>

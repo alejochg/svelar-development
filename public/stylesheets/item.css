@@ -4,30 +4,44 @@
     border-bottom: solid black 1px;
     padding-top: 1%;
 }
-#svelar{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    color: white;
 
-}
 #svelar p{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
     background-color: #0096b2;
     text-align: center;
-    width: 28%;
-    float: right 
+    width: 100%;
+    font-size: 16px;
 }
 #item_name{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0096b2 ;
+}
+#ad p{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: goldenrod;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+}
+#item_name_reg{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
     font-weight: 600;
     color: #0096b2 ;
     text-decoration: underline;
 }
-#prod_image_1 img{
-    border: solid #0096b2 1px;
+#prod_image_1 {
+    height: 300px;
+    width: 300px;
 }
-#prod_image_2 img{
-    border: solid #0096b2 1px;
+#item_image{
+    max-height: 100%;
+    max-width: 100%;
+    background-color: white;
 }
 #review_button{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -128,11 +142,7 @@
 #sponsor_pic{
     border: solid rgb(241, 90, 34) 1px;
 }
-#ad p{
-    background-color: #d4af37;
-    text-align: center;
-    color: white;
-}
+
 #ad_name{
     font-size: 16px;
     font-weight: 600;
