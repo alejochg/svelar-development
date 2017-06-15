@@ -20,6 +20,7 @@
     "mysql": "latest",
     "passport": "latest",
     "passport-local": "^1.0.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "async": "latest"
   }
 }

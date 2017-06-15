@@ -107,6 +107,7 @@ function obtainDevice(view) {
     }
 }
 
+
 // This add a new review to the database
 function addReview(data) {
     var pool = db.pool; // obtain database login attributes
@@ -162,4 +163,5 @@ module.exports.addReview=addReview;
 module.exports.search2=search2;
 module.exports.addSuggestion=addSuggestion;
 module.exports.addMessage=addMessage;
+
 

@@ -1,8 +1,7 @@
 #third{
     background-color: #ffeeb9;
-    border-top: solid black 1px;
-    border-bottom: solid black 1px;
-    padding-top: 1%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #svelar p{
@@ -18,6 +17,7 @@
     font-size: 20px;
     font-weight: 600;
     color: #0096b2 ;
+    margin-bottom: 20px;
 }
 #ad p{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -32,67 +32,78 @@
     font-size: 20px;
     font-weight: 600;
     color: #0096b2 ;
-    text-decoration: underline;
 }
 #prod_image_1 {
-    height: 300px;
-    width: 300px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 12px;
+    margin-left: 12px;
 }
-#item_image{
+#prod_image_1 img{
+    position: absolute;
+    margin: auto;
     max-height: 100%;
-    max-width: 100%;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
     background-color: white;
 }
 #review_button{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
 }
-#review_button p{
+#review_button a, #review_buttona a:visited{
     background-color: rgb(241, 90, 34);
     color: white;
     text-align: center;
-    border: solid #0096b2 1px;
-    border-radius: 10%;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+}
+#review_button a:hover, #review_buttona a:active{
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
 }
 #like_button{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
 }
-#like_button p{
-    width: 60%;
+#like_button a, #like_button a:visited{
     background-color: rgb(241, 90, 34);
     color: white;
     text-align: center;
-    border: solid #0096b2 1px;
-    border-radius: 10%;
-    float: right;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
 }
-#dislike_button{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-}
-#dislike_button p{
-    width: 60%;
-    background-color: rgb(241, 90, 34);
+#like_button a:hover, #like_button a:active{
+    background-color: red;
     color: white;
     text-align: center;
-    border: solid #0096b2 1px;
-    border-radius: 10%;
-}
-#ratings{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    padding-top: 2%;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
 }
 #ratings p{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
-    border: solid #0096b2 1px;
-    width: 40%;
-    padding: 1%;
+    font-size: 20px;
+    margin-top: 12px;
 }
 #ratings span{
     color:rgb(241, 90, 34) ;
-    font-size: 19px;
+    font-size: 25px;
     padding: 1%;
 }
 #keywords{
@@ -103,109 +114,15 @@
 #description{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
-    border-bottom: solid rgb(241, 90, 34) 1px;
-    padding: 1%;
+    margin-top: 40px;
 }
 #buy{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    border-bottom: double rgb(241, 90, 34) 7px;
-    padding-top: 0.5%;
+    font-size: 18px;
 }
-#sixth{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    background-color: #ffeeb9;
-    padding: 1%;
-}
-#review_1 p{
-    border-top: solid #0096b2 1px;
-    border-bottom: solid #0096b2 1px;
-    overflow: scroll;
-}
-#review_2 p{
-    border-top: solid #0096b2 1px;
-    border-bottom: solid #0096b2 1px;
-    overflow: scroll;
-}
-#review_3 p{
-    border-top: solid #0096b2 1px;
-    border-bottom: solid #0096b2 1px;
-    overflow: scroll;
-}
-#seventh{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    border: solid black 1px;
-    padding: 1%;
-}
-#sponsor_pic{
-    border: solid rgb(241, 90, 34) 1px;
+#fourth{
+    min-height: 200px;
+    margin-bottom: 12px;
 }
 
-#ad_name{
-    font-size: 16px;
-    font-weight: 600;
-    color: #0096b2 ;
-    text-decoration: underline;
-}
-#ad_rating{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-}
-#ad_rating span{
-    color:#0096b2 ;
-    font-size: 12px;
-    padding: 1%;
-}
-#ad_buttons_like{
-    width: 20%;
-    background-color: rgb(241, 90, 34);
-    text-align: center;
-    border-radius: 10%;
-    padding: 0.5%;
-    margin-left: 0.5%;
-}
-#ad_buttons_like a{
-    color: white;
-}
-#ad_buttons_dislike{
-    width: 20%;
-    background-color: rgb(241, 90, 34);
-    text-align: center;
-    border-radius: 10%;
-    padding: 0.5%;
-    margin-left: 0.5%;
-}
-#ad_buttons_dislike a{
-    color: white;
-}
-#ad_button_review{
-    width: 40%;
-    background-color: rgb(241, 90, 34);
-    text-align: center;
-    border-radius: 10%;
-    padding: 0.5%;
-    margin-top: 0.5%;
-    margin-left: 0.5%;
-}
-#ad_button_review a{
-    color: white;
-}
-#ad_desc{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    overflow:scroll;
-}
-#eighth{
-    background-color: #45c2c9;
-}
-#eighth p{
-    text-align: center;
-}
-#about{
-    float: left;
-}
-#toolbox{
-    float: right;
-}
+
