@@ -121,6 +121,13 @@
                 <p> <%= reviews[i].username %> </p>
                 <p id="date"> <%= reviews[i].date.toString().substring(3, 15) %> </p>
                 <p> <%= reviews[i].comment %> </p>
+                <p>
+                    Cost: <%= reviews[i].cost %>
+                    <br>
+                    Comfort: <%= reviews[i].comfort %>
+                    <br>
+                    Ease of Use: <%= reviews[i].easy %>
+                </p>
                 <% }%>
                 <%}else {%>
                 <p>There is not reviews for this product yet.</p>
