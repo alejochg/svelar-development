@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+    <title>Svelar - search</title>
     <link rel='stylesheet' href='/stylesheets/search.css' />
     <link rel='stylesheet' href='/stylesheets/footer.css' />
     <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+
+
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
 </head>
@@ -19,7 +21,13 @@
             <h4><b>My search:</b> <%= mysearch %> in <%= condition %></h4>
         </div>
         <div id="showing" class="col-md-2">
-            <p>Showing 1-10 of 120</p>    <!-- This need a dynamic code -->
+            <p>Showing
+                <% if(count[0].count > 10) {%>
+                    1-10
+                <%}else{%>
+                    1-<%= count[0].count%>
+                <%}%>
+                of <%= count[0].count%></p>    <!-- This need a dynamic code -->
         </div>
     </div>
 
@@ -39,7 +47,7 @@
             </a>
         </div>
         <!-- Item informaiton -->
-        <div id="content_prod" class="col-md-5">
+        <div id="content_prod" class="col-md-7">
             <!-- Item name and tag-->
             <div class="row" id="fourth_first">
                 <div id="item_information" class="col-md-12">
@@ -75,11 +83,65 @@
             <div class="row" id="fourth_second">
                 <div id="ratings" class="col-md-5">
                     <p>
-                        Cost: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        Comfort:
+                        <% if(Math.round(stuff[i].average_rating_1)== 0){ %>
+                        <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_1)== 1){ %>
+                        <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_1)== 2){ %>
+                        <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_1)== 3){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_1)== 4){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_1)== 5){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                        <%}%>
+                    <br>
+                        Easyness:
+                        <% if(Math.round(stuff[i].average_rating_2)== 0){ %>
+                        <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_2)== 1){ %>
+                        <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_2)== 2){ %>
+                        <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_2)== 3){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_2)== 4){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_2)== 5){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                        <%}%>
                         <br>
-                        Comfort:<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                        <br>
-                        Ease of Use: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        Cost:
+                        <% if(Math.round(stuff[i].average_rating_3)== 0){ %>
+                        <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_3)== 1){ %>
+                        <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_3)== 2){ %>
+                        <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_3)== 3){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_3)== 4){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                        <%}%>
+                        <% if(Math.round(stuff[i].average_rating_3)== 5){ %>
+                        <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                        <%}%>
                     </p>
                 </div>
                 <div id="button_block" class="col-md-4">
@@ -115,9 +177,46 @@
     <%}else {%>
     <p>Results not found! Try to search with different words.</p>
     <%}%>
-    <p>Page numbers!</p>
+    <div class="row" id="fifht">
+        <div id="space_1" class="col-md-2">
+            <!-- Done to create space -->
+        </div>
+        <div id="page_number" class="col-md-2">
+            <p>Page numbers</p>
+        </div>
+        <div id="pages_links" class="col-md-6">
+            <p id="testing"></p>
+            <script>
+                var c = <%= count[0].count%>/10;
+                c = Math.ceil(c);
+                goPage(c);
+
+                function goPage(pages) { // Modify the links of the url so user can navigate between search list pages
+
+                    for (var i = 1; i<pages+1; i++){
+                        var str = window.location.pathname + window.location.search.toString();
+                        str = str.substring(0, str.length - 1);
+                        str += i.toString();
+
+                        var para = document.createElement('a');
+                        var node = document.createTextNode(i.toString());
+                        para.appendChild(node);
+                        para.href = str;
+                        var element = document.getElementById('pages_links');
+                        element.appendChild(para);
+                    }
+                }
+            </script>
+        </div>
+        <div id="space_1" class="col-md-2">
+            <!-- Done to create space -->
+        </div>
+
+    </div>
 
     <% include templates/footerbar.ejs%>
 </div>
+
+
 </body>
 </html>

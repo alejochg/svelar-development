@@ -126,8 +126,9 @@
     font-size: 16px;
 }
 #ratings span{
-    color:rgb(241, 90, 34) ;
+    //color:rgb(241, 90, 34) ;
     font-size: 25px;
+    color: gold;
 }
 #short_desc{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -163,9 +164,10 @@
     display: block;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    margin-left: 380px;
-    margin-right: 380px;
+    margin-left: 200px;
+    margin-right: 200px;
     border-style: solid;
     border-width: 0.1px;
     border-color: #45c2c9;
 }
+

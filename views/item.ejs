@@ -79,9 +79,14 @@
                         </p>
                     </div>
                 </div>
+                <!-- Keyword -->
                 <div class="row" id="keywords_block">
                     <div id="keywords" class="col-md-12">
-                        <p>keywords: <a><%= stuff[0].field %></a>, <a><%= stuff[0].type %></a>, <a><%= stuff[0].brand %></a> </p>
+                        <p>keywords:
+                            <a href="/search/try?field=<%=  stuff[0].field %>&page=1"><%= stuff[0].field %></a>,
+                            <a href="/search/try?type=<%= stuff[0].type %>&page=1"><%= stuff[0].type %></a>,
+                            <a href="/search/try?brand=<%= stuff[0].brand %>&page=1"><%= stuff[0].brand %></a>
+                        </p>
                     </div>
                 </div>
             </div>
