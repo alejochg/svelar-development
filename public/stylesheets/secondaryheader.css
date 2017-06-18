@@ -1,0 +1,84 @@
+#first {
+    background-color:#45c2c9;
+}
+#logo{
+    font-family: Papyrus, fantasy;
+    font-size: 290%;
+    padding-top:1%;
+    padding-left: 2%;
+}
+.“search”{
+    text-align: center;
+    white-space: nowrap;
+    font-size: 120%;
+    margin-bottom: 1%;
+    margin-top: 0%;
+    float: left;
+    border: solid rgb(241, 90, 34) 2px;
+}
+.“search” *{
+    display:inline;
+}
+.“search” input{
+    width: 650px;
+}
+.“search” select{
+    font-size: 95%;
+    width:200px;
+}
+
+#search{
+    background-color: #45c2c9;
+    padding-top: 1.75%;
+
+}
+#signup{
+
+}
+#signup a{
+    background-color: #0096b2;
+    color: white;
+    border: solid white 1px;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    margin-top: 20%;
+    margin-right: 6%;
+}
+#signup a:hover{
+    background-color: #f44336;
+    color: white;
+    border: solid white 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    margin-top: 20%;
+    margin-right: 6%;
+}
+#second{
+    background-color: #0096b2;
+}
+#suggest{
+    padding-top:0.5%;
+    padding-bottom: 0.5%;
+}
+#suggest a{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    margin-right: 2%;
+}
+#login{
+    padding-top:0.5%;
+    padding-bottom: 0.5%;
+}
+#login a{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    float: right;
+    padding-right: 3%;
+}

@@ -1,24 +1,43 @@
 #first{
   background-color: #0096b2;
-  height: 50px;
+  height: 60px;
   padding: 1%;
 }
 #review_home a{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
-  padding-left: 1%;
+  padding: 0.5%;
 }
-#login_home a{
+#login_header a{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
-  padding-right: 2%;
+  padding: 0.5%;
+  margin-left: 1%;
   float: right;
 }
+#signup_home:hover{
+  background-color: #f44336;
+  color: white;
+  border: solid white 1px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+#signup_home{
+  color: white;
+  border: solid white 1px;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
 #second{
-  background-color: #ffeeb9;
-  /*background-image: url("/public/images/items/4.jpg"); */
+  background-image: url("http://localhost:3000/images/style/home_header_background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-bottom:3%;
 }
 #comp_name{
@@ -61,24 +80,26 @@
   width: 200px;
 }
 #free{
-  border-top: solid 1px;
-  border-bottom: double #45c2c9 4px;
   padding: 2%;
   font-size: 18px;
   text-align: center;
 }
-#free a{
+#free a:link, a:visited{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   color: white;
-  background-color: rgb(241, 90, 34);
-  padding: 0.5%;
-  border: solid #0096b2 1px;
-  border-radius: 10%;
+  background-color: #f15a22;
+  padding: 0.7%;
+  border: solid black 0.5px;
+  border-radius: 8%;
+  text-decoration: none;
+}
+#free a:hover, a:active{
+  background-color: #f44336;
+  color: white;
 }
 #third{
-  border-bottom: double rgb(241, 90, 34) 4px;
-  margin-bottom: 1%;
+  border-bottom: solid 1px;
 }
 
 #cust_quest{
@@ -92,30 +113,36 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 170%;
   text-align: center;
-  color: rgb(241, 90, 34);
+  color:#f15a22;
 }
+
 #value_prop img{
   float: left;
-  border: solid rgb(69, 194, 201) 1px ;
   border-radius: 100%;
   height: 20%;
   width: 20%;
+  height: 97px;
+  width: 97px;
+  margin-right: 5%;
 }
 
 #value_prop{
   float: left;
-  background-color:rgb(241, 90, 34) ;
   color: black;
-  font-size: 100%;
-  margin-bottom: 2%;
+  font-size: 14pt;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 3%;
 }
 #value_prop h4{
-  color: white;
+  color: #f15a22;
+  font-weight: bold;
+  font-size: 16pt;
 }
 
 #value_prop1 img{
   float: left;
-  border: solid rgb(241, 90, 34) 1px ;
+  border: solid #f15a22 1px ;
   border-radius: 100%;
   height: 20%;
   width: 20%;
@@ -134,25 +161,9 @@
 }
 #login_foot_pic{
   border-top: solid #676767 1px;
-  background-color: #ffeeb9;
-  /*background-image: url("/public/images/items/5.jpg"); */
-  height: 150%;
-}
-#login_foot_pic img{
-  width: 5%
-
-}
-#sixth{
-  background-color: #45c2c9;
-  border-top: solid black 1px;
-}
-#sixth p{
-  text-align: center;
-}
-#about{
-  float: left;
-  color: white;
-}
-#toolbox{
-  float: right;
+  background-image: url("http://localhost:3000/images/style/home-foter.png");
+  height: 300px;
+  background-position: 0% 10%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

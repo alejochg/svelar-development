@@ -37,7 +37,7 @@ function search2() {
         //Look with search defined
         if(req.query.find && req.query.field && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined'){
             pool.getConnection(function(err,connection){
-                connection.query('SELECT * FROM stuff WHERE field=? AND Match(description) Against("?") ORDER BY svelar DESC LIMIT 10',[req.query.field, req.query.find] ,function (error, results, fields){
+                connection.query('SELECT * FROM items WHERE field=? AND Match(description) Against("?") ORDER BY svelar DESC LIMIT 10',[req.query.field, req.query.find] ,function (error, results, fields){
                     connection.release();
                     if (error) throw error;
                     res.render('search', {stuff: results, rows: results.length, title: "Search", mysearch: req.query.find, condition: req.query.field})
@@ -107,6 +107,7 @@ function obtainDevice(view) {
     }
 }
 
+
 // This add a new review to the database
 function addReview(data) {
     var pool = db.pool; // obtain database login attributes
@@ -162,4 +163,5 @@ module.exports.addReview=addReview;
 module.exports.search2=search2;
 module.exports.addSuggestion=addSuggestion;
 module.exports.addMessage=addMessage;
+
 
