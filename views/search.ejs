@@ -23,7 +23,11 @@
         <div id="showing" class="col-md-2">
             <p>Showing
                 <% if(count[0].count > 10) {%>
-                    1-10
+                    <%if (page >= count[0].count/10){%>
+                        <%= page*10-9 %>-<%= count[0].count %>
+                    <%}else{%>
+                        <%= page*10-9 %>-<%= page*10 %>
+                    <%}%>
                 <%}else{%>
                     1-<%= count[0].count%>
                 <%}%>
@@ -177,7 +181,7 @@
     <%}else {%>
     <p>Results not found! Try to search with different words.</p>
     <%}%>
-    <div class="row" id="fifht">
+    <div class="row" id="fifth">
         <div id="space_1" class="col-md-2">
             <!-- Done to create space -->
         </div>
@@ -190,9 +194,7 @@
                 var c = <%= count[0].count%>/10;
                 c = Math.ceil(c);
                 goPage(c);
-
                 function goPage(pages) { // Modify the links of the url so user can navigate between search list pages
-
                     for (var i = 1; i<pages+1; i++){
                         var str = window.location.pathname + window.location.search.toString();
                         str = str.substring(0, str.length - 1);
@@ -202,6 +204,7 @@
                         var node = document.createTextNode(i.toString());
                         para.appendChild(node);
                         para.href = str;
+                        para.id = 'pages';
                         var element = document.getElementById('pages_links');
                         element.appendChild(para);
                     }
