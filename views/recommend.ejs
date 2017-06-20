@@ -1,36 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Write a Review - Svelar</title>
-    <link rel='stylesheet' type="text/css" href='/stylesheets/style_recommend.css' />
+    <title>Svelar-Recommend</title>
+    <link rel='stylesheet' href='/stylesheets/recommend.css' />
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+    <%include templates/meta.ejs%>
+    <%include templates/bootstrap.ejs%>
 </head>
 <body>
-
-    <% include templates/navigation.ejs%>
-
+<% include templates/navigation.ejs%>
+<div class="container-fluid">
     <% include templates/secondaryheader.ejs%>
-    <% include templates/searchbar.ejs%>
 
-    <div id="container">
-        <h1>Suggest a product or service</h1>
-        <hr>
-            <p>Your suggestion</p>
-            <form method="post" action="/review/recommend">
-                Name: <input type="text" name="name" placeholder="Name of the item (device,app,website,service,...)"> <br>
-                Web link: <input type="text" name="link" placeholder="Paste a web link here and make it easier for us"> <br>
-                Comments: <input type="text" name="comment" placeholder="Why do you believe this item should be in this website?" required> <br>
-                <button type="submit" value="Review">Suggest</button>
-                <%if(h){%>
-                <a href="/">Cancel</a>
-                <% }else{ %>
-                <a href="javascript:history.back()">Cancel</a>
-                <% } %>
-            </form>
-            <p>* Your sugguestion will be sent to us for reviewing</p>
-            <p>* Your sugguestion can help millions of people </p>
+    <div class="row" id="third">
+        <div id="recommend_title" class="col-md-12">
+            <p>Suggest A Product Or Service</p>
+        </div>
     </div>
 
-    <% include templates/footerbar.ejs%>
+    <div class="row" id="fourth">
+        <div id="your_suggestion" class="col-md-12">
+            <p>Your Suggestions</p>
+        </div>
+    </div>
 
+    <form action="xxxxxx" method="post">
+
+        <div class="row" id="fifth">
+            <div id="name_col" class="col-md-12">
+                <div class="row" id="fifth_one">
+                    <div id="name_prod" class="col-md-12">
+                        <p>Name Of Product Or Service:</p>
+                    </div>
+                </div>
+                <div class="row" id="fifth_two">
+                    <div id="name_input" class="col-md-12">
+                        <input type="text" name="name of product" placeholder="Name of the item (device, website, app, service, etc.)" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="sixth">
+            <div id="website_col" class="col-md-12">
+                <div class="row" id="sixth_one">
+                    <div id="website_prod" class="col-md-12">
+                        <p>Web Link:</p>
+                    </div>
+                </div>
+                <div class="row" id="sixth_two">
+                    <div id="website_input" class="col-md-12">
+                        <input type="url" name="name of product" placeholder="Please paste a web link for the item to help us better locate it." required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="seventh">
+            <div id="comment_col" class="col-md-12">
+                <div class="row" id="seventh_one">
+                    <div id="comment_prod" class="col-md-12">
+                        <p>Comments:</p>
+                    </div>
+                </div>
+                <div class="row" id="seventh_two">
+                    <div id="comment_input" class="col-md-12">
+                        <textarea type="text" name="name of product" placeholder="Share any comments you may have regarding this item." required></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="eighth">
+            <div id="suggest_bottom" class="col-md-12">
+                <div class="row" id="eighth_one">
+                    <div id="suggest_button" class="col-md-12">
+                        <button type="submit" value="Review" id="suggest_button">Suggest</button>
+                        <a href="/">Cancel</a>
+                    </div>
+                </div>
+                <div class="row" id="eight_two">
+                    <div id="suggest_disc" class="col-md-12">
+                        <p>* All suggestions will be reviewed by biomedical experts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <% include templates/footerbar.ejs%>
+</div>
 </body>
 </html>

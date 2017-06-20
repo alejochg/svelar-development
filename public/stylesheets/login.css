@@ -1,0 +1,62 @@
+#third{
+    text-align: left;
+    font-size: 24px;
+    padding-top:2%;
+    padding-bottom:1%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#login_title{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(241, 90, 34);
+    border-bottom: solid #45c2c9 1px;
+}
+#new_cust{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#fourth{
+    padding-top: 0.5%;
+    padding-bottom: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+#fifth{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+#fifth form{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#user{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+#user input{
+    width: 40%;
+}
+#password{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    padding-top: 1%;
+}
+#password input{
+    width: 40%;
+}
+#service{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+}
+#login_button{
+    font-size: 16px;
+    color: white;
+    background-color:rgb(241, 90, 34);
+}

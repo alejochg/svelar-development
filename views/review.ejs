@@ -1,83 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Write a Review - Svelar</title>
+    <title>Svelar - review</title>
     <link rel='stylesheet' href='/stylesheets/review.css' />
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+    <%include templates/meta.ejs%>
+    <%include templates/bootstrap.ejs%>
 </head>
-<body onload="check()">
-    <% include templates/navigation.ejs%>
-
+<body>
+<% include templates/navigation.ejs%>
+<div class="container-fluid">
     <% include templates/secondaryheader.ejs%>
 
-    <% include templates/searchbar.ejs%>
-
-    <h1>Write a review</h1>
-
-    <div>
-        <h2><b><%= stuff[0].name %></b></h2>
-        <p>keywords:
-            <a href="/search/try?field=<%= stuff[0].field %>"><%= stuff[0].field %></a>,
-            <a href="/search/try?type=<%= stuff[0].type %>"><%= stuff[0].type %></a>,
-            <a href="/search/try?brand=<%= stuff[0].brand %>"><%= stuff[0].brand %></a>
-        </p>
-        <img src='<%= stuff[0].image_1 %>'>
+    <div class="row" id="third">
+        <div id="review_title" class="col-md-12">
+            <p>Write A Review</p>
+        </div>
     </div>
 
-    <div>
-        <p>Your review</p>
-        <form method="post" action="/review">
-            <p>Select your rating:
-                <span class="rating">
-                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
-                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
-                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
-                </span>
+    <div class="row" id="fourth">
+        <div id="review_img" class="col-md-6">
+            <img src='<%= stuff[0].image_1 %>'>
+            <!--
+            <img src='/public/images/items/3.jpg'>
+            -->
+        </div>
+        <div id="review_prod" class="col-md-6">
+            <h2><b><%= stuff[0].name %> <!-- Product Name --> </b></h2>
+            <p>Keywords:
+                <a href="/search/try?field=<%= stuff[0].field %>"><%= stuff[0].field %></a>,
+                <a href="/search/try?type=<%= stuff[0].type %>"><%= stuff[0].type %></a>,
+                <a href="/search/try?brand=<%= stuff[0].brand %>"><%= stuff[0].brand %></a>
+                <!--
+                <a href="xxxxx">Keyword 1</a>,
+                <a href="xxxxx">Keyword 2</a>,
+                <a href="xxxxx">Keyword 3</a>
+                -->
             </p>
-            <input type="text" name="comment" placeholder="Your review help others learn about medical products." required> <br>
-            <input type="hidden" name="item" value="<%= stuff[0].id %>" />
-            <button type="submit" value="Review">Post</button>
-            <%if(h) { %>
-            <a href="/">Cancel</a>
-            <% }else{ %>
-            <a href="javascript:history.back()">Cancel</a>
-            <% } %>
-        </form>
-        <p>* You can edit or remove your review later</p>
+        </div>
     </div>
-    <br>
 
-    <h1>Pure CSS Star Rating Widget</h1>
-    <fieldset class="rating">
-        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-    </fieldset>
+    <div class="row" id="fifth">
+        <div id="your_review" class="col-md-12">
+            <p>Your Review</p>
+        </div>
+    </div>
 
-    <script>
-        function check() {
-            document.getElementById("star4half").checked = true;
-        }
-        var elems = document.getElementsByClassName("rating");
-        for(var i = 0; i < elems.length; i++) {
-            elems[i].disabled = true;
-        }
-        check()
-    </script>
+    <form action="/review" method="post">
 
+        <div class="row" id="sixth">
+            <div id="review_col" class="col-md-12">
+                <div class="row" id="sixth_one">
+                    <div id="your_rating" class="col-md-12">
+                        <p> Select Your Rating (1/2 is Terrible; 5 is Awesome!) : </p>
+                        <%include templates/stars.ejs%>
+                    </div>
+                </div>
+                <div class="row" id="sixth_two">
+                    <div id="review_input" class="col-md-12">
+                        <textarea rows="5"  type="text" name="review" placeholder="Write your review here..." required></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="row" id="seventh">
+            <div id="review_bottom" class="col-md-12">
+                <div id="write_review_button" class="col-md-12">
+                    <input type="hidden" name="item" value="<%= stuff[0].id %>" />
+                    <button type="submit" value="review_prod" id="write_review_button">
+                        Post
+                    </button>
+                    <%if(h) { %>
+                    <a href="/">Cancel</a>
+                    <% }else{ %>
+                    <a href="javascript:history.back()">Cancel</a>
+                    <% } %>
+                    <p>* All posts can be edited or deleted at anytime.</p>
+                </div>
+            </div>
+        </div>
 
-    <br>
+    </form>
 
     <% include templates/footerbar.ejs%>
 
+</div>
 </body>
 </html>

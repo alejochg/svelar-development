@@ -1,0 +1,76 @@
+#third{
+    text-align: left;
+    font-size: 24px;
+    padding-top:2%;
+    padding-bottom:2%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+#signup_title{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(241, 90, 34);
+    border-bottom: solid #45c2c9 1px;
+}
+#new_cust{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#fourth{
+    margin-left: 15%;
+    margin-right: 15%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding-top:1%;
+}
+#fifth{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 0.5%;
+    padding-bottom: 2%;
+}
+#fifth form{
+    border: solid black 1px;
+    width: 100%;
+}
+#name{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    padding: 1%;
+}
+#first_name{
+    width: 30%;
+}
+#middle_name{
+    width: 30%;
+}
+#last_name{
+    width: 30%;
+}
+#email_type{
+    width: 63%;
+}
+#birthday{
+    padding: 2%;
+}
+#password{
+    padding-top: 2%;
+}
+#password input{
+    width: 31.3%;
+}
+#new_fillout_6{
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+#service{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+}
+#signup_button{
+    font-size: 14px;
+    color: white;
+    background-color:rgb(241, 90, 34);
+
+}

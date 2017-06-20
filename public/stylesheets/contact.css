@@ -1,0 +1,104 @@
+#third{
+    color: rgb(241, 90, 34);
+    text-align: left;
+    font-size: 24px;
+    padding-top:2%;
+    padding-bottom:1%;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-bottom: solid #45c2c9 1px;
+}
+#fourth{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 16px;
+    font-weight: 700;
+}
+#fifth{
+    margin: 0% 15% 1% 15%;
+    border: solid black 1px;
+}
+#message_info_title{
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ffeeb9;
+    padding-top: 1%;
+}
+#message_firstname{
+    padding: 0.1%;
+    margin-right: 5%;
+
+}
+#message_firstname input{
+    width: 100%;
+    padding-bottom: 5%;
+}
+#message_lastname{
+    padding: 0.1% 1% 0.1% 1%;
+    margin-left: 2%;
+
+}
+#message_lastname input{
+    width: 120%;
+    padding-bottom: 5%;
+}
+#message_email{
+    padding: 0.1% 1% 0.1% 1%;
+    margin-left: 15%;
+
+}
+#message_email input{
+    width: 117%;
+    padding-bottom: 5%;
+}
+#sixth{
+    margin: 1% 15% 1% 15%;
+    border: solid black 1px;
+}
+#message_title{
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ffeeb9;
+    padding-top: 1%;
+}
+#message_input{
+    padding: 0.1%;
+}
+#message_input textarea{
+    width: 100%;
+    padding-bottom: 14%;
+}
+#seventh{
+    margin: 1% 15% 1% 15%;
+    border: solid black 1px;
+}
+#human_title{
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ffeeb9;
+    padding-top: 1%;
+}
+#human_input{
+    padding: 0.1%;
+}
+#human_input input{
+    width: 100%;
+    padding-bottom: 2%;
+}
+#eighth{
+    padding-top: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-bottom: 2%;
+}
+#message_button button{
+    background-color: rgb(241, 90, 34) ;
+    color: white;
+    width: 15%;
+    border-radius: 20%;
+}
+#message_button a{
+    padding-left: 2%;
+}

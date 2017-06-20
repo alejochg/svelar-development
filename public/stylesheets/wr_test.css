@@ -1,0 +1,94 @@
+#first{
+    background-color: #0096b2;
+    height: 50px;
+    padding: 1%;
+}
+#review_home a{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    padding-left: 1%;
+}
+#login_home a{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: white;
+    padding-right: 2%;
+    float: right;
+}
+#second{
+    padding-bottom: 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("http://localhost:3000/images/style/about1.jpg");
+}
+#comp_name{
+    font-family: Papyrus, fantasy;
+    font-size: 100px;
+    text-align: center;
+    padding-top:1%;
+}
+#second_1{
+    padding: 3%;
+}
+#motto.col-md-12{
+    background-color: rgba(69, 194, 201, 0.6);
+    text-align: center;
+    margin-bottom: 3%;
+}
+#motto{
+    font-family: Papyrus;
+    color:white;
+    font-size: 32px;
+    font-weight: 900;
+    padding-top: 1%;
+}
+#search{
+    padding-top:3%;
+}
+.“search”{
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 180%;
+
+}
+.“search” #button{
+    width: 85%;
+    padding-left: -5%;
+}
+.“search” span{
+    background-color: inherit;
+    padding: 0.5% 0% 0.5% 0.1%;
+}
+.“search” *{
+    display:inline;
+}
+.“search” input{
+    width: 800px;
+
+}
+.“search” select{
+    font-size: 180%;
+    width: 220px;
+}
+.“search” button{
+    width: 10%;
+    padding-left: 1%;
+}
+#free{
+    border-top: solid 1px;
+    border-bottom: double #45c2c9 4px;
+    padding: 2%;
+    font-size: 18px;
+    text-align: center;
+}
+#free a{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(241, 90, 34);
+    padding: 0.5%;
+    border: solid #0096b2 1px;
+    border-radius: 10%;
+}

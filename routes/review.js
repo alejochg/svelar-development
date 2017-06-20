@@ -37,7 +37,7 @@ router.get('/:id', function(req, res, next) {
             connection.query('SELECT * FROM stuff WHERE id = ?', [id] ,function (error, results, fields){
                 connection.release();
                 if (error) throw error;
-                res.render('review', {stuff: results, errors: undefined, h: req.query.h})
+                res.render('review', { stuff: results, errors: undefined, h: req.query.h})
             });
         });
     }else{

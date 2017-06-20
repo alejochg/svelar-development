@@ -1,37 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Write a Review - Svelar</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Contact US</title>
+    <link rel='stylesheet' href='/stylesheets/contact.css' />
+    <%include templates/meta.ejs%>
+    <%include templates/bootstrap.ejs%>
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById('contact_form').submit();
+        }
+    </script>
+
 </head>
 <body>
 <% include templates/navigation.ejs%>
+<div class="container-fluid">
+    <% include templates/secondaryheader.ejs%>
 
-<% include templates/secondaryheader.ejs%>
+    <div class="row" id="third">
+        <div id="contact_title" class="col-md-12">
+            <p>Contact Us</p>
+        </div>
+    </div>
+    <form id="contact_form" action="xxxxx" method="post">
+        <div class="row" id="fourth">
+            <div id="contact_type" class="col-md-12">
+                <p>Reason for your message: </p>
+                <select name="reason" required>
+                    <option value="general">General inquiry about Svelar</option>
+                    <option value="account">Account or login issues</option>
+                    <option value="website">Report a website problem</option>
+                </select>
+            </div>
+        </div>
 
-<% include templates/searchbar.ejs%>
+        <div class="row" id="fifth">
+            <div id="name_col" class="col-md-12">
+                <div class="row" id="fifth_one">
+                    <div id="message_info_title" class="col-md-12">
+                        <p>Your Information:</p>
+                    </div>
+                </div>
+                <div class="row" id="fifth_two">
+                    <div id="message_firstname" class="col-md-3">
+                        <input type="text" name="name" placeholder="First Name" required>
+                    </div>
+                    <div id="message_lastname" class="col-md-3">
+                        <input type="text" name="lastname" placeholder="Last Name" required>
+                    </div>
+                    <div id="message_email" class="col-md-3">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<% include templates/errormessages.ejs%>
+        <div class="row" id="sixth">
+            <div id="website_col" class="col-md-12">
+                <div class="row" id="sixth_one">
+                    <div id="message_title" class="col-md-12">
+                        <p>Your Message:</p>
+                    </div>
+                </div>
+                <div class="row" id="sixth_two">
+                    <div id="message_input" class="col-md-12">
+                        <textarea type="text" name="question" placeholder="How can we help you?" required></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <h1>Contact Us</h1>
-    <hr>
-    <form method="post" action="/about/contact">
-        <p>Reason for your message</p>
-        <select name="reason" required>
-            <option value="general">General inquiry about Svelar</option>
-            <option value="account">Account or login issues</option>
-            <option value="website">Report a website problem</option>
-        </select>
-        <p>Your message:</p>
-        <input type="text" name="message" placeholder="(Please use as much detail as possible when asking your question or describing your problem)." required>
-        <p>Your email</p>
-        <input type="text" name="email" placeholder="“ex: email@email.com”" required>
-        <p>To show that you are human and not a robot please type blue in the box</p>
-        <input type="text" name="checkWord" required> <br>
-        <button type="submit" value="send">Send</button>
-        <a href="javascript:history.back()">Cancel</a>
+        <div class="row" id="seventh">
+            <div id="human_col" class="col-md-12">
+                <div class="row" id="seventh_one">
+                    <div id="human_title" class="col-md-12">
+                        <p>Prove You're Human: </p>
+                    </div>
+                </div>
+                <div class="row" id="seventh_two">
+                    <div id="human_input" class="col-md-12">
+                        <input type="text" name="name of product" placeholder="Please type the word 'blue' to prove you are human." required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="eighth">
+            <div id="message_bottom" class="col-md-12">
+                <div id="message_button" class="col-md-12">
+                    <button type="submit" value="Review" id="suggest_button" class="g-recaptcha" data-sitekey="6LeyaCUUAAAAAJXSq5c2n1zF3ye2nMkwgAZDot4M" data-callback='onSubmit'>
+                        Send
+                    </button>
+                    <a href="/">Cancel</a>
+                </div>
+            </div>
+        </div>
     </form>
 
-<% include templates/footerbar.ejs%>
+    <% include templates/footerbar.ejs%>
+</div>
 </body>
 </html>

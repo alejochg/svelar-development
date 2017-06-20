@@ -17,6 +17,7 @@ var search = require('./routes/search');
 var item = require('./routes/item');
 var review = require('./routes/review');
 var about = require('./routes/about');
+var wr_test = require('./routes/wr_test');
 
 var app = express();
 
@@ -86,6 +87,7 @@ app.use('/review', review);
 app.use('/about', about);
 app.use('/about/contact',about);
 app.use('/review/recommend', review);
+app.use('/wr_test', wr_test);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
