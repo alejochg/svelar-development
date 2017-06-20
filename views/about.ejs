@@ -1,36 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Write a Review - Svelar</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/about.css' />
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+    <%include templates/meta.ejs%>
+    <%include templates/bootstrap.ejs%>
 </head>
 <body>
-    <% include templates/navigation.ejs%>
+<% include templates/navigation.ejs%>
+<div class="container-fluid">
 
     <% include templates/secondaryheader.ejs%>
 
-    <% include templates/searchbar.ejs%>
+    <div class="row" id="third">
+        <div id="about_title" class="col-md-12">
+            <p>About Us</p>
+        </div>
+    </div>
 
-    <h1>About Us</h1>
-    <hr>
-    <img src="http://localhost:3000/images/style/about1.jpg">
-    <h2>We are working towards reducing the gap between health professionals and patients so that everyone take their healthcare back in their hands.</h2>
-    <pre><b>
-        Would you ever buy a laptop or phone without researching about its features as
-        well as any problems people have experienced with the device? So why would you
-        spend hours on researching something that you will be using only for a few years,
-        but fail to consider a medical product that you may have to live with for the rest of
-        your life?</b>
-    </pre>
+    <div class="row" id="fourth">
+        <div id="about_pic" class="col-md-12">
+            <!-- Background picture implimented in CSS -->
+        </div>
+    </div>
 
-    <pre>
-        Svelar is dedicated to creating a space where patients can easily obtain reliable infor-
-        mation about the medical products, including implantable and wearable devices, as well
-        as peer reviews and references to other resources that will allow the patient to make
-        informed decisions.
-    </pre>
-    <hr>
+    <div class="row" id="fifth">
+        <div id="about_p_1" class="col-md-12">
+            <h2>Svelar aims to disrupt healthcare by bringing greater transparency, access, and value to users.</h2>
+            <!--
+            <h2>We are working towards reducing the gap between health professionals and patients so that everyone take their healthcare back in their hands.</h2>
+            -->
+        </div>
+    </div>
+    <div class="row" id="sixth">
+        <div id="about_p_2" class="col-md-12">
+            <p><b>
+                    Would you ever buy a laptop or phone without researching about its features as
+                    well as any problems people have experienced with the device? So why would you
+                    spend hours on researching something that you will be using only for a few years,
+                    but fail to consider a medical product that you may have to live with for the rest of
+                    your life?
+                </b></p>
+        </div>
+    </div>
+    <div class="row" id="seventh">
+        <div id="about_p_3" class="col-md-12">
+            <p>
+                Svelar is dedicated to creating a space where patients can easily obtain reliable information about the medical products,
+                including implantable and wearable devices, as well as peer reviews and references to other resources that will allow the
+                patient to make informed decisions.
+            </p>
+        </div>
+    </div>
 
     <% include templates/footerbar.ejs%>
+</div>
 </body>
 </html>
