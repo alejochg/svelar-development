@@ -49,19 +49,17 @@ router.get('/:id', function(req, res, next) {
 
 // Post /review    actually adding the review to database
 router.post('/', function(req, res, next) {
-
     // Add review to database
     var pool = db.pool; // get database access
     pool.getConnection(function (error, connection) {
         var date;
         date = getDate();
-        var data = new Array(req.body.rating, req.body.comment, req.body.item, date, req.user.id);
+        var data = new Array(req.body.rating_1, req.body.rating_2,req.body.rating_3,req.body.comment, req.body.item, date, req.user.id, req.user.username);
         console.log(data);
         queries.addReview(data); // add the review to database
         req.flash('success_msg', 'Thank you for reviewing this item'); // Flash a message
         res.redirect('/item/'+ req.body.item);
     });
-
 });
 
 function getDate(){

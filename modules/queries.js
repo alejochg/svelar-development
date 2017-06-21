@@ -113,8 +113,8 @@ function addReview(data) {
     var pool = db.pool; // obtain database login attributes
     pool.getConnection(function (error, connection) {
         connection.query( // perform query with encrypter password
-            'INSERT INTO reviews(comfort, comment, id_stuff, date, id_user) VALUES(?,?,?,?,?)',
-            [data[0], data[1], data[2],data[3], data[4]],
+            'INSERT INTO reviews(rating_1,rating_2,rating_3, comment, id_stuff, date, id_user, username) VALUES(?,?,?,?,?,?,?,?)',
+            [data[0], data[1], data[2],data[3], data[4], data[5], data[6], data[7]],
             function (error, results, fields) {
                 connection.release();
                 if (error) throw error;
