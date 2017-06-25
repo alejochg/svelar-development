@@ -5,6 +5,8 @@
     <link rel='stylesheet' href='/stylesheets/review.css' />
     <link rel='stylesheet' href='/stylesheets/footer.css' />
     <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+    <link rel='stylesheet' href='/stylesheets/stars.css' />
+
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
 </head>
@@ -27,16 +29,11 @@
             -->
         </div>
         <div id="review_prod" class="col-md-6">
-            <h2><b><%= stuff[0].name %> <!-- Product Name --> </b></h2>
+            <h2><b><%= stuff[0].name %> </b></h2>
             <p>Keywords:
                 <a href="/search/try?field=<%= stuff[0].field %>"><%= stuff[0].field %></a>,
                 <a href="/search/try?type=<%= stuff[0].type %>"><%= stuff[0].type %></a>,
                 <a href="/search/try?brand=<%= stuff[0].brand %>"><%= stuff[0].brand %></a>
-                <!--
-                <a href="xxxxx">Keyword 1</a>,
-                <a href="xxxxx">Keyword 2</a>,
-                <a href="xxxxx">Keyword 3</a>
-                -->
             </p>
         </div>
     </div>
@@ -53,13 +50,43 @@
             <div id="review_col" class="col-md-12">
                 <div class="row" id="sixth_one">
                     <div id="your_rating" class="col-md-12">
-                        <p> Select Your Rating (1/2 is Terrible; 5 is Awesome!) : </p>
-                        <%include templates/stars.ejs%>
+                        <p> Comfort (1/2 is Terrible; 5 is Awesome!) : </p>
+                        <fieldset class="rating_1">
+                            <input type="radio" id="star5" name="rating_1" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star4" name="rating_1" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="star3" name="rating_1" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="star2" name="rating_1" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="star1" name="rating_1" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row" id="sixth_one">
+                    <div id="your_rating" class="col-md-12">
+                        <p> Easiness (1/2 is Terrible; 5 is Awesome!) : </p>
+                        <fieldset class="rating_2">
+                            <input type="radio" id="star5" name="rating_2" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star4" name="rating_2" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="star3" name="rating_2" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="star2" name="rating_2" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="star1" name="rating_2" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row" id="sixth_one">
+                    <div id="your_rating" class="col-md-12">
+                        <p> Cost (1/2 is Terrible; 5 is Awesome!) : </p>
+                        <fieldset class="rating_3">
+                            <input type="radio" id="star5" name="rating_3" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                            <input type="radio" id="star4" name="rating_3" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                            <input type="radio" id="star3" name="rating_3" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                            <input type="radio" id="star2" name="rating_3" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <input type="radio" id="star1" name="rating_3" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                        </fieldset>
                     </div>
                 </div>
                 <div class="row" id="sixth_two">
                     <div id="review_input" class="col-md-12">
-                        <textarea rows="5"  type="text" name="review" placeholder="Write your review here..." required></textarea>
+                        <textarea rows="5"  type="text" name="comment" placeholder="Write your review here..." required></textarea>
                     </div>
                 </div>
             </div>
@@ -69,13 +96,11 @@
             <div id="review_bottom" class="col-md-12">
                 <div id="write_review_button" class="col-md-12">
                     <input type="hidden" name="item" value="<%= stuff[0].id %>" />
-                    <button type="submit" value="review_prod" id="write_review_button">
-                        Post
-                    </button>
+                    <button type="submit" value="review_prod" id="write_review_button">Post</button>
                     <%if(h) { %>
-                    <a href="/">Cancel</a>
+                        <a href="/">Cancel</a>
                     <% }else{ %>
-                    <a href="javascript:history.back()">Cancel</a>
+                        <a href="javascript:history.back()">Cancel</a>
                     <% } %>
                     <p>* All posts can be edited or deleted at anytime.</p>
                 </div>

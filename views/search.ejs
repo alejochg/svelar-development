@@ -151,13 +151,13 @@
                 <div id="button_block" class="col-md-4">
                     <div class="row" id="fourth_second_first">
                         <div id="likes_button" class="col-md-12">
-                            <a href="like.ejs">Like!</a>
-                            <a href="dislike.ejs">Dislike</a>
+                            <a href="/review/like?id=<%= stuff[i].id %>&like_status=1">Like!</a>
+                            <a href="/review/like?id=<%= stuff[i].id %>&like_status=0">Dislike</a>
                         </div>
                     </div>
                     <div class="row" id="fourth_second_second">
                         <div id="review_button" class="col-md-12">
-                            <a href="/review/<%= stuff[i].id %>"><span>☆</span> Review</a>
+                            <a href="/review/item/<%= stuff[i].id %>"><span>☆</span> Review</a>
                         </div>
                     </div>
                 </div>

@@ -124,5 +124,14 @@
     min-height: 200px;
     margin-bottom: 12px;
 }
+#user_review em{
+    color: #0096b2;
+    font-weight: bold;
+}
+#stars span{
+//color:rgb(241, 90, 34) ;
+    font-size: 20px;
+    color: rgb(241, 90, 34);
+}
 
 

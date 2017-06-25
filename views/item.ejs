@@ -58,7 +58,7 @@
             <div id="item_information" class="col-md-4">
                 <div class="row" id="button_block">
                     <div id="review_button" class="col-md-5">
-                        <a href="/review/<%= stuff[0].id %>"><span>☆</span> Review</a>
+                        <a href="/review/item/<%= stuff[0].id %>"><span>☆</span> Review</a>
                     </div>
                     <div id="like_button" class="col-md-3">
                         <a href="like.ejs">Like!</a>
@@ -119,24 +119,81 @@
             <div id="empty" class="col-md-2">
                 <!-- Emptuy space-->
             </div>
-            <div id="people_reviews" class="col-md-10">
-                <h1> Reviews </h1>
+            <div id="people_reviews" class="col-md-8">
+                <h3> Reviews </h3>
                 <% if (reviews_rows > 0) {%>
                 <% for(var i=0; i<=reviews_rows-1; i++) {%>
-                <p> <%= reviews[i].username %> </p>
-                <p id="date"> <%= reviews[i].date.toString().substring(3, 15) %> </p>
-                <p> <%= reviews[i].comment %> </p>
-                <p>
-                    Cost: <%= reviews[i].cost %>
+                <p id="user_review"> <em> <%= reviews[i].username %> </em>  | <%= reviews[i].date.toString().substring(3, 15) %> </p>
+                <p> "<%= reviews[i].comment %>" </p>
+                <p id="stars">
+                    Comfort:
+                    <% if(Math.round(reviews[i].rating_1)== 0){ %>
+                    <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_1)== 1){ %>
+                    <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_1)== 2){ %>
+                    <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_1)== 3){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_1)== 4){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_1)== 5){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                    <%}%>
                     <br>
-                    Comfort: <%= reviews[i].comfort %>
+                    Easyness:
+                    <% if(Math.round(reviews[i].rating_2)== 0){ %>
+                    <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_2)== 1){ %>
+                    <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_2)== 2){ %>
+                    <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_2)== 3){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_2)== 4){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_2)== 5){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                    <%}%>
                     <br>
-                    Ease of Use: <%= reviews[i].easy %>
+                    Cost:
+                    <% if(Math.round(reviews[i].rating_3)== 0){ %>
+                    <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_3)== 1){ %>
+                    <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_3)== 2){ %>
+                    <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_3)== 3){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_3)== 4){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                    <%}%>
+                    <% if(Math.round(reviews[i].rating_3)== 5){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                    <%}%>
+                </p>
                 </p>
                 <% }%>
                 <%}else {%>
                 <p>There is not reviews for this product yet.</p>
                 <%}%>
+            </div>
+            <div id="empty" class="col-md-2">
+                <!-- Emptuy space-->
             </div>
         </div>
     </div>

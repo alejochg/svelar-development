@@ -40,18 +40,21 @@
             <form action="/users/signup" method="post">
                 <div class="row" id="new_fillout_1">
                     <div id="name" class="col-md-12">
-                        <input type="text" name="firstname" placeholder="First Name" id="first_name" required>
+                        <input type="text" name="name" placeholder="First Name" id="first_name" required>
                         <input type="text" name="lastname" placeholder="Last Name" id="last_name" required>
                     </div>
                 </div>
+                <!--
                 <div class="row" id="new_fillout_2">
                     <div id="gender_select" class="col-md-12">
                         <input type="radio" name="gender" value="male" id="male_select"> Male
                         <input type="radio" name="gender" value="female" id="female_select"> Female
                     </div>
                 </div>
+                -->
                 <div class="row" id="new_fillout_3">
                     <div id="birthday" class="col-md-12">
+                        <!--
                         <label for="birthday">Birthday <span style="opacity: 0.4">(optional)</span> </label>
                         <select name="DOBMonth">
                             <option> - Month - </option>
@@ -178,6 +181,14 @@
                             <option value="1948">1948</option>
                             <option value="1947">1947</option>
                         </select>
+                        -->
+                        Birthday (optional): <input type="date" name="birthday">
+                    </div>
+
+                </div>
+                <div class="row" id="new_fillout_6">
+                    <div id="email" class="col-md-12">
+                        <input type="text" name="username" placeholder="Username" id="email_type" required>
                     </div>
                 </div>
                 <div class="row" id="new_fillout_4">

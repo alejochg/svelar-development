@@ -18,33 +18,41 @@ router.get('/login', function(req, res){
 });
 
 // Register new user
-router.post('/signup', function(req, res){
+router.post('/signup', function(req, res) {
     // validations:
     req.checkBody('email', 'Email address must be between 4-100 characters long, please try again.').len(4, 100);
     req.checkBody('password', 'Password must be between 8 characters long.').len(8, 100);
-    req.checkBody("password", "Password must include one lowercase character, one uppercase character, a number, and a special character.").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,}$/, "i");
+    //req.checkBody("password", "Password must include one lowercase character, one uppercase character, a number, and a special character.").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,}$/, "i");
     req.checkBody('passwordMatch', 'Passwords do not match, please try again.').equals(req.body.password);
 
     const errors = req.validationErrors(); // access the errors from validation
 
-    if(errors){ // if errors is found do the following
+    if (errors) { // if errors is found do the following
         var errorRows = errors.length;
         res.render('signup', {tittle: 'Registration', errors: errors, errorRows: errorRows}); // passing errors with render
-    }else{ // if passed validations: check if user already is taken
+    } else { // if passed validations: check if user already is taken
         var pool = db.pool; // get database access
         pool.getConnection(function (error, connection) {
-            connection.query('SELECT * FROM users WHERE email = ?',[req.body.email], function (error, user) {
-                connection.release();
+            connection.query('SELECT * FROM users WHERE email = ?', [req.body.email], function (error, user) {
+                //connection.release();
                 if (error) throw error;
-                if(user.length){ // If a user email has been taken do the following:
+                if (user.length) { // If a user email has been taken do the following:
                     req.flash('error_msg', 'The email is already taken.');
                     res.redirect('/users/signup');
-                }else{
-                    // Registering a new user
-                    var data = new Array(req.body.name, req.body.lastname, req.body.password, req.body.email, req.body.birthday);
-                    queries.registerUser(data); // register user
-                    req.flash('success_msg', 'You are registered and can now login'); // Flash a message
-                    res.redirect('/users/login');
+                } else {
+                    connection.query('SELECT * FROM users WHERE username = ?', [req.body.username], function (error, user) {
+                        connection.release();
+                        if (user.length) { // If a user username has been taken do the following:
+                            req.flash('error_msg', 'The username is already taken.');
+                            res.redirect('/users/signup');
+                        } else {
+                            // Registering a new user
+                            var data = new Array(req.body.name, req.body.lastname, req.body.password, req.body.username, req.body.email, req.body.birthday);
+                            queries.registerUser(data); // register user
+                            req.flash('success_msg', 'You are registered and can now login'); // Flash a message
+                            res.redirect('/users/login');
+                        }
+                    });
                 }
             });
         });
@@ -56,11 +64,11 @@ passport.use(new LocalStrategy(
     function(username, password, done) {
         var pool = db.pool; // get access to database
         pool.getConnection(function (error, connection) {
-            connection.query("SELECT * FROM users WHERE email = ?", [username], function (err, user) {
+            connection.query("SELECT * FROM users WHERE email = ? OR username = ?", [username, username], function (err, user) {
                 connection.release();
                 if (err) return done(err);
-                if (!user.length) { // if user email is not found do the following
-                    return done(null, false, { message: 'Email do not exist.' });
+                if (!user.length) { // if user email or username is not found do the following
+                    return done(null, false, { message: 'Email or username do not exist.' });
                 }
                 if (!bcrypt.compareSync(password, user[0].password)) { // compare passwords
                     return done(null, false, { message: 'Oops! Wrong password.' });
