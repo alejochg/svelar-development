@@ -45,10 +45,12 @@
     color: #0096b2 ;
     text-decoration: underline;
 }
+
 #prod_image_1 img{
     margin: auto;
     display: block;
     height: 200px;
+    max-width: 226px;
 }
 
 #prod_image_1 img.scaledUp{
@@ -98,7 +100,7 @@
      display: inline-block;
      text-decoration: none;
      margin-right: 10px;
-     width: 63%;
+     width: 92%;
      height: 23px;
      margin-top: 10px;
  }
@@ -111,14 +113,12 @@
     display: inline-block;
     text-decoration: none;
     margin-right: 10px;
-    width: 63%;
+    width: 92%;
     height: 23px;
     margin-top: 10px;
 }
-
 #ratings{
     padding-left: 30px;
-
 }
 #ratings p{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

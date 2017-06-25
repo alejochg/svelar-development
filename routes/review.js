@@ -29,7 +29,7 @@ router.post('/recommend', function(req, res, next) {
 
 
 // Post /review/id   This is when someone is trying to review an item
-router.get('/:id', function(req, res, next) {
+router.get('/item/:id', function(req, res, next) {
     var id = req.params.id;
     if(req.user!=undefined) { // check if user has been authenticated
         var pool = db.pool;
@@ -55,11 +55,32 @@ router.post('/', function(req, res, next) {
         var date;
         date = getDate();
         var data = new Array(req.body.rating_1, req.body.rating_2,req.body.rating_3,req.body.comment, req.body.item, date, req.user.id, req.user.username);
-        console.log(data);
         queries.addReview(data); // add the review to database
         req.flash('success_msg', 'Thank you for reviewing this item'); // Flash a message
         res.redirect('/item/'+ req.body.item);
     });
+});
+
+router.get('/like', function(req, res, next) {
+    var pool = db.pool;
+    pool.getConnection(function (error, connection) {
+        var date;
+        date = getDate();
+        var data = new Array(req.query.id, req.user.id, req.query.like_status,date)
+        console.log(data);
+        var pool = db.pool; // obtain database login attributes
+        pool.getConnection(function (error, connection) {
+            connection.query(
+                'INSERT INTO likes(id_stuff, id_user, like_status, date) VALUES(?,?,?,?)',
+                [data[0], data[1], data[2],data[3]],
+                function (error, results, fields) {
+                    connection.release();
+                    if (error) throw error;
+                }
+            )
+        });
+        res.redirect('/item/'+req.query.id);
+    })
 });
 
 function getDate(){

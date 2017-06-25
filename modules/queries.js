@@ -5,11 +5,12 @@ function registerUser(data) {
     var pool = db.pool; // obtain database login attributes
     pool.getConnection(function (error, connection) {
         connection.query( // perform query with encrypter password
-            'INSERT INTO users(name, lastname, password, email, birthday) VALUES(?, ?, ?, ?, ?)',
-            [data[0], data[1], bcrypt.hashSync(data[2], null, null), data[3], data[4]],
+            'INSERT INTO users(name, lastname, password, username, email, birthday) VALUES(?, ?, ?, ?, ?, ?)',
+            [data[0], data[1], bcrypt.hashSync(data[2], null, null), data[3], data[4], data[5]],
             function (error, results, fields) {
                 connection.release();
                 if (error) throw error;
+                console.log("registered user");
             }
         )
     });

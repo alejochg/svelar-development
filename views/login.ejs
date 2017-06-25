@@ -13,6 +13,7 @@
 <div class="container-fluid">
 
     <% include templates/secondaryheader.ejs%>
+    <% include templates/errormessages.ejs%>
 
 
     <div class="row" id="third">
@@ -44,7 +45,7 @@
                     <% } %>
                     <fieldset>
                         <h1>Log In to Svelar</h1>
-                        <input type="email" name="username" placeholder="Email" required>
+                        <input type="text" name="username" placeholder="Email or username" required>
                         <br>
                         <input type="password" name="password" placeholder="Password" required>
                         <br>
