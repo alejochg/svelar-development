@@ -6,12 +6,12 @@ h3 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Review 1 *****/
 
-.rating_1 {
+.rating_1 { /* This is to move starts to left */
     border: none;
     float: left;
 }
 
-.rating_1 > input { display: none; }
+.rating_1 > input { display: none; } /* This section makes them to look like stats */
 .rating_1 > label:before {
     margin: 5px;
     font-size: 32px;
@@ -20,12 +20,7 @@ h3 { font-size: 1.5em; margin: 10px; }
     content: "\f005";
 }
 
-.rating_1 > .half:before {
-    content: "\f089";
-    position: absolute;
-}
-
-.rating_1 > label {
+.rating_1 > label { /* This make the stars to flip */
     color: #ddd;
     float: right;
 }
@@ -41,4 +36,3 @@ h3 { font-size: 1.5em; margin: 10px; }
 .rating_1 > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating_1 > input:checked ~ label:hover ~ label { color: rgb(241, 90, 34);  }
 
-/****** Style Star Review 2 *****/
