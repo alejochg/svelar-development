@@ -24,7 +24,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM items WHERE field=? AND Match(description) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.field, req.query.find, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                connection.query('SELECT * FROM items WHERE field=? AND Match(description) Against("?") ORDER BY premium DESC, svelar ASC LIMIT ?, ?', [req.query.field, req.query.find, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -50,7 +50,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM items WHERE field=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.field, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                connection.query('SELECT * FROM items WHERE field=? ORDER BY premium DESC, svelar ASC LIMIT ?, ?', [req.query.field, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -75,7 +75,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM stuff WHERE type=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.type, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                connection.query('SELECT * FROM stuff WHERE type=? ORDER BY premium DESC, svelar ASC LIMIT ?, ?', [req.query.type, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -100,7 +100,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM stuff WHERE brand=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?',[req.query.brand, req.query.page*10-10,req.query.page*10] , function (error, results, fields) {
+                connection.query('SELECT * FROM stuff WHERE brand=? ORDER BY premium DESC, svelar ASC LIMIT ?, ?',[req.query.brand, req.query.page*10-10,req.query.page*10] , function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -125,7 +125,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM stuff ORDER  BY premium DESC, svelar DESC DESC LIMIT 10 ', function (error, results, fields) {
+                connection.query('SELECT * FROM stuff ORDER  BY premium DESC, svelar ASC  LIMIT 10 ', function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
