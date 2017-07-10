@@ -203,8 +203,12 @@
                         var para = document.createElement('a');
                         var node = document.createTextNode(i.toString());
                         para.appendChild(node);
-                        para.href = str;
-                        para.id = 'pages';
+                        if(<%= page %> != i){
+                            para.href = str;
+                            para.id = 'pages';
+                        }else {
+                            para.id = 'pages_selected';
+                        }
                         var element = document.getElementById('pages_links');
                         element.appendChild(para);
                     }
