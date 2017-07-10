@@ -183,4 +183,11 @@
     font-size: 18px;
     margin-right: 10px;
 }
-
+#pages_selected{
+    font-size: 18px;
+    margin-right: 10px;
+    color: black;
+    text-decoration: none;
+    border-bottom: solid ;
+    border-bottom-color: rgb(241, 90, 34);
+}

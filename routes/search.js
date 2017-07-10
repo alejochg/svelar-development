@@ -139,8 +139,6 @@ router.get('/try', function (req,res) {
             consoler.err(err);
             return;
         }
-        console.log(result.obtainCount);
-        console.log(req.originalUrl);
         res.render('search', {stuff: result.obtainSearch, rows: result.obtainSearch.length, count: result.obtainCount, mysearch: req.query.find, condition: req.query.field, page:req.query.page})
     })
 });
