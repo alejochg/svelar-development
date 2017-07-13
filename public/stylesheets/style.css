@@ -183,3 +183,19 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#categories_section {
+  border-bottom: solid gray 1px;
+  text-align: center;
+  padding: 50px;
+}
+#categories_section ul{
+  list-style-type: none;
+  margin: auto;
+}
+#categories_section li{
+  display: inline-block;
+  padding: 40px;
+  color: #f15a22;
+  font-size: 16pt;
+}

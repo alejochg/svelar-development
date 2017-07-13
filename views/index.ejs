@@ -16,7 +16,6 @@
 
         <% include templates/errormessages.ejs%>
 
-
         <!-- Sign up botton section -->
 
         <div class="row" id="third">
@@ -24,6 +23,26 @@
                 <% if(!user){%>
                 <a href="/users/signup">Sign up now (it's free!)</a>
                 <% } %>
+            </div>
+        </div>
+
+        <!-- Categories section -->
+        <div class="row" id="categories_section">
+            <div class="col-md-12">
+                <ul id="category_list">
+                    <li>Category1</li>
+                    <li>Category2</li>
+                    <li>Category3</li>
+                    <li>Category4</li>
+                    <li>Category5</li>
+                </ul>
+                <script>
+                    var el = document.createElement('li');
+                    var elText = document.createTextNode('Category6');
+                    el.appendChild(elText);
+                    var position = document.getElementById('category_list');
+                    position.appendChild(el);
+                </script>
             </div>
         </div>
 
