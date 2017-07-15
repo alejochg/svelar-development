@@ -45,12 +45,12 @@ router.get('/try', function (req,res) {
         };
     }
 
-    // Just looking for field
-    if(typeof req.query.find === 'undefined' && req.query.field && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
+    // Just looking for category
+    if(typeof req.query.find === 'undefined' && req.query.field && req.query.category &&typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM items WHERE field=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.field, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                connection.query('SELECT * FROM items WHERE category=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.category, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -61,7 +61,7 @@ router.get('/try', function (req,res) {
             var pool = db.pool;
             var id = req.params.id;
             pool.getConnection(function(err,connection){
-                connection.query('SELECT COUNT(id) AS count FROM items WHERE field=?', [req.query.field] ,function (error, results, fields){
+                connection.query('SELECT COUNT(id) AS count FROM items WHERE category=?', [req.query.category] ,function (error, results, fields){
                     connection.release();
                     if (error) throw error;
                     callback(error, results);

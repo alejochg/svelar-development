@@ -1,0 +1,47 @@
+<div class="col-md-12">
+    <p>Find things by category</p>
+    <ul id="category_list">
+        <!-- li items are here from dynamic script-->
+    </ul>
+</div>
+
+<script>
+    var position = document.getElementById('category_list');
+    <% var numberCategories =  categories.categories.length; %>
+
+    <% for (var i =0; i< numberCategories ; i++){ %>
+        var el = document.createElement('li');
+        var ela = document.createElement('a');
+        ela.href = "/search/try?field=diabetes&category=<%= categories.categories[i] %>&page=1";
+        var elText = document.createTextNode('<%= categories.categories[i] %>');
+        ela.appendChild(elText);
+        el.appendChild(ela);
+        position.appendChild(el);
+    <%}%>
+</script>
+
+<style>
+    #categories_section {
+        border-bottom: solid gray 1px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding: 50px;
+    }
+    #categories_section p{
+        color: #f15a22;
+        font-size: 18pt;
+        margin-bottom: 50px;
+    }
+    #categories_section ul{
+        list-style-type: none;
+    }
+    #categories_section li{
+        display: inline;
+    }
+    #categories_section a{
+        color: #0096b2;
+        font-size: 14pt;
+        margin-right: 50px;
+    }
+</style>

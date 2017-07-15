@@ -1,12 +1,87 @@
-<div class=“search”>
-    <form action="/search" method='post' enctype="multipart/form-data">
-        <fieldset id="search_bar">
-                <input  type="text" name='mySearch' autocomplete="off" placeholder="Search for devices, books, apps, etc." />
-                |
-                <select name='condition'>
-                    <option value='diabetes'>Diabetes</option>
-                </select>
-                <input type='submit' value="" />
-        </fieldset>
-    </form>
-</div>
+<form action="/search" method='post' enctype="multipart/form-data">
+    <fieldset id="search_bar">
+            <input  type="text" name='mySearch' autocomplete="off" placeholder="Search for devices, books, apps, etc." />
+            |
+            <select name='condition'>
+                <option value='diabetes'>Diabetes</option>
+            </select>
+            <input type='submit' value="" />
+    </fieldset>
+</form>
+
+<style>
+    .“search_bar_norm” #search_bar{
+        text-align: right;
+        background-color: white;
+        width: 680px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 18pt;
+        margin-top: 23px;
+    }
+    .“search_bar_norm” #search_bar input[type="text"], .“search_bar_norm” #search_bar input[type="text"]:focus {
+        width: 380px;
+        height: 34px;
+        font-size: 16pt;
+        border-color: transparent;
+        outline: none;
+        border-radius: 10px;
+
+    }
+    .“search_bar_norm” #search_bar select, .“search_bar_norm” #search_bar select:focus {
+        font-size: 16pt;
+        width: 200px;
+        height: 34px;
+        border-color: transparent;
+        outline: none;
+    }
+    .“search_bar_norm” #search_bar input[type="submit"]{
+        width: 65px;
+        background-image: url("http://localhost:3000/images/style/search_icon.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 110%;
+        height: 40px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-bottom: 15px;
+        border: none;
+    }
+    .“search_bar_home” #search_bar{
+        text-align: right;
+        background-color: white;
+        width: 680px;
+        height: 50px;
+        margin-left: 350px;
+        border-radius: 10px;
+        font-size: 18pt;
+    }
+    .“search_bar_home” #search_bar input[type="text"],.“search_bar_home” #search_bar input[type="text"]:focus {
+        width: 380px;
+        height: 46px;
+        font-size: 16pt;
+        border-color: transparent;
+        outline: none;
+        border-radius: 10px;
+
+    }
+    .“search_bar_home” #search_bar select, .“search_bar_home” #search_bar select:focus {
+        font-size: 16pt;
+        width: 200px;
+        height: 46px;
+        border-color: transparent;
+        outline: none;
+    }
+    .“search_bar_home” #search_bar input[type="submit"]{
+        width: 65px;
+        background-image: url("http://localhost:3000/images/style/search_icon.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 110%;
+        height: 50px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-bottom: 18px;
+        border: none;
+    }
+</style>
