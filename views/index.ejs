@@ -1,79 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= title %></title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <% include templates/meta.ejs%>
     <% include templates/bootstrap.ejs%>
 </head>
 <body>
     <% include templates/navigation.ejs%>
-
     <div class="container-fluid">
-
-        <% include templates/homeheader.ejs%>
-
+        <!-- Header -->
+        <div class="row" id="home_header">
+            <% include index/home_header.ejs%>
+        </div>
+        <!-- Cover with search bar-->
+        <div class="row" id="home_cover">
+            <% include index/home_cover.ejs%>
+        </div>
         <% include templates/errormessages.ejs%>
-
-
-        <!-- Sign up botton section -->
-
-        <div class="row" id="third">
-            <div id="free" class="col-md-12">
-                <% if(!user){%>
-                <a href="/users/signup">Sign up now (it's free!)</a>
-                <% } %>
-            </div>
+        <!-- Sign up button section -->
+        <div class="row" id="sign_up_button">
+            <% include index/sign_up_button.ejs%>
         </div>
-
+        <!-- Categories section -->
+        <div class="row" id="categories_section">
+            <% include index/categories_section.ejs %>
+        </div>
         <!--Value Proposition-->
-
-        <div class="row" id="fourth">
-            <div class="row" id="third_2">
-                <div id="cust_quest" class="col-md-12">
-                    <p>Do you wish it would be easier to find medical products or services?</p>
-
-                </div>
-            </div>
-            <div class="row" id="third_3">
-                <div id="cust_ans" class="col-md-12">
-                    <p>We give you a single platform to find everything you need.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div id="value_prop" class="col-md-4">
-                    <p>
-                        <img src="/images/style/easy_access_icon.png" />
-                    <h4>Easy Access</h4>
-                    Discover things that will make your life easier.
-                    </p>
-                </div>
-                <div id="value_prop" class="col-md-4">
-                    <p>
-                        <img src="/images/style/reliable_icon.png" />
-                    <h4>Reliable Information</h4>
-                    Products that are verified by biomedical experts.
-                    </p>
-                </div>
-                <div id="value_prop" class="col-md-4">
-                    <p>
-                        <img src="/images/style/review_icon.png" />
-                    <h4>Share Your Opinion</h4>
-                    We want to hear what you have to say.
-                    </p>
-                </div>
-            </div>
+        <div class="row" id="value_proposition">
+            <% include index/value_proposition %>
         </div>
-
-    <!-- Foteer picture -->
-        <div class="row" id="fifth">
-            <div id="login_foot_pic" class="col-md-12">
-            </div>
+        <!-- Footer cover-->
+        <div class="row" id="home_footer">
+            <% include index/home_footer.ejs%>
         </div>
-
-    <% include templates/footerbar.ejs %>
-
+        <% include templates/footerbar.ejs %>
     </div>
   </body>
 </html>

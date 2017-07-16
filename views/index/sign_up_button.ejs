@@ -1,0 +1,31 @@
+<div class="col-md-12">
+    <% if(!user){%>
+    <a href="/users/signup">Sign up now (it's free!)</a>
+    <% } %>
+</div>
+
+<style>
+    #sign_up_button{
+        border-bottom: solid 1px;
+        border-bottom-color: gray;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    #sign_up_button a:link, #sign_up_button a:visited{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: white;
+        background-color: #f15a22;
+        padding: 0.7%;
+        border: solid black 0.5px;
+        border-radius: 8%;
+        text-decoration: none;
+    }
+    #sign_up_button a:hover, #sign_up_button a:active{
+        background-color: #f44336;
+        color: white;
+    }
+</style>
+

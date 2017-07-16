@@ -1,0 +1,32 @@
+<div id="comp_name" class="col-md-12">
+    <p class="logo">Svelar</p>
+    <p class="motto"> Discover. Feel Better.</p>
+    <div class=“search_bar_home”>
+        <%include ../templates/searchbar.ejs %>
+    </div>
+</div>
+
+<style>
+    #home_cover{
+        background-image: url("http://localhost:3000/images/style/home_header_background.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom:3%;
+    }
+    #home_cover .logo{
+        font-family: Papyrus, fantasy;
+        font-size: 72px;
+        text-align: center;
+        padding-top:1%;
+    }
+    #home_cover .motto{
+        background-color: rgba(69, 194, 201, 0.6);
+        text-align: center;
+        margin-bottom: 3%;
+        font-family: Papyrus;
+        color:white;
+        font-size: 32px;
+        font-weight: 900;
+    }
+</style>

@@ -1,12 +1,122 @@
-<div class=“search”>
-    <form action="/search" method='post' enctype="multipart/form-data">
-        <fieldset id="search_bar">
-                <input  type="text" name='mySearch' autocomplete="off" placeholder="Search for devices, books, apps, etc." />
-                |
-                <select name='condition'>
-                    <option value='diabetes'>Diabetes</option>
-                </select>
-                <input type='submit' value="" />
-        </fieldset>
-    </form>
-</div>
+<form action="/search" method='post' enctype="multipart/form-data">
+    <fieldset id="search_bar">
+            <input  type="text" name='mySearch' autocomplete="off" placeholder="Search for devices, books, apps, etc." />
+            |
+            <select name='category' id="different_categories">
+                <option value='Any'>Any</option>
+            </select>
+            <input type='submit' value="" />
+    </fieldset>
+</form>
+
+<script>
+    var categories = ["Food", "Education", "Self Management", "Physical Activity", "Service", "Miscellaneous", "Drugs", "Apparel"];
+    var position = document.getElementById('different_categories')
+    var numberCategories =  categories.length;
+
+    for (var i =0; i< numberCategories ; i++){
+    var el = document.createElement('option');
+    var elText = document.createTextNode(categories[i]);
+    el.appendChild(elText);
+    el.value= categories[i];
+    position.appendChild(el);
+
+    }
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    function selectCategory() {
+        var cat =getParameterByName('category');
+        for (var i =0; i< numberCategories ; i++) {
+            if (cat == categories[i]) {
+                document.getElementById("different_categories").selectedIndex = i+1;
+            }
+        }
+    }
+    selectCategory();
+</script>
+
+<style>
+    .“search_bar_norm” #search_bar{
+        text-align: right;
+        background-color: white;
+        width: 680px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 18pt;
+        margin-top: 23px;
+    }
+    .“search_bar_norm” #search_bar input[type="text"], .“search_bar_norm” #search_bar input[type="text"]:focus {
+        width: 380px;
+        height: 34px;
+        font-size: 16pt;
+        border-color: transparent;
+        outline: none;
+        border-radius: 10px;
+
+    }
+    .“search_bar_norm” #search_bar select, .“search_bar_norm” #search_bar select:focus {
+        font-size: 16pt;
+        width: 200px;
+        height: 34px;
+        border-color: transparent;
+        outline: none;
+    }
+    .“search_bar_norm” #search_bar input[type="submit"]{
+        width: 65px;
+        background-image: url("http://localhost:3000/images/style/search_icon.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 110%;
+        height: 40px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-bottom: 15px;
+        border: none;
+    }
+    .“search_bar_home” #search_bar{
+        text-align: right;
+        background-color: white;
+        width: 680px;
+        height: 50px;
+        margin-left: 350px;
+        border-radius: 10px;
+        font-size: 18pt;
+    }
+    .“search_bar_home” #search_bar input[type="text"],.“search_bar_home” #search_bar input[type="text"]:focus {
+        width: 380px;
+        height: 46px;
+        font-size: 16pt;
+        border-color: transparent;
+        outline: none;
+        border-radius: 10px;
+
+    }
+    .“search_bar_home” #search_bar select, .“search_bar_home” #search_bar select:focus {
+        font-size: 16pt;
+        width: 200px;
+        height: 46px;
+        border-color: transparent;
+        outline: none;
+    }
+    .“search_bar_home” #search_bar input[type="submit"]{
+        width: 65px;
+        background-image: url("http://localhost:3000/images/style/search_icon.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 110%;
+        height: 50px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-bottom: 18px;
+        border: none;
+    }
+</style>
