@@ -2,12 +2,47 @@
     <fieldset id="search_bar">
             <input  type="text" name='mySearch' autocomplete="off" placeholder="Search for devices, books, apps, etc." />
             |
-            <select name='condition'>
-                <option value='diabetes'>Diabetes</option>
+            <select name='category' id="different_categories">
+                <option value='Any'>Any</option>
             </select>
             <input type='submit' value="" />
     </fieldset>
 </form>
+
+<script>
+    var categories = ["Food", "Education", "Self Management", "Physical Activity", "Service", "Miscellaneous", "Drugs", "Apparel"];
+    var position = document.getElementById('different_categories')
+    var numberCategories =  categories.length;
+
+    for (var i =0; i< numberCategories ; i++){
+    var el = document.createElement('option');
+    var elText = document.createTextNode(categories[i]);
+    el.appendChild(elText);
+    el.value= categories[i];
+    position.appendChild(el);
+
+    }
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    function selectCategory() {
+        var cat =getParameterByName('category');
+        for (var i =0; i< numberCategories ; i++) {
+            if (cat == categories[i]) {
+                document.getElementById("different_categories").selectedIndex = i+1;
+            }
+        }
+    }
+    selectCategory();
+</script>
 
 <style>
     .“search_bar_norm” #search_bar{

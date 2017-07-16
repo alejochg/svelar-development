@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     var categories = {
       "categories": ["Food", "Education", "Self Management", "Physical Activity", "Service", "Miscellaneous", "Drugs", "Apparel"]
     };
-    res.render('index', { title: 'Svelar', errors: undefined, categories:categories});
+    res.render('index', {title: 'Svelar', errors: undefined, categories:categories, qs:req.query});
 });
 
 

@@ -11,24 +11,28 @@ router.get('/', function (req,res) {
     res.render('search', {title: "Svelar list"});
 });
 
-/*
-router.get('/try', queries.search2());
-*/
-
 router.get('/try', function (req,res) {
     var stack = {};
 
-    // Find with specific search
-    if(req.query.find && req.query.field && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
+    // Find with specific search and category defined
+    if(req.query.find && req.query.category && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
 
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM items WHERE field=? AND Match(description) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.field, req.query.find, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
-                    connection.release();
-                    if (error) throw error;
-                    callback(error, results); // results are added in callback
-                });
+                if(req.query.category == "Any"){
+                    connection.query('SELECT * FROM items WHERE Match(description) Against("?") OR  MATCH(name) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.find, req.query.find, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results); // results are added in callback
+                    });
+                }else{
+                    connection.query('SELECT * FROM items WHERE category=? AND Match(description) Against("?") OR category=? AND MATCH(name) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?,?', [req.query.category, req.query.find,req.query.category, req.query.find,req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results); // results are added in callback
+                    });
+                }
             });
         };
 
@@ -36,11 +40,19 @@ router.get('/try', function (req,res) {
             var pool = db.pool;
             var id = req.params.id;
             pool.getConnection(function(err,connection){
-                connection.query('SELECT COUNT(id) AS count FROM items WHERE field=? AND Match(description) Against("?")', [req.query.field, req.query.find] ,function (error, results, fields){
-                    connection.release();
-                    if (error) throw error;
-                    callback(error, results);
-                });
+                if(req.query.category == "Any"){
+                    connection.query('SELECT COUNT(id) AS count FROM items WHERE Match(description) Against("?") OR MATCH(name) Against("?")', [req.query.find, req.query.find] ,function (error, results, fields){
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results);
+                    });
+                }else{
+                    connection.query('SELECT COUNT(id) AS count FROM items WHERE category=? AND Match(description) Against("?") OR category=? AND MATCH(name) Against("?")', [req.query.category, req.query.find, req.query.category, req.query.find] ,function (error, results, fields){
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results);
+                    });
+                }
             });
         };
     }
@@ -121,14 +133,25 @@ router.get('/try', function (req,res) {
     }
 
     // Not criteria specified by still looking
-    if(typeof req.query.find === 'undefined' && typeof req.query.field === 'undefined' && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
+    if(typeof req.query.find === 'undefined' && req.query.category && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM stuff ORDER  BY premium DESC, svelar DESC  LIMIT 10 ', function (error, results, fields) {
+                connection.query('SELECT * FROM stuff WHERE category=? ORDER  BY premium DESC, svelar DESC  LIMIT 10 ', req.query.category,function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
+                });
+            });
+        };
+        stack.obtainCount = function (callback) {
+            var pool = db.pool;
+            var id = req.params.id;
+            pool.getConnection(function(err,connection){
+                connection.query('SELECT COUNT(id) AS count FROM items WHERE category=?', [req.query.category] ,function (error, results, fields){
+                    connection.release();
+                    if (error) throw error;
+                    callback(error, results);
                 });
             });
         };
@@ -139,16 +162,16 @@ router.get('/try', function (req,res) {
             consoler.err(err);
             return;
         }
-        res.render('search', {stuff: result.obtainSearch, rows: result.obtainSearch.length, count: result.obtainCount, mysearch: req.query.find, condition: req.query.field, page:req.query.page})
+        res.render('search', {stuff: result.obtainSearch, rows: result.obtainSearch.length, count: result.obtainCount, mysearch: req.query.find, condition: req.query.field, page:req.query.page, qs:req.query})
     })
 });
 
 // POST /search
 router.post('/', upload.none(), function (req,res) {
     if(req.body.mySearch){
-        res.redirect('/search/try?find=' + req.body.mySearch + '&field=' + req.body.condition + '&page=1');
+        res.redirect('/search/try?find=' + req.body.mySearch + '&field=diabetes&category=' + req.body.category + '&page=1');
     }else{
-        res.redirect('/search/try?field=' + req.body.condition + '&page=1');
+        res.redirect('/search/try?field=diabetes&category=' + req.body.category + '&page=1');
     }
 });
 
