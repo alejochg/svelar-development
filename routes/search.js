@@ -136,24 +136,44 @@ router.get('/try', function (req,res) {
     if(typeof req.query.find === 'undefined' && req.query.category && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
-            pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM stuff WHERE category=? ORDER  BY premium DESC, svelar DESC  LIMIT 10 ', req.query.category,function (error, results, fields) {
-                    connection.release();
-                    if (error) throw error;
-                    callback(error, results); // results are added in callback
+            if(req.query.category == "Any"){
+                pool.getConnection(function (err, connection) {
+                    connection.query('SELECT * FROM items ORDER BY premium DESC, svelar DESC  LIMIT 10 ', function (error, results, fields) {
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results); // results are added in callback
+                    });
                 });
-            });
+            }else{
+                pool.getConnection(function (err, connection) {
+                    connection.query('SELECT * FROM items WHERE category=? ORDER  BY premium DESC, svelar DESC  LIMIT 10 ', req.query.category, function (error, results, fields) {
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results); // results are added in callback
+                    });
+                });
+            }
         };
         stack.obtainCount = function (callback) {
             var pool = db.pool;
             var id = req.params.id;
-            pool.getConnection(function(err,connection){
-                connection.query('SELECT COUNT(id) AS count FROM items WHERE category=?', [req.query.category] ,function (error, results, fields){
-                    connection.release();
-                    if (error) throw error;
-                    callback(error, results);
+            if(req.query.category == "Any"){
+                pool.getConnection(function(err,connection){
+                    connection.query('SELECT COUNT(id) AS count FROM items', function (error, results, fields){
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results);
+                    });
                 });
-            });
+            }else{
+                pool.getConnection(function(err,connection){
+                    connection.query('SELECT COUNT(id) AS count FROM items WHERE category=?', [req.query.category] ,function (error, results, fields){
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, results);
+                    });
+                });
+            }
         };
     }
 

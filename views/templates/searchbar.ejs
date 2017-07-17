@@ -10,7 +10,7 @@
 </form>
 
 <script>
-    var categories = ["Food", "Education", "Self Management", "Physical Activity", "Service", "Miscellaneous", "Drugs", "Apparel"];
+    var categories = ["Food", "Education", "Self Management", "Physical Activity", "Service", "Drugs", "Apparel"];
     var position = document.getElementById('different_categories')
     var numberCategories =  categories.length;
 
@@ -20,7 +20,6 @@
     el.appendChild(elText);
     el.value= categories[i];
     position.appendChild(el);
-
     }
 
     function getParameterByName(name, url) {
@@ -87,9 +86,10 @@
         background-color: white;
         width: 680px;
         height: 50px;
-        margin-left: 350px;
         border-radius: 10px;
         font-size: 18pt;
+        margin-left: auto;
+        margin-right: auto;
     }
     .“search_bar_home” #search_bar input[type="text"],.“search_bar_home” #search_bar input[type="text"]:focus {
         width: 380px;

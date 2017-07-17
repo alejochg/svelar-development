@@ -1,0 +1,26 @@
+<div id="search_word" class="col-md-10">
+    <h4><b>My search:</b> <%= mysearch %> in <%= condition %></h4>
+</div>
+<div id="showing" class="col-md-2">
+    <p style="float: right">Showing
+        <% if(count[0].count > 10) {%>
+        <%if (page >= count[0].count/10){%>
+        <%= page*10-9 %>-<%= count[0].count %>
+        <%}else{%>
+        <%= page*10-9 %>-<%= page*10 %>
+        <%}%>
+        <%}else{%>
+        1-<%= count[0].count%>
+        <%}%>
+        of <%= count[0].count%></p>    <!-- This need a dynamic code -->
+</div>
+
+<style>
+    #search_description{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #ffeeb9;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+</style>
