@@ -6,6 +6,9 @@ var queries = require('../modules/queries');
 var db = require('../db');
 var async = require('async'); // this module is used to run function asyn parallel at the same time
 var querystring = require('querystring');
+var usersActivity = require('../mongodb');
+var mongoose = require('mongoose');
+
 
 router.get('/', function (req,res) {
     res.render('search', {title: "Svelar list"});
@@ -13,6 +16,15 @@ router.get('/', function (req,res) {
 
 router.get('/try', function (req,res) {
     var stack = {};
+
+    if(req.user){
+        stack.obtainUserLikes = function (callback) {
+            usersActivity.findOne({user_id: req.user.id}, function (err, data) {
+                if (err) throw err;
+                callback(err, data.likes);
+            });
+        }
+    }
 
     // Find with specific search and category defined
     if(req.query.find && req.query.category && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
@@ -182,7 +194,7 @@ router.get('/try', function (req,res) {
             consoler.err(err);
             return;
         }
-        res.render('search', {stuff: result.obtainSearch, rows: result.obtainSearch.length, count: result.obtainCount, mysearch: req.query.find, condition: req.query.field, page:req.query.page, qs:req.query})
+        res.render('search', {stuff: result.obtainSearch, rows: result.obtainSearch.length, count: result.obtainCount, userLiked: result.obtainUserLikes,mysearch: req.query.find, condition: req.query.field, page:req.query.page, qs:req.query})
     })
 });
 

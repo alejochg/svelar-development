@@ -5,6 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/login.css' />
     <link rel='stylesheet' href='/stylesheets/footer.css' />
     <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
 </head>
@@ -51,6 +52,7 @@
                         <input type="submit" value="Login"></input>
                         <br>
                         <p>New to Svelar? <a href="/users/signup">Sign up</a></p>
+                        <input type="hidden" value="<%=h%>" name="h">
                     </fieldset>
                 </form>
         </div>

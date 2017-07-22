@@ -51,7 +51,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
-#likes_button a, #likes_button a:visited{
+.like_undefined, .like_undefined:visited{
     background-color: rgb(241, 90, 34);
     color: white;
     text-align: center;
@@ -64,7 +64,7 @@
     height: 23px;
     margin-top: 10px;
 }
-#likes_button a:hover, #likes_button a:active{
+ .like_undefined:hover, .like_undefined:active{
     background-color: red;
     color: white;
     text-align: center;
@@ -76,7 +76,92 @@
     width: 100px;
     height: 23px;
     margin-top: 10px;
+    cursor: pointer;
 }
+.item_liked, item_liked:visited{
+    background-color: #0096b2;
+    color: white;
+    text-align: center;
+    border: solid #0096b2 1px;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 10px;
+    width: 100px;
+    height: 23px;
+    margin-top: 10px;
+}
+.item_liked:hover, .item_liked:active{
+    background-color: #0096b2;
+    color: white;
+    text-align: center;
+    border: solid #0096b2 1px;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 10px;
+    width: 100px;
+    height: 23px;
+    margin-top: 10px;
+    cursor: text;
+}
+.like_deactivate, like_deactivate:visited{
+    background-color: darkgray;
+    color: white;
+    text-align: center;
+    border: solid #0096b2 1px;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 10px;
+    width: 100px;
+    height: 23px;
+    margin-top: 10px;
+}
+.like_deactivate:hover, .like_deactivate:active{
+    background-color: darkgray;
+    color: white;
+    text-align: center;
+    border: solid #0096b2 1px;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 10px;
+    width: 100px;
+    height: 23px;
+    margin-top: 10px;
+    cursor: text;
+}
+.item_disliked, like_deactivate:visited{
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    border: solid #0096b2 1px;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 10px;
+    width: 100px;
+    height: 23px;
+    margin-top: 10px;
+}
+.item_disliked:hover, .like_deactivate:active{
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    border: solid #0096b2 1px;
+    border-radius: 5%;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 10px;
+    width: 100px;
+    height: 23px;
+    margin-top: 10px;
+    cursor: text;
+}
+
+
+
 #review_button{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;

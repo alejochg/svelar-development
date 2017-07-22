@@ -109,8 +109,65 @@
         <div id="button_block" class="col-md-4">
             <div class="row" id="fourth_second_first">
                 <div id="likes_button" class="col-md-12">
-                    <a href="/review/like?id=<%= stuff[i].id %>&like_status=1">Like!</a>
-                    <a href="/review/like?id=<%= stuff[i].id %>&like_status=0">Dislike</a>
+                    <% if(!user){%>
+                        <a class="like_undefined" id="hrefBack">Like!</a>
+                        <a class="like_undefined" id="hrefBack">Dislike</a>
+                        <script>
+                            var ela = document.getElementById('hrefBack');
+                            ela.href = "/users/login?h=" + window.location.pathname + window.location.search;
+                        </script>
+                    <% }else{ %>
+                        <a  class="like_undefined" id="liked_<%= stuff[i].id %>" onclick="likeUpdate(<%= stuff[i].id %>)">Like!</a>
+                        <a class="like_undefined" id="disliked_<%= stuff[i].id %>" onclick="dislikeUpdate(<%= stuff[i].id %>)">Dislike</a>
+                        <script>
+                            function likeUpdate(item_id) {
+                                var likes = {
+                                    "id_item": item_id,
+                                    "like_status":"like"
+                                }
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/mongoDB/like",
+                                    data: likes,
+                                    success: function () {
+                                        console.log('Success AJAX');
+                                    },
+                                    error: function handleError(jqXHR, textStatus, error) {
+                                        console.log(error);
+                                    }
+                                });
+                                var ela_like = document.getElementById('liked_'+ item_id);
+                                ela_like.className = "item_liked";
+                                ela_like.onclick = null;
+                                var ela_dislike = document.getElementById('disliked_'+ item_id);
+                                ela_dislike.className = "like_deactivate"
+                                ela_dislike.onclick = null;
+                            }
+                            function dislikeUpdate(item_id) {
+                                var likes = {
+                                    "id_item": item_id,
+                                    "like_status":"dislike"
+                                }
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/mongoDB/dislike",
+                                    data: likes,
+                                    success: function () {
+                                        console.log('Success AJAX');
+                                    },
+                                    error: function handleError(jqXHR, textStatus, error) {
+                                        console.log(error);
+                                    }
+                                });
+                                var ela_like = document.getElementById('liked_'+ item_id);
+                                ela_like.className = "like_deactivate";
+                                ela_like.onclick = null;
+                                var ela_dislike = document.getElementById('disliked_'+ item_id);
+                                ela_dislike.className = "item_disliked";
+                                ela_dislike.onclick = null;
+                            }
+                        </script>
+                    <% } %>
                 </div>
             </div>
             <div class="row" id="fourth_second_second">

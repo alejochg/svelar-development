@@ -116,7 +116,7 @@ router.post('/login',
     passport.authenticate('local', {failureRedirect:'/users/login', failureFlash: true}),
     function(req, res) {
         if(req.query.h){
-            res.redirect(req.query.h+"?h=users/login"); // redirect from coming page
+            res.redirect('/'); // redirect from coming page
         }else{
             res.redirect('/'); // redirected to home
         }
