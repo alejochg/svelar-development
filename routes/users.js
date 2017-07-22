@@ -4,6 +4,8 @@ var passport = require('passport');//!! Need to install
 var LocalStrategy = require('passport-local').Strategy;//!!!
 var bcrypt = require('bcrypt-nodejs');//!!!! this encrypt the password so it cannot get hack
 
+var usersActivity = require('../mongodb');
+
 var db = require('../db');
 var queries = require('../modules/queries');
 
@@ -48,7 +50,21 @@ router.post('/signup', function(req, res) {
                         } else {
                             // Registering a new user
                             var data = new Array(req.body.name, req.body.lastname, req.body.password, req.body.username, req.body.email, req.body.birthday);
-                            queries.registerUser(data); // register user
+                            queries.registerUser(data);
+                            pool.getConnection(function (error, connection) { // Get back new register user data to add it to mongoDB
+                                connection.query('SELECT * FROM users WHERE username = ?', [req.body.username], function (error, user) {
+                                    connection.release();
+                                    if (error) throw error;
+                                    console.log('Success user:', user);
+                                    console.log('User id: ', user[0].id)
+                                    // add mongodb here
+                                    var newUser = new usersActivity ({
+                                        user_id: user[0].id
+                                    });
+                                    newUser.save();
+                                    console.log('User added to mongoDB');
+                                });
+                            });
                             req.flash('success_msg', 'You are registered and can now login'); // Flash a message
                             res.redirect('/users/login');
                         }
