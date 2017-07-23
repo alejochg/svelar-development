@@ -1,0 +1,46 @@
+<div id="space_1" class="col-md-2">
+    <!-- Done to create space -->
+</div>
+<!-- This is list column-->
+<!-- Item image -->
+<div id="prod_image_1" class="col-md-3">
+    <a href="../item/<%= stuff[i].id %>">
+        <img src="<%= stuff[i].image_1 %>">
+    </a>
+</div>
+<!-- Item informaiton -->
+<div id="content_prod" class="col-md-7">
+    <!-- Item name and tag-->
+    <div class="row" id="fourth_first">
+        <div id="item_information" class="col-md-12">
+            <% include list_items/item_information.ejs%>
+        </div>
+    </div>
+    <!-- Ratings and buttons -->
+    <div class="row" id="fourth_second">
+        <div id="ratings" class="col-md-5">
+            <% include list_items/ratings.ejs%>
+        </div>
+        <div id="button_block" class="col-md-4">
+            <div class="row" id="fourth_second_first">
+                <div id="likes_button" class="col-md-12">
+                    <%include list_items/likes_button.ejs%>
+                </div>
+            </div>
+            <div class="row" id="fourth_second_second">
+                <div id="review_button" class="col-md-12">
+                    <a href="/review/item/<%= stuff[i].id %>"><span>☆</span> Review</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Description -->
+    <div class="row" id="fourth_third">
+        <div id="short_desc" class="col-md-8">
+            <%= stuff[i].description.substring(0,150) %>...<a href="../item/<%= stuff[i].id %>">read more</a>
+        </div>
+    </div>
+</div>
+<div id="space_1" class="col-md-2">
+    <!-- Done to create space -->
+</div>

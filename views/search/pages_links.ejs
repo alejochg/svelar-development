@@ -1,0 +1,36 @@
+<div id="space_1" class="col-md-2">
+    <!-- Done to create space -->
+</div>
+<div id="page_number" class="col-md-2">
+    <p>Page numbers</p>
+</div>
+<div id="pages_links" class="col-md-6">
+    <p id="testing"></p>
+    <script>
+        var c = <%= count[0].count%>/10;
+        c = Math.ceil(c);
+        goPage(c);
+        function goPage(pages) { // Modify the links of the url so user can navigate between search list pages
+            for (var i = 1; i<pages+1; i++){
+                var str = window.location.pathname + window.location.search.toString();
+                str = str.substring(0, str.length - 1);
+                str += i.toString();
+
+                var para = document.createElement('a');
+                var node = document.createTextNode(i.toString());
+                para.appendChild(node);
+                if(<%= page %> != i){
+                    para.href = str;
+                    para.id = 'pages';
+                }else {
+                    para.id = 'pages_selected';
+                }
+                var element = document.getElementById('pages_links');
+                element.appendChild(para);
+            }
+        }
+    </script>
+</div>
+<div id="space_1" class="col-md-2">
+    <!-- Done to create space -->
+</div>

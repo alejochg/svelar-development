@@ -1,229 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Svelar - search</title>
+    <title> Search - Svelar</title>
     <link rel='stylesheet' href='/stylesheets/search.css' />
-    <link rel='stylesheet' href='/stylesheets/footer.css' />
-    <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
-
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
+    <script src="http://localhost:3000/javascripts/user_likes.js"></script>
 </head>
-<body>
-    <% include templates/navigation.ejs%>
-<div class="container-fluid">
-    <% include templates/secondaryheader.ejs%>
+    <body>
+        <div class="container-fluid">
+            <!-- Header -->
+            <div class="row" id="header">
+                <% include templates/secondary_header.ejs%>
+            </div>
 
-<!-- This is the search description-->
-    <div class="row" id="third">
-        <div id="search_word" class="col-md-10">
-            <h4><b>My search:</b> <%= mysearch %> in <%= condition %></h4>
-        </div>
-        <div id="showing" class="col-md-2">
-            <p>Showing
-                <% if(count[0].count > 10) {%>
-                    <%if (page >= count[0].count/10){%>
-                        <%= page*10-9 %>-<%= count[0].count %>
-                    <%}else{%>
-                        <%= page*10-9 %>-<%= page*10 %>
-                    <%}%>
-                <%}else{%>
-                    1-<%= count[0].count%>
+            <!-- This is the search description-->
+            <div class="row" id="search_description">
+                <% include search/search_description.ejs %>
+            </div>
+
+            <!-- Results list section -->
+            <% if (rows > 0) {%>
+            <% for(var i=0; i<=rows-1; i++) {%>
+                <div class="row" id="fourth">
+                    <% include search/list_items.ejs %>
+                </div>
+                <hr id="hairline" noshade>
+            <% }%>
+            <%}else {%>
+                <p>Results not found! Try to search with different words.</p>
+            <%}%>
+
+            <!-- link pages section -->
+            <div class="row" id="fifth">
+                <% include search/pages_links %>
+            </div>
+
+
+            <%if(user){%>
+            <% userLiked.forEach(function(item){ %>
+                <% if (item.like_status == 'like'){%>
+                    <script>
+                        var ela_like = document.getElementById('liked_<%=item.id_item%>');
+                        ela_like.className = "item_liked";
+                        ela_like.onclick = null;
+                        var ela_dislike = document.getElementById('disliked_<%=item.id_item%>');
+                        ela_dislike.className = "like_deactivate";
+                        ela_dislike.onclick = null;
+                    </script>
                 <%}%>
-                of <%= count[0].count%></p>    <!-- This need a dynamic code -->
+                <% if (item.like_status == 'dislike'){%>
+                <script>
+                    var ela_like = document.getElementById('liked_<%=item.id_item%>');
+                    ela_like.className = "like_deactivate";
+                    ela_like.onclick = null;
+                    var ela_dislike = document.getElementById('disliked_<%=item.id_item%>');
+                    ela_dislike.className = "item_disliked";
+                    ela_dislike.onclick = null;
+                </script>
+                <%}%>
+            <% }); %>
+            <%}%>
+
+
+
+            <% include templates/footerbar.ejs%>
         </div>
-    </div>
-
-
-    <% if (rows > 0) {%>
-    <% for(var i=0; i<=rows-1; i++) {%>
-<!-- Results list section -->
-    <div class="row" id="fourth">
-        <div id="space_1" class="col-md-2">
-            <!-- Done to create space -->
-        </div>
-    <!-- This is list column-->
-        <!-- Item image -->
-        <div id="prod_image_1" class="col-md-3">
-            <a href="../item/<%= stuff[i].id %>">
-                <img src="<%= stuff[i].image_1 %>">
-            </a>
-        </div>
-        <!-- Item informaiton -->
-        <div id="content_prod" class="col-md-7">
-            <!-- Item name and tag-->
-            <div class="row" id="fourth_first">
-                <div id="item_information" class="col-md-12">
-                    <% if(stuff[i].svelar == 1 && stuff[i].premium != 1){ %>
-                    <div id="svelar" class="col-md-2">
-                        <p>Svelar</p>
-                    </div>
-                    <div id="item_name" class="col-md-7">
-                        <a href="../item/<%= stuff[i].id %>">
-                            <p><%= stuff[i].name %></p>
-                        </a>
-                    </div>
-                    <%}else if(stuff[i].premium == 1){%>
-                    <div id="ad" class="col-md-2">
-                        <p>AD</p>
-                    </div>
-                    <div id="item_name" class="col-md-7">
-                        <a href="../item/<%= stuff[i].id %>">
-                            <p><%= stuff[i].name %></p>
-                        </a>
-                    </div>
-                    <%}else{%>
-                    <div id="item_name_reg" class="col-md-9">
-                        <a href="../item/<%= stuff[i].id %>">
-                            <p><%= stuff[i].name %></p>
-                        </a>
-                    </div>
-                    <%}%>
-                </div>
-            </div>
-
-            <!-- Ratings and buttons -->
-            <div class="row" id="fourth_second">
-                <div id="ratings" class="col-md-5">
-                    <p>
-                        Comfort:
-                        <% if(Math.round(stuff[i].average_rating_1)== 0){ %>
-                        <span id="starts">☆ ☆ ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_1)== 1){ %>
-                        <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_1)== 2){ %>
-                        <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_1)== 3){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_1)== 4){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_1)== 5){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
-                        <%}%>
-                    <br>
-                        Easyness:
-                        <% if(Math.round(stuff[i].average_rating_2)== 0){ %>
-                        <span id="starts">☆ ☆ ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_2)== 1){ %>
-                        <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_2)== 2){ %>
-                        <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_2)== 3){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_2)== 4){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_2)== 5){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
-                        <%}%>
-                        <br>
-                        Cost:
-                        <% if(Math.round(stuff[i].average_rating_3)== 0){ %>
-                        <span id="starts">☆ ☆ ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_3)== 1){ %>
-                        <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_3)== 2){ %>
-                        <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_3)== 3){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_3)== 4){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
-                        <%}%>
-                        <% if(Math.round(stuff[i].average_rating_3)== 5){ %>
-                        <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
-                        <%}%>
-                    </p>
-                </div>
-                <div id="button_block" class="col-md-4">
-                    <div class="row" id="fourth_second_first">
-                        <div id="likes_button" class="col-md-12">
-                            <a href="/review/like?id=<%= stuff[i].id %>&like_status=1">Like!</a>
-                            <a href="/review/like?id=<%= stuff[i].id %>&like_status=0">Dislike</a>
-                        </div>
-                    </div>
-                    <div class="row" id="fourth_second_second">
-                        <div id="review_button" class="col-md-12">
-                            <a href="/review/item/<%= stuff[i].id %>"><span>☆</span> Review</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Description -->
-            <div class="row" id="fourth_third">
-                <div id="short_desc" class="col-md-8">
-                    <%= stuff[i].description.substring(0,150) %>...<a href="../item/<%= stuff[i].id %>">read more</a>
-                </div>
-            </div>
-        </div>
-
-        <div id="space_1" class="col-md-2">
-            <!-- Done to create space -->
-        </div>
-
-    </div>
-    <hr id="hairline" noshade>
-    <% }%>
-    <%}else {%>
-    <p>Results not found! Try to search with different words.</p>
-    <%}%>
-    <div class="row" id="fifth">
-        <div id="space_1" class="col-md-2">
-            <!-- Done to create space -->
-        </div>
-        <div id="page_number" class="col-md-2">
-            <p>Page numbers</p>
-        </div>
-        <div id="pages_links" class="col-md-6">
-            <p id="testing"></p>
-            <script>
-                var c = <%= count[0].count%>/10;
-                c = Math.ceil(c);
-                goPage(c);
-                function goPage(pages) { // Modify the links of the url so user can navigate between search list pages
-                    for (var i = 1; i<pages+1; i++){
-                        var str = window.location.pathname + window.location.search.toString();
-                        str = str.substring(0, str.length - 1);
-                        str += i.toString();
-
-                        var para = document.createElement('a');
-                        var node = document.createTextNode(i.toString());
-                        para.appendChild(node);
-                        if(<%= page %> != i){
-                            para.href = str;
-                            para.id = 'pages';
-                        }else {
-                            para.id = 'pages_selected';
-                        }
-                        var element = document.getElementById('pages_links');
-                        element.appendChild(para);
-                    }
-                }
-            </script>
-        </div>
-        <div id="space_1" class="col-md-2">
-            <!-- Done to create space -->
-        </div>
-
-    </div>
-
-    <% include templates/footerbar.ejs%>
-</div>
-
-
-</body>
+    </body>
 </html>

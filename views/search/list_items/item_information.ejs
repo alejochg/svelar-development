@@ -1,0 +1,25 @@
+<% if(stuff[i].svelar == 1 && stuff[i].premium != 1){ %>
+<div id="svelar" class="col-md-2">
+    <p>Svelar</p>
+</div>
+<div id="item_name" class="col-md-7">
+    <a href="../item/<%= stuff[i].id %>">
+        <p><%= stuff[i].name %></p>
+    </a>
+</div>
+<%}else if(stuff[i].premium == 1){%>
+<div id="ad" class="col-md-2">
+    <p>AD</p>
+</div>
+<div id="item_name" class="col-md-7">
+    <a href="../item/<%= stuff[i].id %>">
+        <p><%= stuff[i].name %></p>
+    </a>
+</div>
+<%}else{%>
+<div id="item_name_reg" class="col-md-9">
+    <a href="../item/<%= stuff[i].id %>">
+        <p><%= stuff[i].name %></p>
+    </a>
+</div>
+<%}%>

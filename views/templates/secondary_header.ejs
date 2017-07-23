@@ -1,0 +1,96 @@
+<!-- Header with search bar -->
+<div class="row" id="first">
+    <div id="logo" class="col-md-2">
+        <p>Svelar</p>
+    </div>
+    <div id="search" class="col-md-8">
+        <div class=“search_bar_norm”>
+            <p><% include searchbar.ejs%></p>
+        </div>
+    </div>
+    <div id="signup" class="col-md-2">
+        <p>
+            <% if(user){ %>
+            <% }else{ %>
+            <a href="/users/signup">Sign up</a>
+            <% } %>
+        </p>
+    </div>
+</div>
+
+<!-- second row with navication -->
+<div class="row" id="second">
+    <div id="suggest" class="col-md-6">
+        <a href="/" style="margin-left: 20px">Home</a>
+        <a href="/review/recommend">Recommend a products</a>
+    </div>
+    <div id="login" class="col-md-6">
+        <p>
+            <%if(user){%>
+            <a href="/users/logout">Logout</a>
+            <a href="/profile">Profile</a>
+            <%}else{%>
+            <a href="/users/login">Log in</a>
+            <%}%>
+        </p>
+    </div>
+</div>
+
+<style>
+    #first {
+        background-color:#45c2c9;
+        display: flex;
+        align-items: center;
+    }
+    #logo{
+        font-family: Papyrus, fantasy;
+        font-size: 290%;
+        padding-top:1%;
+        padding-left: 2%;
+    }
+    #signup a{
+        background-color: #0096b2;
+        color: white;
+        border: solid white 1px;
+        padding: 2px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        float: right;
+        margin-right: 6%;
+    }
+    #signup a:hover{
+        background-color: #f44336;
+        color: white;
+        border: solid white 1px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        float: right;
+        margin-right: 6%;
+    }
+    #second{
+        background-color: #0096b2;
+    }
+    #suggest{
+        padding-top:0.5%;
+        padding-bottom: 0.5%;
+    }
+    #suggest a{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color: white;
+        margin-right: 2%;
+    }
+    #login{
+        padding-top:0.5%;
+        padding-bottom: 0.5%;
+    }
+    #login a{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        color: white;
+        float: right;
+        padding-right: 3%;
+    }
+</style>
