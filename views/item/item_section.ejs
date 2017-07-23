@@ -1,0 +1,93 @@
+<!-- Item name and tag-->
+<div class="row" id="third_first">
+    <div id="empty" class="col-md-2">
+        <!-- This is to make space -->
+    </div>
+    <% if(stuff[0].svelar == 1 && stuff[0].premium != 1){ %>
+    <div id="svelar" class="col-md-1">
+        <p>Svelar</p>
+    </div>
+    <div id="item_name" class="col-md-9">
+        <p><%= stuff[0].name %></p>
+    </div>
+    <%}else if(stuff[0].premium == 1){%>
+    <div id="ad" class="col-md-1">
+        <p>AD</p>
+    </div>
+    <div id="item_name" class="col-md-9">
+        <p><%= stuff[0].name %></p>
+    </div>
+    <%}else{%>
+    <div id="item_name_reg" class="col-md-10">
+        <p><%= stuff[0].name %></p>
+    </div>
+    <%}%>
+</div>
+<!-- Item information -->
+<div class="row" id="third_second">
+    <div id="empty" class="col-md-2">
+        <!-- space -->
+    </div>
+    <!-- Item images -->
+    <div id="prod_image_1" class="col-md-2">
+        <img id="item_image" src="<%= stuff[0].image_1 %>">
+    </div>
+    <div id="prod_image_1" class="col-md-2">
+        <img id="item_image" src="<%= stuff[0].image_2 %>">
+    </div>
+    <!-- Item buttons  -->
+    <div id="item_information" class="col-md-4">
+        <div class="row" id="button_block">
+            <div id="review_button" class="col-md-5">
+                <a href="/review/item/<%= stuff[0].id %>"><span>☆</span> Review</a>
+            </div>
+            <div id="like_button" class="col-md-3">
+                <a href="like.ejs">Like!</a>
+            </div>
+            <div id="like_button" class="col-md-3">
+                <a href="dislike.ejs">Dislike</a>
+            </div>
+        </div>
+        <!-- Ratings -->
+        <div class="row" id="ratings_block">
+            <div id="ratings" class="col-md-12">
+                <p>
+                    Cost: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    <br>
+                    Comfort:<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    <br>
+                    Ease of Use: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                </p>
+            </div>
+        </div>
+        <!-- Keyword -->
+        <div class="row" id="keywords_block">
+            <div id="keywords" class="col-md-12">
+                <p>keywords:
+                    <a href="/search/try?category=<%=  stuff[0].category %>&page=1"><%= stuff[0].category %></a>,
+                    <a href="/search/try?type=<%= stuff[0].type %>&page=1"><%= stuff[0].type %></a>,
+                    <a href="/search/try?brand=<%= stuff[0].brand %>&page=1"><%= stuff[0].brand %></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Description section -->
+<div class="row" id="third_third">
+    <div id="empty" class="col-md-2">
+        <!-- Emptuy space-->
+    </div>
+    <div id="description" class="col-md-7">
+        <p><%= stuff[0].description %></p>
+    </div>
+</div>
+<!-- Outside svelar item links -->
+<div class="row" id="third_fourth">
+    <div id="empty" class="col-md-2">
+        <!-- Emptuy space-->
+    </div>
+    <div id="buy" class="col-md-10">
+        <a href="<%= stuff[0].link %>" target="_blank">Product website</a>,
+        <a href="<%= stuff[0].buy_link %>" target="_blank">Buy</a>
+    </div>
+</div>

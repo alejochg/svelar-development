@@ -13,161 +13,18 @@
     <!-- Item name and tag-->
     <div class="row" id="fourth_first">
         <div id="item_information" class="col-md-12">
-            <% if(stuff[i].svelar == 1 && stuff[i].premium != 1){ %>
-            <div id="svelar" class="col-md-2">
-                <p>Svelar</p>
-            </div>
-            <div id="item_name" class="col-md-7">
-                <a href="../item/<%= stuff[i].id %>">
-                    <p><%= stuff[i].name %></p>
-                </a>
-            </div>
-            <%}else if(stuff[i].premium == 1){%>
-            <div id="ad" class="col-md-2">
-                <p>AD</p>
-            </div>
-            <div id="item_name" class="col-md-7">
-                <a href="../item/<%= stuff[i].id %>">
-                    <p><%= stuff[i].name %></p>
-                </a>
-            </div>
-            <%}else{%>
-            <div id="item_name_reg" class="col-md-9">
-                <a href="../item/<%= stuff[i].id %>">
-                    <p><%= stuff[i].name %></p>
-                </a>
-            </div>
-            <%}%>
+            <% include list_items/item_information.ejs%>
         </div>
     </div>
-
     <!-- Ratings and buttons -->
     <div class="row" id="fourth_second">
         <div id="ratings" class="col-md-5">
-            <p>
-                Comfort:
-                <% if(Math.round(stuff[i].average_rating_1)== 0){ %>
-                <span id="starts">☆ ☆ ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_1)== 1){ %>
-                <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_1)== 2){ %>
-                <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_1)== 3){ %>
-                <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_1)== 4){ %>
-                <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_1)== 5){ %>
-                <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
-                <%}%>
-                <br>
-                Easyness:
-                <% if(Math.round(stuff[i].average_rating_2)== 0){ %>
-                <span id="starts">☆ ☆ ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_2)== 1){ %>
-                <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_2)== 2){ %>
-                <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_2)== 3){ %>
-                <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_2)== 4){ %>
-                <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_2)== 5){ %>
-                <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
-                <%}%>
-                <br>
-                Cost:
-                <% if(Math.round(stuff[i].average_rating_3)== 0){ %>
-                <span id="starts">☆ ☆ ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_3)== 1){ %>
-                <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_3)== 2){ %>
-                <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_3)== 3){ %>
-                <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_3)== 4){ %>
-                <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
-                <%}%>
-                <% if(Math.round(stuff[i].average_rating_3)== 5){ %>
-                <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
-                <%}%>
-            </p>
+            <% include list_items/ratings.ejs%>
         </div>
         <div id="button_block" class="col-md-4">
             <div class="row" id="fourth_second_first">
                 <div id="likes_button" class="col-md-12">
-                    <% if(!user){%>
-                        <a class="like_undefined" id="hrefBack">Like!</a>
-                        <a class="like_undefined" id="hrefBack">Dislike</a>
-                        <script>
-                            var ela = document.getElementById('hrefBack');
-                            ela.href = "/users/login?h=" + window.location.pathname + window.location.search;
-                        </script>
-                    <% }else{ %>
-                        <a  class="like_undefined" id="liked_<%= stuff[i].id %>" onclick="likeUpdate(<%= stuff[i].id %>)">Like!</a>
-                        <a class="like_undefined" id="disliked_<%= stuff[i].id %>" onclick="dislikeUpdate(<%= stuff[i].id %>)">Dislike</a>
-                        <script>
-                            function likeUpdate(item_id) {
-                                var likes = {
-                                    "id_item": item_id,
-                                    "like_status":"like"
-                                }
-                                $.ajax({
-                                    type: "POST",
-                                    url: "/mongoDB/like",
-                                    data: likes,
-                                    success: function () {
-                                        console.log('Success AJAX');
-                                    },
-                                    error: function handleError(jqXHR, textStatus, error) {
-                                        console.log(error);
-                                    }
-                                });
-                                var ela_like = document.getElementById('liked_'+ item_id);
-                                ela_like.className = "item_liked";
-                                ela_like.onclick = null;
-                                var ela_dislike = document.getElementById('disliked_'+ item_id);
-                                ela_dislike.className = "like_deactivate"
-                                ela_dislike.onclick = null;
-                            }
-                            function dislikeUpdate(item_id) {
-                                var likes = {
-                                    "id_item": item_id,
-                                    "like_status":"dislike"
-                                }
-                                $.ajax({
-                                    type: "POST",
-                                    url: "/mongoDB/dislike",
-                                    data: likes,
-                                    success: function () {
-                                        console.log('Success AJAX');
-                                    },
-                                    error: function handleError(jqXHR, textStatus, error) {
-                                        console.log(error);
-                                    }
-                                });
-                                var ela_like = document.getElementById('liked_'+ item_id);
-                                ela_like.className = "like_deactivate";
-                                ela_like.onclick = null;
-                                var ela_dislike = document.getElementById('disliked_'+ item_id);
-                                ela_dislike.className = "item_disliked";
-                                ela_dislike.onclick = null;
-                            }
-                        </script>
-                    <% } %>
+                    <%include list_items/likes_button.ejs%>
                 </div>
             </div>
             <div class="row" id="fourth_second_second">
@@ -177,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <!-- Description -->
     <div class="row" id="fourth_third">
         <div id="short_desc" class="col-md-8">
@@ -185,7 +41,6 @@
         </div>
     </div>
 </div>
-
 <div id="space_1" class="col-md-2">
     <!-- Done to create space -->
 </div>

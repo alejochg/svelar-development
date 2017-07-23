@@ -1,0 +1,7 @@
+<% if(!user){%>
+<a class="like_undefined" href="/users/login">Like!</a>
+<a class="like_undefined" href="/users/login">Dislike</a>
+<% }else{ %>
+<a  class="like_undefined" id="liked_<%= stuff[i].id %>" onclick="likeUpdate(<%= stuff[i].id %>)">Like!</a>
+<a class="like_undefined" id="disliked_<%= stuff[i].id %>" onclick="dislikeUpdate(<%= stuff[i].id %>)">Dislike</a>
+<% } %>
