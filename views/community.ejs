@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Community page - Svelar</title>
+    <title>Community Page - Svelar</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include templates/meta.ejs%>
+    <% include templates/bootstrap.ejs%>
 </head>
 <body>
-<p>Community page</p>
+<% include templates/navigation.ejs%>
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row" id="home_header">
+        <% include templates/secondary_header.ejs%>
+    </div>
+    <!-- Community Title -->
+    <div class="row" id="community_title">
+        <% include community/community_title.ejs%>
+    </div>
+    <!-- Conversation Start Button -->
+    <div class="row" id="conversation_start_button">
+        <% include community/conversation_start_button.ejs%>
+    </div>
+    <!-- User Post -->
+    <div class="row" id="user_post">
+        <% include community/user_post.ejs%>
+    </div>
+    <!-- User Reply -->
+    <div class="row" id="user_reply">
+        <% include community/user_reply.ejs%>
+    </div>
+    <!-- Post Opinion -->
+    <div class="row" id="post_opinion">
+        <% include community/post_opinion.ejs%>
+    </div>
+    <!-- Footer cover-->
+    <div class="row" id="home_footer">
+        <% include templates/footerbar.ejs %>
+    </div>
+</div>
+
 </body>
 </html>
