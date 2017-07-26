@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conmmunity test</title>
+</head>
+<body>
+    <h1>Community page testing</h1>
+    <h3>Main post</h3>
+    <form action="/community/main" method="post">
+        <fieldset>
+            <input type="hidden" name="type" value="diabetes"><br>
+            <input type="text" name="title" placeholder="Add tittle of post here"><br>
+            <input type="text" name="post" placeholder="What you want to share?"><br>
+            <input type="submit" value="Post">
+        </fieldset>
+    </form>
+    <h3>Reply to post:</h3>
+    <form action="/community/reply" method="post">
+        <fieldset>
+            <input type="hidden" name="type" value="diabetes"><br>
+            <input type="text" name="post" placeholder="What you want to share?"><br>
+            <input type="submit" value="reply">
+        </fieldset>
+    </form>
+</body>
+</html>
