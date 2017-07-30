@@ -6,7 +6,7 @@ var db = require('../db');
 router.get('/', function(req, res, next) {
     var pool = db.pool;
     pool.getConnection(function (error, connection) {
-        connection.query('SELECT * FROM community LIMIT 10',[], function (error, results, field) {
+        connection.query('SELECT * FROM community ORDER BY date DESC LIMIT 20',[], function (error, results, field) {
             connection.release();
             if(error) throw error;
             var community_main_posts = [];
@@ -18,7 +18,6 @@ router.get('/', function(req, res, next) {
                     community_reply_posts.push(item);
                 }
             });
-            console.log(community_main_posts);
             res.render('community_test', {main_post: community_main_posts, reply_post: community_reply_posts});
         })
     });
@@ -49,7 +48,7 @@ router.post('/main', function (req, res, next) {
                }
            )
         });
-        res.send('added to database!');
+        res.redirect('/community');
     }else {
         res.redirect('/users/login');
     }
@@ -80,8 +79,7 @@ router.post('/reply', function (req, res, next) {
                 }
             )
         });
-
-        res.send('added to database!');
+        res.redirect('/community');
     }else {
         res.redirect('/users/login');
     }
