@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conmmunity test</title>
+</head>
+<body>
+    <h1>Community page testing</h1>
+    <h3>Main post</h3>
+    <form action="/community/main" method="post">
+        <fieldset>
+            <input type="hidden" name="type" value="diabetes"><br>
+            <input type="text" name="title" placeholder="Add tittle of post here" required><br>
+            <input type="text" name="post" placeholder="What you want to share?" required><br>
+            <input type="submit" value="Post">
+        </fieldset>
+    </form>
+    <h3>Reply to post:</h3>
+    <div id="community_posts">
+
+    </div>
+</body>
+</html>
+
+<script>
+    // Add main posts to page
+    <%for (var i=0; i< main_post.length; i++){%>
+        var elForm = document.createElement('form');
+        elForm.action = '/community/reply';
+        elForm.method = 'post';
+        var elFieldset = document.createElement('fieldset');
+        elFieldset.id = 'main_post_<%= main_post[i].id %>';
+        var elReplyTo = document.createElement('input');
+        elReplyTo.type = 'hidden';
+        elReplyTo.name = 'reply_to';
+        elReplyTo.value = '<%= main_post[i].id %>';
+        elFieldset.appendChild(elReplyTo);
+        var elType = document.createElement('input');
+        elType.type = 'hidden';
+        elType.name = 'type';
+        elType.value = 'diabetes';
+        elFieldset.appendChild(elType);
+        var elMainPostUser = document.createElement('p');
+        var elMainPostUserEM = document.createElement('em');
+        var elMainPostUserEMText = document.createTextNode('<%= main_post[i].user_username %>');
+        elMainPostUserEM.appendChild(elMainPostUserEMText);
+        elMainPostUser.appendChild(elMainPostUserEM);
+        var elMainPostUserText = document.createTextNode(' | <%= main_post[i].date.toString().substring(3, 15) %>');
+        elMainPostUser.appendChild(elMainPostUserText);
+        elMainPostUser.className = 'post_user';
+        elFieldset.appendChild(elMainPostUser);
+        var elMainPostTitle = document.createElement('p');
+        var elMainPostTitleText = document.createTextNode('<%=main_post[i].title%>');
+        elMainPostTitle.appendChild(elMainPostTitleText);
+        elMainPostTitle.className = 'post_title';
+        elFieldset.appendChild(elMainPostTitle);
+        var elMainPost = document.createElement('p');
+        var elMainPostText = document.createTextNode('<%= main_post[i].post %>');
+        elMainPost.appendChild(elMainPostText);
+        elFieldset.appendChild(elMainPost);
+        elFieldset.appendChild(document.createElement('hr'));
+        var elDiv = document.createElement('div');
+        elDiv.id = 'main_reply_<%= main_post[i].id %>';
+        elFieldset.appendChild(elDiv);
+        var elTextBox = document.createElement('input');
+        elTextBox.type = 'text';
+        elTextBox.name = 'post';
+        elTextBox.placeholder = 'What you want to share?';
+        elTextBox.required = 'true';
+        elFieldset.appendChild(elTextBox);
+        var elSubmit = document.createElement('input');
+        elSubmit.type = 'submit';
+        elSubmit.value = 'reply';
+        elFieldset.appendChild(elSubmit);
+        elForm.appendChild(elFieldset);
+        var position = document.getElementById('community_posts');
+        position.appendChild(elForm);
+    <%}%>
+
+    //Adding reply post to corresponding main posts
+    <%for (var j=0; j< reply_post.length; j++){%>
+        var position_reply = document.getElementById('main_reply_<%= reply_post[j].reply_to %>');
+        var elUser = document.createElement('p');
+        var elUserEm = document.createElement('em');
+        var elUserEmText = document.createTextNode('<%= reply_post[j].user_username %>');
+        elUserEm.appendChild(elUserEmText);
+        elUser.appendChild(elUserEm);
+        var elUserText = document.createTextNode(' | <%= reply_post[j].date.toString().substring(3, 15) %>');
+        elUser.appendChild(elUserText);
+        elUser.className = 'post_user';
+        position_reply.appendChild(elUser);
+        var elPost = document.createElement('p');
+        var elPostText = document.createTextNode('<%= reply_post[j].post %>');
+        elPost.appendChild(elPostText);
+        position_reply.appendChild(elPost);
+        position_reply.appendChild(document.createElement('hr'));
+    <%}%>
+</script>
