@@ -29,7 +29,7 @@
                 <hr id="hairline" noshade>
             <% }%>
             <%}else {%>
-                <p>Results not found! Try to search with different words.</p>
+                <p id="no_results">Sorry product not found! Please search with different keywords or <a href="recommend.ejs">suggest a product</a> to add to Svelar.</p>
             <%}%>
 
             <!-- link pages section -->
@@ -69,3 +69,12 @@
         </div>
     </body>
 </html>
+
+<style>
+    #no_results{
+        padding:2%;
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 25%;
+    }
+</style>

@@ -4,19 +4,11 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-/*router.get('/', function(req, res, next) {
-   res.render('community', {});
-}); */
-
-
+ /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(req.user!=undefined) { // check if user has been authenticated
-        res.render('community', {title: 'Community'}); // If yes give access to profile
-    }else{
-        res.redirect('/users/login'); // If not redirect to login page
-    }
+   res.render('community', {});
 });
 
 
 module.exports = router;
+

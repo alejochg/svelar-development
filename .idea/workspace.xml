@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c891c28-d40f-4198-b2c8-36e49d4d0f2a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/community.js" afterPath="$PROJECT_DIR$/routes/community.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/community.ejs" afterPath="$PROJECT_DIR$/views/community.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/community/community_title.ejs" afterPath="$PROJECT_DIR$/views/community/community_title.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/community/conversation_start_button.ejs" afterPath="$PROJECT_DIR$/views/community/conversation_start_button.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/community/post_opinion.ejs" afterPath="$PROJECT_DIR$/views/community/post_opinion.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/community/user_post.ejs" afterPath="$PROJECT_DIR$/views/community/user_post.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/community/user_reply.ejs" afterPath="$PROJECT_DIR$/views/community/user_reply.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index/home_cover.ejs" afterPath="$PROJECT_DIR$/views/index/home_cover.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/item/reviews_section.ejs" afterPath="$PROJECT_DIR$/views/item/reviews_section.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/search.ejs" afterPath="$PROJECT_DIR$/views/search.ejs" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,51 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <file leaf-file-name="search.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/search.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="531">
-              <caret line="37" column="10" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="37" selection-end-column="10" />
+            <state relative-caret-position="53">
+              <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_post.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/community/user_post.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_reply.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/community/user_reply.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="community.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="community.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/community.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="39" column="10" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recommend.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/recommend.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -122,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/stylesheets/item.css" />
         <option value="$PROJECT_DIR$/modules/queries.js" />
         <option value="$PROJECT_DIR$/routes/review.js" />
         <option value="$PROJECT_DIR$/views/review.ejs" />
@@ -132,11 +108,9 @@
         <option value="$PROJECT_DIR$/public/stylesheets/signup.css" />
         <option value="$PROJECT_DIR$/views/index/homeheader.ejs" />
         <option value="$PROJECT_DIR$/views/index/home_search_bar.ejs" />
-        <option value="$PROJECT_DIR$/views/index/home_cover.ejs" />
         <option value="$PROJECT_DIR$/views/index/sign_up_button.ejs" />
         <option value="$PROJECT_DIR$/views/index/value_proposition.ejs" />
         <option value="$PROJECT_DIR$/views/index/home_footer.ejs" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/footer.css" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/views/index/home_header.ejs" />
@@ -153,7 +127,6 @@
         <option value="$PROJECT_DIR$/routes/mongoDB.js" />
         <option value="$PROJECT_DIR$/routes/search.js" />
         <option value="$PROJECT_DIR$/views/item/item_section.ejs" />
-        <option value="$PROJECT_DIR$/views/item/reviews_section.ejs" />
         <option value="$PROJECT_DIR$/views/item.ejs" />
         <option value="$PROJECT_DIR$/views/profile.ejs" />
         <option value="$PROJECT_DIR$/views/search/list_items/ratings.ejs" />
@@ -162,17 +135,21 @@
         <option value="$PROJECT_DIR$/views/search/list_items/likes_button.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/user_likes.js" />
         <option value="$PROJECT_DIR$/views/search/list_items.ejs" />
-        <option value="$PROJECT_DIR$/views/search.ejs" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/templates/navigation.ejs" />
-        <option value="$PROJECT_DIR$/routes/community.js" />
         <option value="$PROJECT_DIR$/views/templates/footerbar.ejs" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
-        <option value="$PROJECT_DIR$/views/community/conversation_start_button.ejs" />
         <option value="$PROJECT_DIR$/views/community/community_title.ejs" />
+        <option value="$PROJECT_DIR$/routes/community.js" />
+        <option value="$PROJECT_DIR$/views/community/conversation_start_button.ejs" />
         <option value="$PROJECT_DIR$/views/community.ejs" />
-        <option value="$PROJECT_DIR$/views/community/user_reply.ejs" />
+        <option value="$PROJECT_DIR$/views/community/post_opinion.ejs" />
         <option value="$PROJECT_DIR$/views/community/user_post.ejs" />
+        <option value="$PROJECT_DIR$/views/community/user_reply.ejs" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
+        <option value="$PROJECT_DIR$/views/index/home_cover.ejs" />
+        <option value="$PROJECT_DIR$/views/item/reviews_section.ejs" />
+        <option value="$PROJECT_DIR$/views/search.ejs" />
       </list>
     </option>
   </component>
@@ -195,10 +172,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -218,9 +193,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -236,29 +208,15 @@
             <path>
               <item name="svelar_master" type="b2602c69:ProjectViewProjectNode" />
               <item name="svelar_master" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="svelar_master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="svelar_master" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="svelar_master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="svelar_master" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="community" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="svelar_master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="svelar_master" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -768,11 +726,14 @@
       <workItem from="1500839185403" duration="3182000" />
       <workItem from="1500944533029" duration="576000" />
       <workItem from="1501016189286" duration="3217000" />
+      <workItem from="1501450192993" duration="343000" />
+      <workItem from="1501787402761" duration="4634000" />
+      <workItem from="1502239622661" duration="113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="353832000" />
+    <option name="totallyTimeSpent" value="358922000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -785,6 +746,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
@@ -794,8 +756,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20368364" sideWeight="0.5170576" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3070588" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14818764" sideWeight="0.5045161" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3070588" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18941176" sideWeight="0.17537314" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -865,20 +827,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/secondaryheader.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/templates/secondary_header.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="23" column="42" lean-forward="false" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/queries.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -928,13 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/item/reviews_section.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="6" lean-forward="false" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/item/item_section.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-875">
@@ -967,13 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-459">
           <caret line="6" column="69" lean-forward="false" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/item.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1020,33 +954,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index/home_cover.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/search.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/search/list_items.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="56" lean-forward="false" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/search/list_items/item_information.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,7 +979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,7 +986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,17 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/community.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,7 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="41" column="23" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="41" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,31 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="27" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/community/conversation_start_button.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/community/post_opinion.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index/categories_section.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,7 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,7 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
           <caret line="62" column="6" lean-forward="true" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="7" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,15 +1042,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/contact.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="29" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1190,7 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,7 +1056,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="26" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="12" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,38 +1063,119 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/community.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/contact.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="69" column="117" lean-forward="true" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/community/conversation_start_button.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/contact.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="66" column="18" lean-forward="true" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/community/post_opinion.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/community/user_post.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/community/user_reply.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="45">
+          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index/home_cover.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index/home_header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index/categories_section.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="10" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="37" column="10" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="37" selection-end-column="10" />
+        <state relative-caret-position="60">
+          <caret line="4" column="67" lean-forward="false" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/item.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/item/reviews_section.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="85" column="34" lean-forward="false" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/search/list_items.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="56" lean-forward="false" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/search.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/community.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="39" column="10" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/community/user_post.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
           <folding />
         </state>
       </provider>

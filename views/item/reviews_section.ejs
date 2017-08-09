@@ -3,7 +3,7 @@
         <!-- Emptuy space-->
     </div>
     <div id="people_reviews" class="col-md-8">
-        <h3> Reviews </h3>
+        <h2> Reviews </h2>
         <% if (reviews_rows > 0) {%>
         <% for(var i=0; i<=reviews_rows-1; i++) {%>
         <p id="user_review"> <em> <%= reviews[i].username %> </em>  | <%= reviews[i].date.toString().substring(3, 15) %> </p>
@@ -76,6 +76,13 @@
         <%}%>
     </div>
     <div id="empty" class="col-md-2">
-        <!-- Emptuy space-->
+        <!-- Empty space-->
     </div>
 </div>
+
+<style>
+    #people_reviews h2{
+        text-align: center;
+        text-decoration: underline;
+    }
+</style>
