@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
                     community_reply_posts.push(item);
                 }
             });
-            res.render('community_test', {main_post: community_main_posts, reply_post: community_reply_posts});
+            res.render('community', {main_post: community_main_posts, reply_post: community_reply_posts});
         })
     });
 });
