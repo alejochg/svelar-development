@@ -52,11 +52,65 @@
         <div class="row" id="ratings_block">
             <div id="ratings" class="col-md-12">
                 <p>
-                    Cost: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    Comfort:
+                    <% if(Math.round(stuff[0].average_rating_1)== 0){ %>
+                    <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_1)== 1){ %>
+                    <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_1)== 2){ %>
+                    <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_1)== 3){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_1)== 4){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_1)== 5){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                    <%}%>
                     <br>
-                    Comfort:<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    Easyness:
+                    <% if(Math.round(stuff[0].average_rating_2)== 0){ %>
+                    <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_2)== 1){ %>
+                    <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_2)== 2){ %>
+                    <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_2)== 3){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_2)== 4){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_2)== 5){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                    <%}%>
                     <br>
-                    Ease of Use: <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    Cost:
+                    <% if(Math.round(stuff[0].average_rating_3)== 0){ %>
+                    <span id="starts">☆ ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_3)== 1){ %>
+                    <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_3)== 2){ %>
+                    <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_3)== 3){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_3)== 4){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
+                    <%}%>
+                    <% if(Math.round(stuff[0].average_rating_3)== 5){ %>
+                    <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
+                    <%}%>
                 </p>
             </div>
         </div>
