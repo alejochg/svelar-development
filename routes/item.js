@@ -14,7 +14,7 @@ router.get('/:id', function (req,res) {
         var pool = db.pool;
         var id = req.params.id;
         pool.getConnection(function(err,connection){
-            connection.query('SELECT * FROM stuff WHERE id = ?', [id] ,function (error, results, fields){
+            connection.query('SELECT * FROM items WHERE id = ?', [id] ,function (error, results, fields){
                 connection.release();
                 if (error) throw error;
                 callback(error, results); // results are added in callback
