@@ -8,13 +8,58 @@ var db = require('../db');
 
 router.get('/', function(req, res, next) {
     if(req.user!=undefined) { // check if user has been authenticated
-        //console.log(req.user);
         var stack = {};
 
         stack.obtainUserLikes = function (callback) {
             usersActivity.findOne({user_id: req.user.id}, function (err, data) {
                 if (err) throw err;
-                callback(err, data.likes);
+                var user_likes = [];
+                data.likes.forEach(function (item) {
+                    if(item.like_status=='like'){
+                        user_likes.push(item.id_item);
+                    }
+                });
+                var pool = db.pool;
+                pool.getConnection(function (err, connection) {
+                    connection.query('SELECT * FROM items WHERE id in (?)', [user_likes], function (error, result) {
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, result);
+                    });
+                });
+            });
+        };
+
+        stack.obtainUserDislikes = function (callback) {
+            usersActivity.findOne({user_id: req.user.id}, function (err, data) {
+                if (err) throw err;
+                var user_dislikes = [];
+                data.likes.forEach(function (item) {
+                    if(item.like_status=='like'){
+
+                    }else{
+                        user_dislikes.push(item.id_item);
+                    }
+                });
+                var pool = db.pool;
+                pool.getConnection(function (err, connection) {
+                    connection.query('SELECT * FROM items WHERE id in (?)', [user_dislikes], function (error, result) {
+                        connection.release();
+                        if (error) throw error;
+                        callback(error, result);
+                    });
+                });
+            });
+        };
+
+        stack.obtainUserReviews = function (callback) {
+            var pool = db.pool;
+            pool.getConnection(function (err, connection) {
+                connection.query('SELECT * FROM (SELECT stuff.name, stuff.id, stuff.category, reviews.id_user, reviews.rating_1, reviews.rating_2, reviews.rating_3, reviews.comment, reviews.date FROM stuff, reviews WHERE stuff.id=reviews.id_stuff) AS combined WHERE id_user = ?', [req.user.id], function (error, result) {
+                    connection.release();
+                    if (error) throw error;
+                    callback(error, result);
+                });
             });
         };
 
@@ -23,19 +68,14 @@ router.get('/', function(req, res, next) {
                 consoler.err(err);
                 return;
             }
-            var pool = db.pool;
-            var user_likes = [];
-            result.obtainUserLikes.forEach(function (item) {
-                pool.getConnection(function (err, connection) {
-                   connection.query('SELECT * FROM items WHERE id=?', [item.id_item], function (error, result) {
-                       connection.release();
-                       if (error) throw error;
-                       user_likes.push(result);
-                   });
-                   console.log(user_likes);
-                });
-            });
-            res.render('profile', {title: 'Profile', user:req.user, userLiked: result.obtainUserLikes});
+            res.render('profile', {
+                    title: 'Profile',
+                    user: req.user,
+                    userLikes: result.obtainUserLikes,
+                    userDislikes: result.obtainUserDislikes,
+                    userReviews: result.obtainUserReviews
+                    }
+            );
         })
 
     }else{
