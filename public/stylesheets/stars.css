@@ -1,3 +1,4 @@
+/*
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 fieldset, label { margin: 0; padding: 0; }
@@ -5,14 +6,14 @@ body{ margin: 20px; }
 h3 { font-size: 1.5em; margin: 10px; }
 
 /****** Style Star Review 1 *****/
-
+/*
 .rating_1 { /* This is to move starts to left */
-    border: none;
+ /* border: none;
     float: left;
 }
 
 .rating_1 > input { display: none; } /* This section makes them to look like stats */
-.rating_1 > label:before {
+/*.rating_1 > label:before {
     margin: 5px;
     font-size: 32px;
     font-family: FontAwesome;
@@ -21,18 +22,18 @@ h3 { font-size: 1.5em; margin: 10px; }
 }
 
 .rating_1 > label { /* This make the stars to flip */
-    color: #ddd;
+/*  color: #ddd;
     float: right;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
-
+/*
 .rating_1 > input:checked ~ label, /* show orange star when clicked */
-.rating_1:not(:checked) > label:hover, /* hover current star */
-.rating_1:not(:checked) > label:hover ~ label { color: rgb(241, 90, 34);  } /* hover previous stars in list */
+/*.rating_1:not(:checked) > label:hover, /* hover current star */
+/*.rating_1:not(:checked) > label:hover ~ label { color: rgb(241, 90, 34);  } /* hover previous stars in list */
 
-.rating_1 > input:checked + label:hover, /* hover current star when changing rating */
-.rating_1 > input:checked ~ label:hover,
+/*.rating_1 > input:checked + label:hover, /* hover current star when changing rating */
+/*.rating_1 > input:checked ~ label:hover,
 .rating_1 > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating_1 > input:checked ~ label:hover ~ label { color: rgb(241, 90, 34);  }
+/*.rating_1 > input:checked ~ label:hover ~ label { color: rgb(241, 90, 34);  }
 

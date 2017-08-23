@@ -1,0 +1,22 @@
+<% if(!user){%>
+<div id="review_button" class="col-md-5">
+    <a href="/users/login"><span>☆</span> Review</a>
+</div>
+<div id="like_button" class="col-md-3">
+    <a class="like_undefined" href="/users/login">Like!</a>
+</div>
+<div id="like_button" class="col-md-3">
+    <a class="like_undefined" href="/users/login">Dislike</a>
+</div>
+<% }else{ %>
+<div id="review_button" class="col-md-5">
+    <a href="/review/item/<%= stuff[0].id %>"><span>☆</span> Review</a>
+</div>
+<div id="like_button" class="col-md-3">
+    <a  class="like_undefined" id="liked_<%= stuff[0].id %>" onclick="likeUpdate(<%= stuff[0].id %>)">Like!</a>
+</div>
+<div id="like_button" class="col-md-3">
+    <a class="like_undefined" id="disliked_<%= stuff[0].id %>" onclick="dislikeUpdate(<%= stuff[0].id %>)">Dislike</a>
+</div>
+<% } %>
+
