@@ -150,7 +150,7 @@ router.get('/try', function (req,res) {
             var pool = db.pool;
             if(req.query.category == "Any"){
                 pool.getConnection(function (err, connection) {
-                    connection.query('SELECT * FROM items ORDER BY premium DESC, svelar DESC  LIMIT 10 ', function (error, results, fields) {
+                    connection.query('SELECT * FROM items ORDER BY premium DESC, svelar DESC  LIMIT ?, ?',[req.query.page*10-10,req.query.page*10] ,function (error, results, fields) {
                         connection.release();
                         if (error) throw error;
                         callback(error, results); // results are added in callback
@@ -158,7 +158,7 @@ router.get('/try', function (req,res) {
                 });
             }else{
                 pool.getConnection(function (err, connection) {
-                    connection.query('SELECT * FROM items WHERE category=? ORDER  BY premium DESC, svelar DESC  LIMIT 10 ', req.query.category, function (error, results, fields) {
+                    connection.query('SELECT * FROM items WHERE category=? ORDER  BY premium DESC, svelar DESC  LIMIT ?, ?', [req.query.category, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
                         connection.release();
                         if (error) throw error;
                         callback(error, results); // results are added in callback
@@ -194,7 +194,7 @@ router.get('/try', function (req,res) {
             consoler.err(err);
             return;
         }
-        res.render('search', {stuff: result.obtainSearch, rows: result.obtainSearch.length, count: result.obtainCount, userLiked: result.obtainUserLikes,mysearch: req.query.find, condition: req.query.field, page:req.query.page, qs:req.query})
+        res.render('search', {stuff: result.obtainSearch, rows: result.obtainSearch.length, count: result.obtainCount, userLiked: result.obtainUserLikes, mysearch: req.query.find, condition: req.query.field, page:req.query.page, qs:req.query})
     })
 });
 

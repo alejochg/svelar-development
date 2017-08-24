@@ -7,6 +7,8 @@
     <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://localhost:3000/javascripts/user_likes.js"></script>
 </head>
     <body>
         <div class="container-fluid">
@@ -14,6 +16,7 @@
 
             <% include templates/errormessages.ejs%>
 
+            <!-- Item sections -->
             <div class="row" id="third">
                 <% include item/item_section.ejs%>
             </div>
@@ -22,6 +25,31 @@
             <div class="row" id="fourth">
                 <% include item/reviews_section.ejs %>
             </div>
+
+            <%if(user){%>
+            <% userLiked.forEach(function(item){ %>
+            <% if (item.like_status == 'like'){%>
+            <script>
+                var ela_like = document.getElementById('liked_<%=item.id_item%>');
+                ela_like.className = "item_liked";
+                ela_like.onclick = null;
+                var ela_dislike = document.getElementById('disliked_<%=item.id_item%>');
+                ela_dislike.className = "like_deactivate";
+                ela_dislike.onclick = null;
+            </script>
+            <%}%>
+            <% if (item.like_status == 'dislike'){%>
+            <script>
+                var ela_like = document.getElementById('liked_<%=item.id_item%>');
+                ela_like.className = "like_deactivate";
+                ela_like.onclick = null;
+                var ela_dislike = document.getElementById('disliked_<%=item.id_item%>');
+                ela_dislike.className = "item_disliked";
+                ela_dislike.onclick = null;
+            </script>
+            <%}%>
+            <% }); %>
+            <%}%>
 
             <% include templates/footerbar.ejs%>
         </div>

@@ -38,15 +38,7 @@
     <!-- Item buttons  -->
     <div id="item_information" class="col-md-4">
         <div class="row" id="button_block">
-            <div id="review_button" class="col-md-5">
-                <a href="/review/item/<%= stuff[0].id %>"><span>☆</span> Review</a>
-            </div>
-            <div id="like_button" class="col-md-3">
-                <a href="like.ejs">Like!</a>
-            </div>
-            <div id="like_button" class="col-md-3">
-                <a href="dislike.ejs">Dislike</a>
-            </div>
+            <% include item_section/button_block.ejs%>
         </div>
         <!-- Ratings -->
         <div class="row" id="ratings_block">
