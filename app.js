@@ -23,6 +23,17 @@ var community = require('./routes/community');
 
 var app = express();
 
+// Redirecting all request from http to https
+// This force the user all the times to run in secure server that uses SSL protocols
+// more info at http://blog.ayanray.com/2015/06/adding-https-ssl-to-express-4-x-applications/
+app.set('port_https', 3443);
+app.all('*', function (req, res, next) {
+   if(req.secure){
+       return next();
+   }
+   res.redirect('https://' + req.hostname + ':' + app.get('port_https') + req.url);
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
