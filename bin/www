@@ -7,8 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('login-authentication:server');
 var http = require('http');
-var https = require('https');
+var https = require('https'); // Need this module to use https protocols
 var fs = require('fs');
+var cfsign = require('aws-cloudfront-sign'); // To obtains https signed by AWS cloudFront
 
 
 /**
@@ -24,16 +25,15 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-
-// Creating HTTPS server. For more info follow http://blog.ayanray.com/2015/06/adding-https-ssl-to-express-4-x-applications/
+//Creating HTTPS server. For more info follow http://blog.ayanray.com/2015/06/adding-https-ssl-to-express-4-x-applications/
 var privateKey = fs.readFileSync('SSL/svelar_key.key');
 var certificate = fs.readFileSync('SSL/svelar_certificate.pem');
-
 var sslOptions = {"key": privateKey, "cert": certificate};
+
 
 var server = http.createServer(app);
 // Creating HTTPS server
-var serverSSL = https.createServer(sslOptions, app);
+var serverSSL = https.createServer(sslOptions, app); // Creates HTTPS server
 
 /**
  * Listen on provided port, on all network interfaces.
