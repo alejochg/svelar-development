@@ -6,10 +6,10 @@ var pool = mysql.createPool({
     connectionLimit: 10,
     // host: 'localhost',
     host     : '54.88.13.5',
-    port: '3306',
-    user: 'alexan',
-    password: 'svelar2017',
-    database: 'svelar'
+    port     : '3306',
+    user     : 'developer',
+    password : 'developer',
+    database: 'svelar_dev'
 });
 
 function getDate(){
