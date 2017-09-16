@@ -44,7 +44,24 @@
         <div class="row" id="ratings_block">
             <div id="ratings" class="col-md-12">
                 <p>
+                    <!-- Rating one -->
+                    <% if (stuff[0].type == 'device'){ %>
                     Comfort:
+                    <%}else if(stuff[0].type == 'website/blog') {%>
+                    Usefulness:
+                    <%}else if(stuff[0].type == 'service') { %>
+                    Reliable:
+                    <%}else if(stuff[0].type == 'app') { %>
+                    Usefulness:
+                    <%}else if(stuff[0].type == 'book/magazine') { %>
+                    Usefulness:
+                    <%}else if(stuff[0].type == 'apparel') { %>
+                    Comfort:
+                    <%}else if(stuff[0].type == 'food') { %>
+                    Effectiveness:
+                    <%}else if(stuff[0].type == 'clinical trials'){%>
+                    Usefulness:
+                    <% } %>
                     <% if(Math.round(stuff[0].average_rating_1)== 0){ %>
                     <span id="starts">☆ ☆ ☆ ☆ ☆</span>
                     <%}%>
@@ -64,45 +81,82 @@
                     <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
                     <%}%>
                     <br>
-                    Easyness:
-                    <% if(Math.round(stuff[0].average_rating_2)== 0){ %>
+
+                    <!-- Rating two -->
+                    <% if (stuff[0].type == 'device'){ %>
+                    Easiness:
+                    <%}else if(stuff[0].type == 'website/blog') {%>
+                    Easiness:
+                    <%}else if(stuff[0].type == 'service') { %>
+                    Easiness:
+                    <%}else if(stuff[0].type == 'app') { %>
+                    Reliable:
+                    <%}else if(stuff[0].type == 'book/magazine') { %>
+                    Reliable:
+                    <%}else if(stuff[0].type == 'apparel') { %>
+                    Quality:
+                    <%}else if(stuff[0].type == 'food') { %>
+                    Quality:
+                    <%}else if(stuff[0].type == 'clinical trials'){%>
+                    Easiness:
+                    <% } %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 0){ %>
                     <span id="starts">☆ ☆ ☆ ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_2)== 1){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 1){ %>
                     <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_2)== 2){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 2){ %>
                     <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_2)== 3){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 3){ %>
                     <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_2)== 4){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 4){ %>
                     <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_2)== 5){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 5){ %>
                     <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
                     <%}%>
                     <br>
+
+                    <!-- Rating three -->
+                    <% if (stuff[0].type == 'device'){ %>
                     Cost:
-                    <% if(Math.round(stuff[0].average_rating_3)== 0){ %>
+                    <%}else if(stuff[0].type == 'website/blog') {%>
+                    Reliable:
+                    <%}else if(stuff[0].type == 'service') { %>
+                    Cost:
+                    <%}else if(stuff[0].type == 'app') { %>
+                    Cost:
+                    <%}else if(stuff[0].type == 'book/magazine') { %>
+                    Cost:
+                    <%}else if(stuff[0].type == 'apparel') { %>
+                    Cost:
+                    <%}else if(stuff[0].type == 'food') { %>
+                    Cost:
+                    <%}else if(stuff[0].type == 'clinical trials'){%>
+                    Quality:
+                    <% } %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 0){ %>
                     <span id="starts">☆ ☆ ☆ ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_3)== 1){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 1){ %>
                     <span id="starts">&#9733 ☆ ☆ ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_3)== 2){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 2){ %>
                     <span id="starts">&#9733 &#9733 ☆ ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_3)== 3){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 3){ %>
                     <span id="starts">&#9733 &#9733 &#9733 ☆ ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_3)== 4){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 4){ %>
                     <span id="starts">&#9733 &#9733 &#9733 &#9733 ☆</span>
                     <%}%>
-                    <% if(Math.round(stuff[0].average_rating_3)== 5){ %>
+                    <% if(Math.round(stuff[0].average_rating_1)== 5){ %>
                     <span id="starts">&#9733 &#9733 &#9733 &#9733 &#9733</span>
                     <%}%>
+                    <br>
                 </p>
             </div>
         </div>

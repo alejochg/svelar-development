@@ -7,7 +7,7 @@ var db = require('../db');
 
 // Get /about
 router.get('/', function(req, res, next) {
-    res.render('about', { title: 'Svelar' });
+    res.render('about', {title: 'Svelar' });
 });
 
 // Get /about/contact
