@@ -22,6 +22,7 @@ router.get('/login', function(req, res){
 // Register new user
 router.post('/signup', function(req, res) {
     // validations:
+    // more about validations reference to https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms
     req.checkBody('email', 'Email address must be between 4-100 characters long, please try again.').len(4, 100);
     req.checkBody('password', 'Password must be between 8 characters long.').len(8, 100);
     //req.checkBody("password", "Password must include one lowercase character, one uppercase character, a number, and a special character.").matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,}$/, "i");
