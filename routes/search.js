@@ -17,9 +17,9 @@ router.get('/', function (req,res) {
 router.get('/try', function (req,res) {
     var stack = {};
 
-    if(req.user){
+    if(req.user){ // Get historical likes from mongoDB
         stack.obtainUserLikes = function (callback) {
-            usersActivity.findOne({user_id: req.user.id}, function (err, data) {
+            usersActivity.findOne({user_id: req.user.id}, function (err, data) { // query mongoDB
                 if (err) throw err;
                 callback(err, data.likes);
             });
@@ -33,13 +33,13 @@ router.get('/try', function (req,res) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
                 if(req.query.category == "Any"){
-                    connection.query('SELECT * FROM items WHERE Match(description) Against("?") OR  MATCH(name) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.find, req.query.find, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                    connection.query('SELECT * FROM items WHERE Match(description) Against("?") OR  MATCH(name) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?, 10', [req.query.find, req.query.find, req.query.page*10-10], function (error, results, fields) {
                         connection.release();
                         if (error) throw error;
                         callback(error, results); // results are added in callback
                     });
                 }else{
-                    connection.query('SELECT * FROM items WHERE category=? AND Match(description) Against("?") OR category=? AND MATCH(name) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?,?', [req.query.category, req.query.find,req.query.category, req.query.find,req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                    connection.query('SELECT * FROM items WHERE category=? AND Match(description) Against("?") OR category=? AND MATCH(name) Against("?") ORDER BY premium DESC, svelar DESC LIMIT ?,10', [req.query.category,req.query.category, req.query.find,req.query.page*10-10,req.query.page*10], function (error, results, fields) {
                         connection.release();
                         if (error) throw error;
                         callback(error, results); // results are added in callback
@@ -74,7 +74,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM items WHERE category=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.category, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                connection.query('SELECT * FROM items WHERE category=? ORDER BY premium DESC, svelar DESC LIMIT ?, 10', [req.query.category, req.query.page*10-10], function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -99,7 +99,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM stuff WHERE type=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?', [req.query.type, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                connection.query('SELECT * FROM stuff WHERE type=? ORDER BY premium DESC, svelar DESC LIMIT ?, 10', [req.query.type, req.query.page*10-10], function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -124,7 +124,7 @@ router.get('/try', function (req,res) {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             pool.getConnection(function (err, connection) {
-                connection.query('SELECT * FROM stuff WHERE brand=? ORDER BY premium DESC, svelar DESC LIMIT ?, ?',[req.query.brand, req.query.page*10-10,req.query.page*10] , function (error, results, fields) {
+                connection.query('SELECT * FROM stuff WHERE brand=? ORDER BY premium DESC, svelar DESC LIMIT ?, 10',[req.query.brand, req.query.page*10-10] , function (error, results, fields) {
                     connection.release();
                     if (error) throw error;
                     callback(error, results); // results are added in callback
@@ -144,29 +144,41 @@ router.get('/try', function (req,res) {
         };
     }
 
-    // Not criteria specified by still looking
+    // Not criteria specified but still looking
     if(typeof req.query.find === 'undefined' && req.query.category && typeof req.query.type === 'undefined' && typeof req.query.brand === 'undefined') {
         stack.obtainSearch = function (callback) {
             var pool = db.pool;
             if(req.query.category == "Any"){
                 pool.getConnection(function (err, connection) {
-                    connection.query('SELECT * FROM items ORDER BY premium DESC, svelar DESC  LIMIT ?, ?',[req.query.page*10-10,req.query.page*10] ,function (error, results, fields) {
-                        connection.release();
+                    connection.query('set @rnum:=0', function (error, results, fields) {
                         if (error) throw error;
-                        callback(error, results); // results are added in callback
+                        connection.query(
+                            'SELECT * FROM (SELECT @rnum:=@rnum + 1 row_number, id, name, brand, description, category, field, type, link, buy_link, premium, svelar, image_1, image_2, image_3, average_rating_1, average_rating_2, average_rating_3, count FROM items ORDER BY premium DESC, svelar DESC) AS T WHERE row_number > ? AND row_number <= ?',
+                            [req.query.page*10-10,req.query.page*10],
+                            function (error, results, fields) {
+                                connection.release();
+                                if (error) throw error;
+                                callback(error, results);
+                            }
+                        )
                     });
                 });
             }else{
                 pool.getConnection(function (err, connection) {
-                    connection.query('SELECT * FROM items WHERE category=? ORDER  BY premium DESC, svelar DESC  LIMIT ?, ?', [req.query.category, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
-                        connection.release();
+                    connection.query('set @rnum:=0', function (error, results, fields) {
                         if (error) throw error;
-                        callback(error, results); // results are added in callback
+                        connection.query(
+                            'SELECT * FROM (SELECT @rnum:=@rnum + 1 row_number, id, name, brand, description, category, field, type, link, buy_link, premium, svelar, image_1, image_2, image_3, average_rating_1, average_rating_2, average_rating_3, count FROM items WHERE category = ? ORDER BY premium DESC, svelar DESC) AS T WHERE row_number > ? AND row_number <= ?',
+                            [req.query.category, req.query.page*10-10,req.query.page*10], function (error, results, fields) {
+                            connection.release();
+                            if (error) throw error;
+                            callback(error, results); // results are added in callback
+                        });
                     });
                 });
             }
         };
-        stack.obtainCount = function (callback) {
+        stack.obtainCount = function (callback) { // this function counts how many items were obtained by the query
             var pool = db.pool;
             var id = req.params.id;
             if(req.query.category == "Any"){
@@ -206,9 +218,5 @@ router.post('/', upload.none(), function (req,res) {
         res.redirect('/search/try?field=diabetes&category=' + req.body.category + '&page=1');
     }
 });
-
-
-// This will acquire the data obtained from the searchBar and use db.search to look in the database
-//router.post('/', upload.none(), queries.search());
 
 module.exports = router;
