@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact US</title>
-    <link rel='stylesheet' href='/stylesheets/contact.css' />
+    <title>Svelar - Contact us</title>
     <%include templates/meta.ejs%>
     <%include templates/bootstrap.ejs%>
     <link rel='stylesheet' href='/stylesheets/footer.css' />
@@ -13,26 +12,25 @@
             document.getElementById('contact_form').submit();
         }
     </script>
-
 </head>
 <body>
 <% include templates/navigation.ejs%>
 <div class="container-fluid">
     <% include templates/secondary_header.ejs%>
-
+    <% include templates/errormessages.ejs%>
     <div class="row" id="third">
         <div id="contact_title" class="col-md-12">
             <p>Contact Us</p>
         </div>
     </div>
-    <form id="contact_form" action="xxxxx" method="post">
+    <form id="contact_form" action="../about/contact" method="post">
         <div class="row" id="fourth">
             <div id="contact_type" class="col-md-12">
                 <p>Reason for your message: </p>
                 <select name="reason" required>
-                    <option value="general">General inquiry about Svelar</option>
-                    <option value="account">Account or login issues</option>
-                    <option value="website">Report a website problem</option>
+                    <option value="general inquiry">General inquiry about Svelar</option>
+                    <option value="account issues">Account or login issues</option>
+                    <option value="website problems">Report a website problem</option>
                 </select>
             </div>
         </div>
@@ -46,13 +44,13 @@
                 </div>
                 <div class="row" id="fifth_two">
                     <div id="message_firstname" class="col-md-3">
-                        <input type="text" name="name" placeholder="First Name" required>
+                        <input type="text" id="name" name="name" placeholder="First Name" required>
                     </div>
                     <div id="message_lastname" class="col-md-3">
-                        <input type="text" name="lastname" placeholder="Last Name" required>
+                        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
                     </div>
                     <div id="message_email" class="col-md-3">
-                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
                     </div>
                 </div>
             </div>
@@ -67,7 +65,7 @@
                 </div>
                 <div class="row" id="sixth_two">
                     <div id="message_input" class="col-md-12">
-                        <textarea type="text" name="question" placeholder="How can we help you?" required></textarea>
+                        <textarea type="text" id="message" name="message" placeholder="How can we help you?"  required></textarea>
                     </div>
                 </div>
             </div>
@@ -82,7 +80,7 @@
                 </div>
                 <div class="row" id="seventh_two">
                     <div id="human_input" class="col-md-12">
-                        <input type="text" name="name of product" placeholder="Please type the word 'blue' to prove you are human." required>
+                        <input type="text" name="checkWord" placeholder="Please type the word 'blue' to prove you are human." required>
                     </div>
                 </div>
             </div>
@@ -91,9 +89,7 @@
         <div class="row" id="eighth">
             <div id="message_bottom" class="col-md-12">
                 <div id="message_button" class="col-md-12">
-                    <button type="submit" value="Review" id="suggest_button" class="g-recaptcha" data-sitekey="6LeyaCUUAAAAAJXSq5c2n1zF3ye2nMkwgAZDot4M" data-callback='onSubmit'>
-                        Send
-                    </button>
+                    <input type="submit" value="Send" id="send_button">
                     <a href="/">Cancel</a>
                 </div>
             </div>
@@ -104,3 +100,122 @@
 </div>
 </body>
 </html>
+
+<script>
+    <%if (typeof previousInput != 'undefined'){%>
+        document.getElementById("name").defaultValue = "<%= previousInput.name %>"
+        document.getElementById("lastname").defaultValue = "<%= previousInput.lastname %>"
+        document.getElementById("email").defaultValue = "<%= previousInput.email %>"
+        document.getElementById("message").defaultValue = "<%= previousInput.message %>"
+    <% } %>
+</script>
+
+<style>
+    #third{
+        color: rgb(241, 90, 34);
+        text-align: left;
+        font-size: 24px;
+        padding-top:2%;
+        padding-bottom:1%;
+        margin-left: 15%;
+        margin-right: 15%;
+        border-bottom: solid #45c2c9 1px;
+    }
+    #fourth{
+        padding-top: 2%;
+        padding-bottom: 1%;
+        margin-left: 15%;
+        margin-right: 15%;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    #fifth{
+        margin: 0% 15% 1% 15%;
+        border: solid black 1px;
+    }
+    #message_info_title{
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #ffeeb9;
+        padding-top: 1%;
+    }
+    #message_firstname{
+        padding: 0.1%;
+        margin-right: 5%;
+
+    }
+    #message_firstname input{
+        width: 100%;
+        padding-bottom: 5%;
+    }
+    #message_lastname{
+        padding: 0.1% 1% 0.1% 1%;
+        margin-left: 2%;
+
+    }
+    #message_lastname input{
+        width: 120%;
+        padding-bottom: 5%;
+    }
+    #message_email{
+        padding: 0.1% 1% 0.1% 1%;
+        margin-left: 15%;
+
+    }
+    #message_email input{
+        width: 117%;
+        padding-bottom: 5%;
+    }
+    #sixth{
+        margin: 1% 15% 1% 15%;
+        border: solid black 1px;
+    }
+    #message_title{
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #ffeeb9;
+        padding-top: 1%;
+    }
+    #message_input{
+        padding: 0.1%;
+    }
+    #message_input textarea{
+        width: 100%;
+        padding-bottom: 14%;
+    }
+    #seventh{
+        margin: 1% 15% 1% 15%;
+        border: solid black 1px;
+    }
+    #human_title{
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #ffeeb9;
+        padding-top: 1%;
+    }
+    #human_input{
+        padding: 0.1%;
+    }
+    #human_input input{
+        width: 100%;
+        padding-bottom: 2%;
+    }
+    #eighth{
+        padding-top: 1%;
+        margin-left: 15%;
+        margin-right: 15%;
+        padding-bottom: 2%;
+    }
+    #send_button{
+        width: 15%;
+        padding: 5px 10px;
+        background-color: rgb(241, 90, 34);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        margin-bottom: 1%;
+    }
+    #message_button a{
+        padding-left: 2%;
+    }
+</style>
