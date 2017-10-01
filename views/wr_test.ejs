@@ -2,9 +2,7 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/wr_test.css' />
-    <link rel='stylesheet' href='/stylesheets/footer.css' />
-    <link rel='stylesheet' href='/stylesheets/secondaryheader.css' />
+
     <% include templates/meta.ejs%>
     <% include templates/bootstrap.ejs%>
 </head>
@@ -12,43 +10,12 @@
     <% include templates/navigation.ejs%>
 
     <div class="container-fluid">
-        <div class="row" id="first">
-            <div class="row" id="first_1">
-                <div id="review_home" class="col-md-6">
-                    <a href="/wr_test">Write a Review</a>
-                </div>
-                <div id="login_home" class="col-md-6">
-                    <% if (!user){%>
-                    <a href="/users/login">Login</a>
-                    <a href="/users/signup">Signup</a>
-                    <% }else{ %>
-                    <a href="/profile">profile</a>
-                    <a href="/users/logout">Logout</a>
-                    <% } %>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row" id="second">
-            <div class="row" id="second_1">
-                <div id="comp_name" class="col-md-12">
-                    <p>Svelar</p>
-                </div>
-            </div>
-            <div class="row" id="second_2">
-                <div id="motto" class="col-md-12">
-                    <p> Search. Review. Share.</p>
-                </div>
-            </div>
-            <div class="row" id="second_3">
-                <div id="search" class="col-md-12">
-                    <%include templates/searchbar.ejs%>
-                </div>
-            </div>
-        </div>
-        <% include templates/footerbar.ejs %>
+        <form action="/test" method="post">
+                    Birthday: <input type="date" name="birthday" max="" min="1901-01-01" required>
+                    <button type="submit" value="Sign Up" id="signup_button">Sign Up</button>
+        </form>
     </div>
+
 </body>
 </html>
 

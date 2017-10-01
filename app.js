@@ -20,6 +20,7 @@ var about = require('./routes/about');
 var wr_test = require('./routes/wr_test');
 var mongoDB = require('./routes/mongoDB');
 var community = require('./routes/community');
+var bootstrap = require('./routes/bootstrap');
 
 var app = express();
 
@@ -100,9 +101,11 @@ app.use('/review', review);
 app.use('/about', about);
 app.use('/about/contact',about);
 app.use('/review/recommend', review);
-app.use('/wr_test', wr_test);
+app.use('/test', wr_test);
 app.use('/mongoDB', mongoDB);
 app.use('/community', community);
+app.use('/bootstrap', bootstrap);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
