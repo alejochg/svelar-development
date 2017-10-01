@@ -1,0 +1,60 @@
+<!----------------  Cover with search bar -------------->
+<div class="container-fluid" id="cover">
+    <div class="row">
+        <div class="col" >
+            <p class="h1 font-weight-bold text-center" id="motto">Discover, Feel Better!</p>
+            <p class="h4 text-center" id="sub_motto">Your source of information for diabetes management</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="center">
+            <div class="col">
+                <form action="/search" method="post" enctype="multipart/form-data" class="form-inline">
+                    <input type="text" name='mySearch' autocomplete="off" id="search_input" class="form-control-lg" placeholder="Search for medical products and services...">
+                    <input type="hidden" name="category" value="Any">
+                    <button type="submit" class="btn btn-primary btn-lg" id="search_button">Search!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------   Cover   -------------------------------->
+<style>
+    #motto {
+        margin-top: 50px;
+        color: #f15a22;
+        font-size: 30pt;
+        letter-spacing: 0.1em;
+    }
+    #sub_motto{
+        color: gray;
+    }
+    #cover{
+        background: url("https://localhost:3443/images/style/home_cover.jpg");
+        background-size: cover;
+        background-position: 0% 60%;
+        background-repeat: no-repeat;
+        height: 450px;
+    }
+    .center{
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    #search_button{
+        background: #0096b2;
+    }
+    #search_button:hover{
+        cursor: pointer;
+    }
+    @media (min-width: 576px) {
+        #search_input{
+            width: 100px;
+        }
+    }
+    @media (min-width: 992px) {
+        #search_input{
+            width: 500px;
+        }
+    }
+</style>

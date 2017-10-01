@@ -1,0 +1,68 @@
+<!-------  Header  --------------------------------->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" id="header_logo_section">
+            <img src="/images/style/logo.png" class="img-fluid" alt="Responsive image">
+        </div>
+    </div>
+</div>
+<!----------------  Navigation bar -------------->
+<nav class="navbar  navbar-expand-md navbar-default" role="navigation">
+    <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="navbar-nav">
+            <% if (!user){%>
+            <li class="nav-item">
+                <a class="nav-link" href="/users/login">Login</a>
+            </li>
+            <a class="btn btn-primary" href="/users/signup" role="button">Signup</a>
+            <%}else {%>
+            <li class="nav-item">
+                <a class="nav-link" href="/users/logout">Logout</a>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+</nav>
+
+<!------------ Navigation bar---------------------->
+<style>
+    #header_logo_section{
+        background-color: #676767;
+        max-height: 75px;
+    }
+    #header_logo_section img{
+        max-height: 75px;
+    }
+
+    /* navbar */
+    .navbar-default {
+        background-color: #0096b2;
+        border-color: #E7E7E7;
+    }
+    /* Navbar links*/
+    .nav-item a{
+        color: white;
+    }
+    .nav-item a:hover{
+        color: #f15a22;
+    }
+    .btn-primary{
+        background: none;
+        border-color: white;
+    }
+    .btn-primary:hover{
+        background: #f15a22;
+        color: white;
+        border-color: white;
+    }
+    .custom-toggler.navbar-toggler {
+        border-color: rgb(255,255,255);
+    }
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+</style>
