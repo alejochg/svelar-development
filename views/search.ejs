@@ -20,6 +20,11 @@
                 <% include search/search_description.ejs %>
             </div>
 
+            <!-- This is the Svelar tag row -->
+            <div class="row" id="svelar_description">
+                <%include search/svelar_description.ejs%>
+            </div>
+
             <!-- Results list section -->
             <% if (rows > 0) {%>
             <% for(var i=0; i<=rows-1; i++) {%>
